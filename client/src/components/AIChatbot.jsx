@@ -15,11 +15,11 @@ export default function AIChatbot() {
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       const greetings = [
-        "Namaste! I'm your HAEVN style assistant. I can help you find the perfect outfit, recommend products, or answer any questions about our collection. How may I assist you today, sir?",
+        "Namaste, sir. I am your HAEVN style concierge. I can guide you to the finest pieces in our collection, recommend ensembles for any occasion, or answer any query about our craftsmanship. How may I assist you today?",
       ];
       setTimeout(() => {
         setMessages([{ text: greetings[0], sender: 'ai' }]);
-      }, 500);
+      }, 600);
     }
   }, [isOpen]);
 
@@ -29,7 +29,7 @@ export default function AIChatbot() {
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 600);
+      setTimeout(() => inputRef.current?.focus(), 700);
     }
   }, [isOpen]);
 
@@ -50,20 +50,22 @@ export default function AIChatbot() {
   };
 
   const quickActions = [
-    { label: '👔 Shirts', query: 'Tell me about your dress shirts' },
-    { label: '👞 Shoes', query: 'Show me your formal shoes' },
-    { label: '⌚ Watches', query: 'Tell me about your watches' },
-    { label: '🎁 Gifts', query: 'I need gift suggestions' },
+    { label: 'Dress Shirts', query: 'Tell me about your dress shirts' },
+    { label: 'Formal Shoes', query: 'Show me your formal shoes' },
+    { label: 'Luxury Watches', query: 'Tell me about your watches' },
+    { label: 'Gift Guide', query: 'I need gift suggestions' },
   ];
 
   return (
     <>
-      <button
+      <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 gold-gradient rounded-full flex items-center justify-center text-midnight-900 shadow-xl shadow-gold-500/30 hover:shadow-gold-500/50 hover:scale-110 transition-all duration-300 group"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 gold-gradient rounded-full flex items-center justify-center text-[#0a0a1a] shadow-2xl shadow-gold-500/30 hover:shadow-gold-500/50 hover:scale-110 transition-all duration-500 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <HiOutlineChatAlt2 className="text-2xl group-hover:scale-110 transition-transform" />
-      </button>
+        <HiOutlineChatAlt2 className="text-2xl group-hover:scale-110 transition-transform duration-300" />
+      </motion.button>
 
       <AnimatePresence>
         {isOpen && (
@@ -72,29 +74,29 @@ export default function AIChatbot() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
               initial={{ opacity: 0, y: 100, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 100, scale: 0.9 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 200 }}
-              className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-8rem)] bg-midnight-800/95 backdrop-blur-xl border border-gold-500/20 shadow-2xl shadow-black/50 flex flex-col overflow-hidden"
+              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-8rem)] bg-[#080816]/95 backdrop-blur-2xl border border-gold-500/20 shadow-2xl shadow-black/60 flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gold-500/20 bg-gradient-to-r from-gold-500/10 to-transparent">
+              <div className="flex items-center justify-between p-4 border-b border-gold-500/10 bg-gradient-to-r from-gold-500/[0.08] to-transparent">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 gold-gradient rounded-full flex items-center justify-center">
-                    <HiOutlineSparkles className="text-lg text-midnight-900" />
+                  <div className="w-10 h-10 gold-gradient rounded-full flex items-center justify-center shadow-lg shadow-gold-500/20">
+                    <HiOutlineSparkles className="text-lg text-[#0a0a1a]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-white">HAEVN Assistant</h3>
-                    <p className="text-[10px] text-gold-500/60">AI Style Concierge</p>
+                    <h3 className="text-sm font-medium text-white/90">HAEVN Assistant</h3>
+                    <p className="text-[9px] text-gold-500/50 uppercase tracking-[0.2em]">Style Concierge</p>
                   </div>
                 </div>
                 <button onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-colors">
+                  className="w-8 h-8 flex items-center justify-center text-white/30 hover:text-gold-500 transition-colors">
                   <HiOutlineX className="text-lg" />
                 </button>
               </div>
@@ -110,10 +112,10 @@ export default function AIChatbot() {
                   >
                     <div className={`max-w-[85%] p-3 ${
                       msg.sender === 'user'
-                        ? 'bg-gold-500/15 border border-gold-500/20 text-white'
-                        : 'bg-white/5 border border-white/10 text-white/80'
+                        ? 'bg-gold-500/10 border border-gold-500/20 text-white/90'
+                        : 'bg-white/[0.03] border border-white/[0.06] text-white/70'
                     }`}>
-                      <p className="text-xs leading-relaxed">{msg.text}</p>
+                      <p className="text-xs leading-relaxed font-light">{msg.text}</p>
                       {msg.sender === 'ai' && (
                         <div className="flex items-center gap-2 mt-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-gold-500/50" />
@@ -131,8 +133,8 @@ export default function AIChatbot() {
                     animate={{ opacity: 1 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-white/5 border border-white/10 p-4">
-                      <div className="flex gap-1">
+                    <div className="bg-white/[0.03] border border-white/[0.06] p-4">
+                      <div className="flex gap-1.5">
                         <span className="w-2 h-2 bg-gold-500/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-2 h-2 bg-gold-500/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                         <span className="w-2 h-2 bg-gold-500/20 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -156,7 +158,7 @@ export default function AIChatbot() {
                             setIsTyping(false);
                           }, 1000);
                         }}
-                        className="p-3 text-xs text-left text-white/60 border border-white/10 hover:border-gold-500/30 hover:text-gold-500 transition-all duration-200 bg-white/[0.02]"
+                        className="p-3 text-xs text-left text-white/40 border border-white/10 hover:border-gold-500/30 hover:text-gold-500/80 transition-all duration-200 bg-white/[0.01] font-light tracking-wide"
                       >
                         {action.label}
                       </button>
@@ -168,21 +170,21 @@ export default function AIChatbot() {
               </div>
 
               {/* Input */}
-              <form onSubmit={handleSend} className="p-4 border-t border-white/10">
+              <form onSubmit={handleSend} className="p-4 border-t border-white/5">
                 <div className="flex gap-2">
                   <input
                     ref={inputRef}
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask me anything about men's fashion..."
-                    className="flex-1 px-4 py-2.5 bg-white/5 border border-white/10 text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-gold-500/40 transition-colors"
+                    placeholder="Ask about men's fashion..."
+                    className="flex-1 px-4 py-2.5 bg-white/[0.02] border border-white/10 text-white/70 text-xs placeholder:text-white/20 focus:outline-none focus:border-gold-500/30 transition-colors font-light"
                     disabled={isTyping}
                   />
                   <button
                     type="submit"
                     disabled={!input.trim() || isTyping}
-                    className="px-4 py-2.5 gold-gradient text-midnight-900 disabled:opacity-30 transition-all"
+                    className="px-4 py-2.5 gold-gradient text-[#0a0a1a] disabled:opacity-30 transition-all"
                   >
                     <HiOutlineArrowRight className="text-lg" />
                   </button>

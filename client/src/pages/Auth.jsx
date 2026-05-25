@@ -35,35 +35,35 @@ export default function Auth() {
   };
 
   return (
-    <div className="pt-20 min-h-screen flex items-center justify-center bg-midnight-900/50">
+    <div className="pt-20 min-h-screen flex items-center justify-center bg-[#05050f]/80">
       <div className="w-full max-w-md px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <h1 className="text-3xl font-serif text-white mb-2">
+          <h1 className="text-3xl font-serif text-white/80 mb-2">
             {isLogin ? 'Welcome Back' : 'Join HAEVN'}
           </h1>
-          <p className="text-white/50 text-sm">
+          <p className="text-white/30 text-xs font-light tracking-wide">
             {isLogin ? 'Sign in to your account' : 'Create your account to unlock the full experience'}
           </p>
         </motion.div>
 
         {/* Toggle */}
-        <div className="flex bg-white/5 border border-white/10 mb-8">
+        <div className="flex bg-white/[0.02] border border-white/5 mb-8">
           <button
             onClick={() => { setIsLogin(true); setError(''); }}
-            className={`flex-1 py-3 text-sm font-medium transition-all duration-300 ${
-              isLogin ? 'gold-gradient text-midnight-900' : 'text-white/50 hover:text-white'
+            className={`flex-1 py-3 text-xs font-medium transition-all duration-300 tracking-wider ${
+              isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-white/40 hover:text-white/70'
             }`}
           >
             Sign In
           </button>
           <button
             onClick={() => { setIsLogin(false); setError(''); }}
-            className={`flex-1 py-3 text-sm font-medium transition-all duration-300 ${
-              !isLogin ? 'gold-gradient text-midnight-900' : 'text-white/50 hover:text-white'
+            className={`flex-1 py-3 text-xs font-medium transition-all duration-300 tracking-wider ${
+              !isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-white/40 hover:text-white/70'
             }`}
           >
             Register
@@ -81,7 +81,7 @@ export default function Auth() {
           >
             {!isLogin && (
               <div className="relative">
-                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
+                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -94,7 +94,7 @@ export default function Auth() {
             )}
 
             <div className="relative">
-              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
+              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
               <input
                 type="email"
                 placeholder="Email"
@@ -106,7 +106,7 @@ export default function Auth() {
             </div>
 
             <div className="relative">
-              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
+              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
               <input
                 type="password"
                 placeholder="Password"
@@ -119,19 +119,19 @@ export default function Auth() {
             </div>
 
             {error && (
-              <p className="text-red-400 text-sm text-center">{error}</p>
+              <p className="text-red-400/80 text-xs text-center">{error}</p>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary w-full py-4 flex items-center justify-center"
+              className="btn-primary w-full py-4 flex items-center justify-center text-sm tracking-[0.2em]"
             >
               {loading ? 'Please wait...' : (isLogin ? 'Sign In' : 'Create Account')}
             </button>
 
             {isLogin && (
-              <p className="text-center text-white/30 text-sm">
+              <p className="text-center text-white/20 text-[10px]">
                 Demo: demo@haevn.com / password123
               </p>
             )}

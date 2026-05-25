@@ -20,11 +20,11 @@ export default function ProductCard({ product, index = 0 }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      transition={{ duration: 0.6, delay: index * 0.05 }}
       className="group relative bg-white/[0.02] border border-white/[0.06] card-hover overflow-hidden"
     >
       <Link to={`/product/${product.id}`} className="block">
-        <div className="relative aspect-[3/4] overflow-hidden bg-midnight-900">
+        <div className="relative aspect-[3/4] overflow-hidden bg-[#060610]">
           <img
             src={product.images[0]}
             alt={product.name}
@@ -33,26 +33,26 @@ export default function ProductCard({ product, index = 0 }) {
               e.target.src = `https://placehold.co/600x800/1a1a2e/C9A96E?text=${encodeURIComponent(product.name.substring(0, 20))}`;
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {product.new && (
-            <div className="absolute top-3 left-3 px-3 py-1 gold-gradient text-midnight-900 text-[10px] uppercase tracking-widest font-semibold">
+            <div className="absolute top-3 left-3 badge-new z-10">
               New
             </div>
           )}
           {product.onSale && (
-            <div className="absolute top-3 left-3 px-3 py-1 bg-red-500/90 text-white text-[10px] uppercase tracking-widest font-semibold"
-              style={{ top: product.new ? '3rem' : '0.75rem' }}>
+            <div className="absolute top-3 left-3 badge-sale z-10"
+              style={{ top: product.new ? '2.75rem' : '0.75rem' }}>
               Sale
             </div>
           )}
 
-          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 space-y-2">
+          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 space-y-2 z-10">
             <button onClick={handleQuickAdd}
-              className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-gold-500 hover:text-midnight-900 transition-all duration-200">
+              className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
               <HiOutlineShoppingBag className="text-lg" />
             </button>
-            <button className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-gold-500 hover:text-midnight-900 transition-all duration-200">
+            <button className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
               <HiOutlineHeart className="text-lg" />
             </button>
           </div>
@@ -67,17 +67,17 @@ export default function ProductCard({ product, index = 0 }) {
         </div>
 
         <div className="p-4">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-gold-500/70 mb-1.5 font-medium">{product.subcategory}</p>
-          <h3 className="text-sm font-medium text-white group-hover:text-gold-500 transition-colors duration-200 truncate">
+          <p className="text-[9px] uppercase tracking-[0.25em] text-gold-500/60 mb-1.5 font-medium">{product.subcategory}</p>
+          <h3 className="text-sm font-medium text-white/80 group-hover:text-gold-500 transition-colors duration-300 truncate">
             {product.name}
           </h3>
           <div className="flex items-center mt-2 space-x-2">
-            <span className="text-gold-500 font-semibold">{formatINR(product.price)}</span>
+            <span className="text-gold-500/90 font-medium">{formatINR(product.price)}</span>
             {product.originalPrice > product.price && (
-              <span className="text-white/30 text-xs line-through">{formatINR(product.originalPrice)}</span>
+              <span className="text-white/20 text-xs line-through">{formatINR(product.originalPrice)}</span>
             )}
           </div>
-          <div className="flex items-center mt-2 space-x-1">
+          <div className="flex items-center mt-2.5 space-x-1">
             {product.colors.slice(0, 4).map((color) => {
               const c = color.toLowerCase();
               const colorMap = {
@@ -103,7 +103,7 @@ export default function ProductCard({ product, index = 0 }) {
               );
             })}
             {product.colors.length > 4 && (
-              <span className="text-[10px] text-white/30">+{product.colors.length - 4}</span>
+              <span className="text-[9px] text-white/20">+{product.colors.length - 4}</span>
             )}
           </div>
         </div>

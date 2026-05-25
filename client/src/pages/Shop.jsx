@@ -73,78 +73,78 @@ export default function Shop() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <div className="bg-midnight-900/50 border-b border-white/5">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-[#05050f]/80 border-b border-white/5">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-2">
-              {category || (search ? 'Search Results' : 'All Products')}
+            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">
+              {category || (search ? 'Search Results' : 'The Collection')}
             </p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-white">
-              {category || (search ? `"${search}"` : 'The Collection')}
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white/90">
+              {category || (search ? `"${search}"` : 'All Products')}
             </h1>
             {search && (
-              <p className="text-white/50 mt-2">{products.length} results found</p>
+              <p className="text-white/30 text-sm mt-3 font-light">{products.length} results found</p>
             )}
           </motion.div>
         </div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex gap-8">
           {/* Filters - Desktop */}
           <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-28 space-y-8">
+            <div className="sticky top-28 space-y-10">
               <div>
-                <h4 className="text-sm uppercase tracking-widest text-gold-500 font-semibold mb-4">Sort By</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                 <select
                   value={sort}
                   onChange={(e) => updateParam('sort', e.target.value)}
-                  className="input-field text-sm"
+                  className="input-field text-xs"
                 >
                   {sortOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value} className="bg-midnight-800">{opt.label}</option>
+                    <option key={opt.value} value={opt.value} className="bg-[#080816]">{opt.label}</option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <h4 className="text-sm uppercase tracking-widest text-gold-500 font-semibold mb-4">Price Range</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                 <div className="flex items-center gap-2">
                   <input type="number" placeholder="Min" value={minPrice}
                     onChange={(e) => updateParam('minPrice', e.target.value)}
-                    className="input-field text-sm w-full" />
-                  <span className="text-white/30">—</span>
+                    className="input-field text-xs w-full" />
+                  <span className="text-white/20">—</span>
                   <input type="number" placeholder="Max" value={maxPrice}
                     onChange={(e) => updateParam('maxPrice', e.target.value)}
-                    className="input-field text-sm w-full" />
+                    className="input-field text-xs w-full" />
                 </div>
               </div>
 
               <div>
-                <h4 className="text-sm uppercase tracking-widest text-gold-500 font-semibold mb-4">Filters</h4>
-                <div className="space-y-3">
+                <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Filters</h4>
+                <div className="space-y-4">
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-sm text-white/70 group-hover:text-white transition-colors">On Sale</span>
+                    <span className="text-xs text-white/50 group-hover:text-white/80 transition-colors">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-sm text-white/70 group-hover:text-white transition-colors">New Arrivals</span>
+                    <span className="text-xs text-white/50 group-hover:text-white/80 transition-colors">New Arrivals</span>
                   </label>
                 </div>
               </div>
 
               {hasFilters && (
                 <button onClick={clearFilters}
-                  className="text-sm text-gold-500 hover:text-gold-400 transition-colors flex items-center gap-1">
-                  <HiOutlineX className="text-lg" /> Clear all filters
+                  className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1">
+                  <HiOutlineX className="text-sm" /> Clear all filters
                 </button>
               )}
             </div>
@@ -154,22 +154,22 @@ export default function Shop() {
           <div className="flex-1">
             {/* Toolbar */}
             <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/5">
-              <p className="text-sm text-white/50">
-                <span className="text-white">{products.length}</span> Products
+              <p className="text-xs text-white/30 tracking-wide">
+                <span className="text-white/70">{products.length}</span> Products
               </p>
               <div className="flex items-center gap-4">
                 <div className="hidden sm:flex border border-white/10">
                   <button onClick={() => setViewMode('grid')}
-                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-white/5' : 'text-white/50 hover:text-white'}`}>
+                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-white/5' : 'text-white/30 hover:text-white/60'}`}>
                     <HiOutlineViewGrid />
                   </button>
                   <button onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-white/5' : 'text-white/50 hover:text-white'}`}>
+                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-white/5' : 'text-white/30 hover:text-white/60'}`}>
                     <HiOutlineViewList />
                   </button>
                 </div>
                 <button onClick={() => setFilterOpen(!filterOpen)}
-                  className="lg:hidden btn-ghost flex items-center gap-2 text-sm">
+                  className="lg:hidden btn-ghost flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
                   <HiOutlineAdjustments /> Filters
                 </button>
               </div>
@@ -180,20 +180,20 @@ export default function Shop() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div key={i}>
-                    <div className="aspect-[3/4] bg-white/5 animate-pulse" />
+                    <div className="aspect-[3/4] bg-white/[0.02] animate-pulse" />
                     <div className="p-4 space-y-2">
-                      <div className="h-3 w-16 bg-white/5 animate-pulse" />
-                      <div className="h-4 w-40 bg-white/5 animate-pulse" />
-                      <div className="h-4 w-20 bg-white/5 animate-pulse" />
+                      <div className="h-3 w-16 bg-white/[0.02] animate-pulse" />
+                      <div className="h-4 w-40 bg-white/[0.02] animate-pulse" />
+                      <div className="h-4 w-20 bg-white/[0.02] animate-pulse" />
                     </div>
                   </div>
                 ))}
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-white/50 text-lg">No products found</p>
-                <p className="text-white/30 text-sm mt-2">Try adjusting your filters</p>
-                <button onClick={clearFilters} className="btn-outline mt-6">Clear Filters</button>
+                <p className="text-white/40 text-lg font-light">No products found</p>
+                <p className="text-white/20 text-sm mt-2 font-light">Try adjusting your filters</p>
+                <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
               </div>
             ) : (
               <div className={`grid gap-6 ${
@@ -218,63 +218,64 @@ export default function Shop() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setFilterOpen(false)}
             />
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
-              className="fixed top-0 left-0 h-full w-80 bg-midnight-800 border-r border-white/10 z-50 lg:hidden p-6 pt-24 overflow-y-auto"
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 h-full w-80 bg-[#080816] border-r border-white/5 z-50 lg:hidden p-8 pt-24 overflow-y-auto"
             >
               <button onClick={() => setFilterOpen(false)}
-                className="absolute top-6 right-6 text-white/50 hover:text-white">
+                className="absolute top-6 right-6 text-white/30 hover:text-gold-500 transition-colors">
                 <HiOutlineX className="text-xl" />
               </button>
-              <h3 className="text-lg font-serif text-white mb-6">Filters</h3>
+              <h3 className="text-lg font-serif text-white/80 mb-8 font-medium">Filters</h3>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <h4 className="text-sm uppercase tracking-widest text-gold-500 font-semibold mb-4">Sort By</h4>
+                  <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                   <select value={sort}
                     onChange={(e) => updateParam('sort', e.target.value)}
-                    className="input-field text-sm">
+                    className="input-field text-xs">
                     {sortOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-midnight-800">{opt.label}</option>
+                      <option key={opt.value} value={opt.value} className="bg-[#080816]">{opt.label}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <h4 className="text-sm uppercase tracking-widest text-gold-500 font-semibold mb-4">Price Range</h4>
+                  <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                   <div className="flex items-center gap-2">
                     <input type="number" placeholder="Min" value={minPrice}
                       onChange={(e) => updateParam('minPrice', e.target.value)}
-                      className="input-field text-sm w-full" />
-                    <span className="text-white/30">—</span>
+                      className="input-field text-xs w-full" />
+                    <span className="text-white/20">—</span>
                     <input type="number" placeholder="Max" value={maxPrice}
                       onChange={(e) => updateParam('maxPrice', e.target.value)}
-                      className="input-field text-sm w-full" />
+                      className="input-field text-xs w-full" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-3 cursor-pointer group mb-3">
+                  <label className="flex items-center gap-3 cursor-pointer group mb-4">
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-sm text-white/70 group-hover:text-white">On Sale</span>
+                    <span className="text-xs text-white/50 group-hover:text-white/80">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-sm text-white/70 group-hover:text-white">New Arrivals</span>
+                    <span className="text-xs text-white/50 group-hover:text-white/80">New Arrivals</span>
                   </label>
                 </div>
 
                 <button onClick={clearFilters}
-                  className="text-sm text-gold-500 hover:text-gold-400 transition-colors flex items-center gap-1">
+                  className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1">
                   <HiOutlineX /> Clear filters
                 </button>
               </div>

@@ -72,7 +72,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
@@ -89,11 +89,11 @@ export default function Home() {
         {heroSlides.map((slide, i) => (
           <div
             key={i}
-            className={`absolute inset-0 transition-all duration-1000 ease-out ${
+            className={`absolute inset-0 transition-all duration-1500 ease-out ${
               i === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-midnight-900/90 via-midnight-900/60 to-midnight-900/30 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#05050f]/95 via-[#05050f]/70 to-[#05050f]/20 z-10" />
             <img src={slide.image} alt="" className="w-full h-full object-cover"
               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
           </div>
@@ -103,27 +103,30 @@ export default function Home() {
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
               className={`max-w-2xl ${
                 heroSlides[currentSlide].align === 'right' ? 'ml-auto text-right' :
                 heroSlides[currentSlide].align === 'center' ? 'mx-auto text-center' : ''
               }`}
             >
-              <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-4 font-medium">HAEVN — Premium Collection</p>
-              <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-bold text-white leading-[1.1]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-12 gold-gradient" />
+                <p className="text-gold-500/80 text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
+              </div>
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-serif font-bold text-white/95 leading-[1.05] tracking-tight">
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-lg sm:text-xl text-white/60 mt-6 max-w-xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-white/40 mt-6 max-w-xl leading-relaxed font-light tracking-wide">
                 {heroSlides[currentSlide].subtitle}
               </p>
               <div className="flex gap-4 mt-10">
-                <Link to="/shop" className="btn-primary text-lg px-10 py-4 flex items-center gap-2 group">
+                <Link to="/shop" className="btn-primary text-sm px-10 py-4 flex items-center gap-2 group tracking-[0.2em]">
                   {heroSlides[currentSlide].cta}
                   <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/shop/Accessories" className="btn-outline text-lg px-10 py-4">
+                <Link to="/shop/Accessories" className="btn-outline text-sm px-10 py-4 tracking-[0.2em]">
                   Accessories
                 </Link>
               </div>
@@ -131,13 +134,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
           {heroSlides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
-              className={`h-1 transition-all duration-500 ${
-                i === currentSlide ? 'w-12 gold-gradient' : 'w-6 bg-white/20 hover:bg-white/40'
+              className={`transition-all duration-500 ${
+                i === currentSlide ? 'w-16 h-[2px] gold-gradient' : 'w-8 h-[1px] bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
@@ -145,8 +148,8 @@ export default function Home() {
       </section>
 
       {/* Features Bar */}
-      <section className="border-y border-white/5 bg-midnight-900/50">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="border-y border-white/5 bg-[#05050f]/80">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { icon: HiTruck, title: 'Free Shipping', desc: 'On all orders over ₹20,000' },
@@ -154,12 +157,12 @@ export default function Home() {
               { icon: HiRefresh, title: '30-Day Returns', desc: 'Hassle-free, no questions asked' },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-center gap-4">
-                <div className="w-12 h-12 flex items-center justify-center gold-gradient/20 border border-gold-500/20 flex-shrink-0">
-                  <Icon className="text-gold-500 text-xl" />
+                <div className="w-12 h-12 flex items-center justify-center bg-gold-500/10 border border-gold-500/20 flex-shrink-0">
+                  <Icon className="text-gold-500/80 text-xl" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-white">{title}</h4>
-                  <p className="text-xs text-white/40">{desc}</p>
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-white/70 font-medium">{title}</h4>
+                  <p className="text-[10px] text-white/30 mt-1 tracking-wide">{desc}</p>
                 </div>
               </div>
             ))}
@@ -168,15 +171,15 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-24">
+      <section className="py-28">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-3">Categories</p>
+            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Categories</p>
             <h2 className="section-title">Shop by Category</h2>
             <div className="divider" />
             <p className="section-subtitle">From head to toe, we have you covered</p>
@@ -186,20 +189,20 @@ export default function Home() {
             {categories.map((cat, i) => (
               <motion.div
                 key={cat.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
               >
-                <Link to={`/shop/${cat.name}`} className="group block relative h-72 overflow-hidden">
+                <Link to={`/shop/${cat.name}`} className="group block relative h-80 overflow-hidden">
                   <img src={cat.image} alt={cat.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     onError={(e) => { e.target.src = `https://placehold.co/600x800/1a1a2e/C9A96E?text=${cat.name}`; }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-900/90 via-midnight-900/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-1">{cat.items}</p>
-                    <h3 className="text-2xl font-serif text-white group-hover:text-gold-500 transition-colors duration-300">{cat.name}</h3>
-                    <p className="text-white/50 text-sm mt-1">{cat.desc}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05050f]/90 via-[#05050f]/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <p className="text-gold-500/60 text-[9px] uppercase tracking-[0.25em] mb-2 font-medium">{cat.items}</p>
+                    <h3 className="text-3xl font-serif text-white/90 group-hover:text-gold-500 transition-colors duration-300">{cat.name}</h3>
+                    <p className="text-white/40 text-sm mt-2 font-light tracking-wide">{cat.desc}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -209,26 +212,26 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-24 bg-midnight-900/50">
+      <section className="py-28 bg-[#05050f]/80">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex items-center justify-between mb-16"
           >
             <div>
-              <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-3">Editor's Pick</p>
-              <h2 className="section-title">Featured Selections</h2>
-              <div className="divider mt-4 ml-0" />
+              <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Editor's Pick</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white/90">Featured Selections</h2>
+              <div className="divider-left mt-4" />
             </div>
             <div className="hidden sm:flex space-x-2">
               <button onClick={() => scrollFeatured(-1)}
-                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/50 hover:text-gold-500 hover:border-gold-500/50 transition-all">
+                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronLeft />
               </button>
               <button onClick={() => scrollFeatured(1)}
-                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/50 hover:text-gold-500 hover:border-gold-500/50 transition-all">
+                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronRight />
               </button>
             </div>
@@ -238,11 +241,11 @@ export default function Home() {
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="flex-shrink-0 w-[280px] snap-start">
-                  <div className="aspect-[3/4] bg-white/5 animate-pulse" />
+                  <div className="aspect-[3/4] bg-white/[0.02] animate-pulse" />
                   <div className="p-4 space-y-2">
-                    <div className="h-3 w-16 bg-white/5 animate-pulse" />
-                    <div className="h-4 w-40 bg-white/5 animate-pulse" />
-                    <div className="h-4 w-20 bg-white/5 animate-pulse" />
+                    <div className="h-3 w-16 bg-white/[0.02] animate-pulse" />
+                    <div className="h-4 w-40 bg-white/[0.02] animate-pulse" />
+                    <div className="h-4 w-20 bg-white/[0.02] animate-pulse" />
                   </div>
                 </div>
               ))
@@ -259,15 +262,15 @@ export default function Home() {
 
       {/* New Arrivals */}
       {newArrivals.length > 0 && (
-        <section className="py-24">
+        <section className="py-28">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-3">Fresh Collection</p>
+              <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Fresh Collection</p>
               <h2 className="section-title">New Arrivals</h2>
               <div className="divider" />
             </motion.div>
@@ -279,7 +282,7 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link to="/shop?new=true" className="btn-outline inline-flex items-center gap-2 group">
+              <Link to="/shop?new=true" className="btn-outline inline-flex items-center gap-2 group text-sm tracking-[0.2em]">
                 View All New Arrivals
                 <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -289,30 +292,31 @@ export default function Home() {
       )}
 
       {/* Banner */}
-      <section className="relative h-[500px] overflow-hidden">
+      <section className="relative h-[550px] overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=1920" alt=""
             className="w-full h-full object-cover"
             onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-midnight-900/90 via-midnight-900/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05050f]/95 via-[#05050f]/80 to-transparent" />
         </div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
               className="max-w-xl"
             >
-              <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-4">The HAEVN Standard</p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight">
+              <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-5 font-medium">The HAEVN Standard</p>
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-white/95 leading-tight">
                 Luxury Defined.<br />Style Refined.
               </h2>
-              <p className="text-white/60 mt-6 text-lg leading-relaxed">
+              <p className="text-white/40 mt-6 text-lg leading-relaxed font-light tracking-wide">
                 Every piece in our collection is hand-selected for its exceptional craftsmanship,
                 premium materials, and timeless design. Experience fashion that transcends trends.
               </p>
-              <Link to="/shop" className="btn-primary inline-flex items-center gap-2 mt-8 group text-lg px-10 py-4">
+              <Link to="/shop" className="btn-primary inline-flex items-center gap-2 mt-8 text-sm px-10 py-4 tracking-[0.2em]">
                 Explore the Collection
                 <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -322,15 +326,15 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-midnight-900/30">
+      <section className="py-28 bg-[#05050f]/50">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-3">Testimonials</p>
+            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Testimonials</p>
             <h2 className="section-title">What Our Clients Say</h2>
             <div className="divider" />
           </motion.div>
@@ -339,21 +343,21 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 bg-white/[0.02] border border-white/[0.06] relative"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="p-10 bg-white/[0.02] border border-white/[0.06] relative"
               >
                 <div className="flex mb-4">
                   {Array.from({ length: t.rating }).map((_, j) => (
-                    <HiStar key={j} className="text-gold-500 text-lg" />
+                    <HiStar key={j} className="text-gold-500/80 text-lg" />
                   ))}
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed italic">"{t.text}"</p>
-                <div className="mt-6 pt-6 border-t border-white/5">
-                  <p className="text-white font-medium text-sm">{t.name}</p>
-                  <p className="text-white/40 text-xs mt-1">{t.title}</p>
+                <p className="text-white/50 text-sm leading-relaxed font-light italic tracking-wide">"{t.text}"</p>
+                <div className="mt-8 pt-6 border-t border-white/5">
+                  <p className="text-white/70 text-sm font-medium">{t.name}</p>
+                  <p className="text-white/30 text-xs mt-1 tracking-wide">{t.title}</p>
                 </div>
               </motion.div>
             ))}
@@ -362,23 +366,23 @@ export default function Home() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-28 border-t border-white/5">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-gold-500 text-sm uppercase tracking-[0.3em] mb-3">Stay Connected</p>
+            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Stay Connected</p>
             <h2 className="section-title">Join the Inner Circle</h2>
             <div className="divider" />
-            <p className="text-white/50 mt-4 mb-8">
+            <p className="text-white/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input type="email" placeholder="Enter your email"
-                className="input-field flex-1 text-center sm:text-left" />
-              <button type="submit" className="btn-primary whitespace-nowrap">Subscribe</button>
+                className="input-field flex-1 text-center sm:text-left text-sm" />
+              <button type="submit" className="btn-primary whitespace-nowrap text-sm tracking-[0.2em] px-10">Subscribe</button>
             </form>
           </motion.div>
         </div>
