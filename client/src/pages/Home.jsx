@@ -7,39 +7,44 @@ import ProductCard from '../components/ProductCard';
 
 const heroSlides = [
   {
-    title: 'Dress to Command',
-    subtitle: 'Curated Luxury for the Modern Gentleman',
-    cta: 'Explore Collection',
+    title: 'Gear Up for Greatness',
+    subtitle: 'Premium Sportswear & Performance Gear for Champions',
+    cta: 'Explore Sportswear',
+    image: 'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?w=1920',
+    align: 'left',
+    pos: 'center',
+  },
+  {
+    title: 'Power Dressing Redefined',
+    subtitle: 'Sharp Formal Attire for the Boardroom & Beyond',
+    cta: 'Shop Formal Wear',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920',
-    align: 'left',
-  },
-  {
-    title: 'Define Your Style',
-    subtitle: 'Premium Fashion for the Confident Man',
-    cta: 'Shop Now',
-    image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=1920',
     align: 'right',
+    pos: 'center 25%',
   },
   {
-    title: 'Walk with Purpose',
-    subtitle: 'Every Step in Uncompromising Style',
-    cta: 'Explore Collection',
-    image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=1920',
-    align: 'left',
-  },
-  {
-    title: 'Power of Elegance',
-    subtitle: 'Where Confidence Meets Craftsmanship',
+    title: 'Style Across Generations',
+    subtitle: 'Curated Fashion for Teens, Families & Every Occasion',
     cta: 'Shop Now',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1920',
-    align: 'right',
+    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920',
+    align: 'left',
+    pos: 'center 30%',
   },
   {
-    title: 'The Art of Luxury',
-    subtitle: 'Designed for Those Who Demand the Best',
+    title: 'Timeless Sophistication',
+    subtitle: 'Elegance That Only Experience Can Cultivate',
     cta: 'Discover More',
-    image: 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=1920',
+    image: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=1920',
+    align: 'right',
+    pos: 'center 30%',
+  },
+  {
+    title: 'The Art of Refinement',
+    subtitle: 'Luxury Curated for the Discerning Gentleman',
+    cta: 'Explore Collection',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=1920',
     align: 'center',
+    pos: 'center',
   },
 ];
 
@@ -99,7 +104,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero */}
-      <section className="relative h-screen min-h-[700px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px] overflow-hidden">
         {heroSlides.map((slide, i) => (
           <div
             key={i}
@@ -108,7 +113,8 @@ export default function Home() {
             }`}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#05050f]/95 via-[#05050f]/70 to-[#05050f]/20 z-10" />
-            <img src={slide.image} alt="" className="w-full h-full object-cover"
+            <img src={slide.image} alt="" loading={i === 0 ? 'eager' : 'lazy'} className="w-full h-full object-cover"
+              style={{ objectPosition: slide.pos || 'center' }}
               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
           </div>
         ))}
