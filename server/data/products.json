@@ -1,0 +1,1150 @@
+﻿[
+    {
+        "id":  "ht-001",
+        "name":  "The Sovereign Fedora",
+        "category":  "Headwear",
+        "subcategory":  "Hats",
+        "price":  15999,
+        "originalPrice":  21249,
+        "description":  "Handcrafted premium wool fedora with silk lining. A timeless silhouette that commands respect.",
+        "details":  [
+                        "100% Australian wool felt",
+                        "Silk inner lining",
+                        "2.5 inch brim",
+                        "Leather sweatband",
+                        "Made in Italy"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1514327605050-0295e3c02d9b?w=800",
+                       "https://images.unsplash.com/photo-1514327605050-0295e3c02d9b?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "colors":  [
+                       "Charcoal",
+                       "Black",
+                       "Brown",
+                       "Navy"
+                   ],
+        "rating":  4.8,
+        "reviews":  124,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ht-002",
+        "name":  "The Monarch Flat Cap",
+        "category":  "Headwear",
+        "subcategory":  "Caps",
+        "price":  7499,
+        "originalPrice":  7499,
+        "description":  "Classic Irish-style flat cap in luxurious Harris Tweed. Understated elegance for the discerning gentleman.",
+        "details":  [
+                        "Authentic Harris Tweed",
+                        "Cotton lining",
+                        "Hand-stitched brim",
+                        "One size fits most"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=800",
+                       "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "colors":  [
+                       "Grey",
+                       "Brown",
+                       "Black",
+                       "Green"
+                   ],
+        "rating":  4.6,
+        "reviews":  89,
+        "featured":  false,
+        "new":  true,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ht-003",
+        "name":  "The Crown Beanie",
+        "category":  "Headwear",
+        "subcategory":  "Beanies",
+        "price":  4999,
+        "originalPrice":  4999,
+        "description":  "Ultra-soft cashmere blend beanie with ribbed knit. Effortless luxury for cooler days.",
+        "details":  [
+                        "70% Cashmere, 30% Merino Wool",
+                        "Ribbed knit pattern",
+                        "Turn-up cuff",
+                        "Hypoallergenic"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=800",
+                       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=800"
+                   ],
+        "sizes":  [
+                      "One Size"
+                  ],
+        "colors":  [
+                       "Charcoal",
+                       "Black",
+                       "Navy",
+                       "Burgundy",
+                       "Cream"
+                   ],
+        "rating":  4.5,
+        "reviews":  156,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ht-004",
+        "name":  "The Regal Newsboy Cap",
+        "category":  "Headwear",
+        "subcategory":  "Caps",
+        "price":  10999,
+        "originalPrice":  13499,
+        "description":  "Premium leather newsboy cap with a vintage appeal. Hand-stitched details define this masterpiece.",
+        "details":  [
+                        "Genuine Italian leather",
+                        "Satin lining",
+                        "Hand-stitched panels",
+                        "Adjustable strap"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1556306535-0f09c5376f2f?w=800",
+                       "https://images.unsplash.com/photo-1556306535-0f09c5376f2f?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "colors":  [
+                       "Brown",
+                       "Black",
+                       "Tan"
+                   ],
+        "rating":  4.7,
+        "reviews":  67,
+        "featured":  false,
+        "new":  true,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ey-001",
+        "name":  "The Aviator Legacy Sunglasses",
+        "category":  "Eyewear",
+        "subcategory":  "Sunglasses",
+        "price":  29499,
+        "originalPrice":  37999,
+        "description":  "Handcrafted titanium aviators with Carl Zeiss lenses. Crystal clear vision wrapped in pure luxury.",
+        "details":  [
+                        "Titanium frame",
+                        "Carl Zeiss polarized lenses",
+                        "Anti-reflective coating",
+                        "100% UV protection",
+                        "Leather case included"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800",
+                       "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800"
+                   ],
+        "sizes":  [
+                      "Standard",
+                      "Large"
+                  ],
+        "colors":  [
+                       "Gold/Green",
+                       "Silver/Blue",
+                       "Black/Grey",
+                       "Rose Gold/Brown"
+                   ],
+        "rating":  4.9,
+        "reviews":  203,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ey-002",
+        "name":  "The Executive Optical Frame",
+        "category":  "Eyewear",
+        "subcategory":  "Glasses",
+        "price":  24499,
+        "originalPrice":  24499,
+        "description":  "Acetate optical frames with gold-plated temples. Intellectual elegance for the modern professional.",
+        "details":  [
+                        "Handmade Italian acetate",
+                        "Gold-plated titanium temples",
+                        "Spring hinges",
+                        "Prescription ready",
+                        "Hard case included"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800",
+                       "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800"
+                   ],
+        "sizes":  [
+                      "Narrow",
+                      "Standard",
+                      "Wide"
+                  ],
+        "colors":  [
+                       "Tortoise",
+                       "Black",
+                       "Havana",
+                       "Navy"
+                   ],
+        "rating":  4.7,
+        "reviews":  145,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-001",
+        "name":  "The Emperor Dress Shirt",
+        "category":  "Tops",
+        "subcategory":  "Shirts",
+        "price":  19499,
+        "originalPrice":  19499,
+        "description":  "Egyptian cotton dress shirt with mother-of-pearl buttons. The pinnacle of refined dressing.",
+        "details":  [
+                        "100% Egyptian cotton",
+                        "Mother-of-pearl buttons",
+                        "Spread collar",
+                        "French cuffs",
+                        "Tailored fit"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800",
+                       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL"
+                  ],
+        "colors":  [
+                       "White",
+                       "Light Blue",
+                       "Pink",
+                       "Black",
+                       "Navy"
+                   ],
+        "rating":  4.8,
+        "reviews":  312,
+        "featured":  true,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-002",
+        "name":  "The Noble Cashmere Crewneck",
+        "category":  "Tops",
+        "subcategory":  "Sweaters",
+        "price":  38999,
+        "originalPrice":  46499,
+        "description":  "Pure Mongolian cashmere crewneck sweater. Unparalleled softness meets timeless design.",
+        "details":  [
+                        "100% Grade-A Mongolian cashmere",
+                        "Ribbed cuffs and hem",
+                        "Hand-finished seams",
+                        "Dry clean recommended"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800",
+                       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "colors":  [
+                       "Charcoal",
+                       "Navy",
+                       "Burgundy",
+                       "Cream",
+                       "Black",
+                       "Forest Green"
+                   ],
+        "rating":  4.9,
+        "reviews":  267,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-003",
+        "name":  "The Aristocrat Blazer",
+        "category":  "Tops",
+        "subcategory":  "Blazers",
+        "price":  75999,
+        "originalPrice":  99999,
+        "description":  "Italian wool blazer with silk lining. A masterpiece of tailoring that defines power dressing.",
+        "details":  [
+                        "Super 150s Italian wool",
+                        "Full canvas construction",
+                        "Silk lining with monogram",
+                        "Horn buttons",
+                        "Two-button closure",
+                        "Notch lapel"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+                       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL"
+                  ],
+        "colors":  [
+                       "Navy",
+                       "Charcoal",
+                       "Black",
+                       "Midnight Blue"
+                   ],
+        "rating":  4.9,
+        "reviews":  178,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-004",
+        "name":  "The Monarch Leather Jacket",
+        "category":  "Tops",
+        "subcategory":  "Jackets",
+        "price":  109999,
+        "originalPrice":  134999,
+        "description":  "Full-grain lambskin leather jacket with quilted lining. The ultimate statement of masculine luxury.",
+        "details":  [
+                        "Full-grain Italian lambskin",
+                        "Quilted satin lining",
+                        "YKK Excella zippers",
+                        "Asymmetric zip closure",
+                        "Snap-button collar"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800",
+                       "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL"
+                  ],
+        "colors":  [
+                       "Black",
+                       "Brown",
+                       "Burgundy"
+                   ],
+        "rating":  4.8,
+        "reviews":  95,
+        "featured":  true,
+        "new":  true,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-005",
+        "name":  "The Heritage Oxford Shirt",
+        "category":  "Tops",
+        "subcategory":  "Shirts",
+        "price":  14499,
+        "originalPrice":  14499,
+        "description":  "Classic button-down Oxford shirt in premium Sea Island cotton. Wardrobe essential, reimagined.",
+        "details":  [
+                        "100% Sea Island cotton",
+                        "Button-down collar",
+                        "Chest patch pocket",
+                        "Adjustable cuffs",
+                        "Classic fit"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1598033129183-c4f50c736a10?w=800",
+                       "https://images.unsplash.com/photo-1598033129183-c4f50c736a10?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL"
+                  ],
+        "colors":  [
+                       "White",
+                       "Blue",
+                       "Pink",
+                       "Green Stripe",
+                       "Blue Stripe"
+                   ],
+        "rating":  4.6,
+        "reviews":  423,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "tp-006",
+        "name":  "The Regent Polo Shirt",
+        "category":  "Tops",
+        "subcategory":  "Polos",
+        "price":  11999,
+        "originalPrice":  11999,
+        "description":  "Pima cotton pique polo with pearlized buttons. Effortless elegance for casual sophistication.",
+        "details":  [
+                        "100% Peruvian Pima cotton",
+                        "Pique knit",
+                        "Pearlized buttons",
+                        "Ribbed collar",
+                        "Tennis tail"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800",
+                       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL",
+                      "XXL"
+                  ],
+        "colors":  [
+                       "Navy",
+                       "White",
+                       "Black",
+                       "Burgundy",
+                       "Forest Green",
+                       "Light Blue"
+                   ],
+        "rating":  4.5,
+        "reviews":  534,
+        "featured":  false,
+        "new":  true,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "bt-001",
+        "name":  "The Tailored Trousers",
+        "category":  "Bottoms",
+        "subcategory":  "Trousers",
+        "price":  24499,
+        "originalPrice":  24499,
+        "description":  "Worsted wool trousers with a modern tapered fit. Architecture for the lower half.",
+        "details":  [
+                        "100% Super 120s worsted wool",
+                        "Flat front",
+                        "Side pockets",
+                        "Belt loops",
+                        "Zip fly with hook closure",
+                        "Unhemmed"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800",
+                       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800"
+                   ],
+        "sizes":  [
+                      "28",
+                      "30",
+                      "32",
+                      "34",
+                      "36",
+                      "38",
+                      "40"
+                  ],
+        "colors":  [
+                       "Charcoal",
+                       "Navy",
+                       "Black",
+                       "Light Grey"
+                   ],
+        "rating":  4.7,
+        "reviews":  189,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "bt-002",
+        "name":  "The Duke Selvedge Denim",
+        "category":  "Bottoms",
+        "subcategory":  "Jeans",
+        "price":  21999,
+        "originalPrice":  24999,
+        "description":  "Japanese selvedge denim jeans with pure copper rivets. Raw, authentic, and built to last a lifetime.",
+        "details":  [
+                        "14oz Japanese selvedge denim",
+                        "Pure copper rivets",
+                        "Button fly",
+                        "Hidden selvedge coin pocket",
+                        "Raw/unwashed",
+                        "Custom leather patch"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=800",
+                       "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=800"
+                   ],
+        "sizes":  [
+                      "28",
+                      "30",
+                      "31",
+                      "32",
+                      "33",
+                      "34",
+                      "36",
+                      "38"
+                  ],
+        "colors":  [
+                       "Raw Indigo",
+                       "Black",
+                       "Vintage Wash"
+                   ],
+        "rating":  4.8,
+        "reviews":  256,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "bt-003",
+        "name":  "The Chancellor Chinos",
+        "category":  "Bottoms",
+        "subcategory":  "Chinos",
+        "price":  13499,
+        "originalPrice":  13499,
+        "description":  "Garment-dyed stretch cotton chinos. The perfect balance of comfort and refinement.",
+        "details":  [
+                        "98% Cotton, 2% Elastane",
+                        "Garment-dyed",
+                        "Slim-straight fit",
+                        "Zip fly",
+                        "Belt loops"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800",
+                       "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800"
+                   ],
+        "sizes":  [
+                      "28",
+                      "30",
+                      "31",
+                      "32",
+                      "33",
+                      "34",
+                      "36",
+                      "38"
+                  ],
+        "colors":  [
+                       "Beige",
+                       "Navy",
+                       "Olive",
+                       "Burgundy",
+                       "Grey",
+                       "Black"
+                   ],
+        "rating":  4.5,
+        "reviews":  398,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "fw-001",
+        "name":  "The Imperial Oxford Shoes",
+        "category":  "Footwear",
+        "subcategory":  "Formal Shoes",
+        "price":  54999,
+        "originalPrice":  71999,
+        "description":  "Bench-made Goodyear welted Oxford shoes in museum calf leather. The cornerstone of a gentleman\u0027s wardrobe.",
+        "details":  [
+                        "Museum calf leather",
+                        "Goodyear welt construction",
+                        "Leather sole",
+                        "Cork filling",
+                        "Lasted shoe trees included",
+                        "Made in Northampton, England"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1614252369475-5f6cb61c0d12?w=800",
+                       "https://images.unsplash.com/photo-1614252369475-5f6cb61c0d12?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13"
+                  ],
+        "colors":  [
+                       "Black",
+                       "Dark Brown",
+                       "Burgundy"
+                   ],
+        "rating":  4.9,
+        "reviews":  167,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "fw-002",
+        "name":  "The Commando Boots",
+        "category":  "Footwear",
+        "subcategory":  "Boots",
+        "price":  46499,
+        "originalPrice":  46499,
+        "description":  "Handcrafted combat boots in Horween Chromexcel leather. Rugged luxury for the urban explorer.",
+        "details":  [
+                        "Horween Chromexcel leather",
+                        "Vibram lug sole",
+                        "Goodyear welt",
+                        "Full leather lining",
+                        "Brass hardware",
+                        "Made in Portugal"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=800",
+                       "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13"
+                  ],
+        "colors":  [
+                       "Black",
+                       "Brown",
+                       "Waxed Cacao"
+                   ],
+        "rating":  4.7,
+        "reviews":  134,
+        "featured":  false,
+        "new":  true,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "fw-003",
+        "name":  "The Venetian Loafers",
+        "category":  "Footwear",
+        "subcategory":  "Loafers",
+        "price":  37999,
+        "originalPrice":  44999,
+        "description":  "Unlined suede loafers with apron stitching. The epitome of effortless continental style.",
+        "details":  [
+                        "Italian suede",
+                        "Apron stitch detail",
+                        "Leather sole with rubber insert",
+                        "Unlined for softness",
+                        "Made in Spain"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1614252235316-8c857d38b5c4?w=800",
+                       "https://images.unsplash.com/photo-1614252235316-8c857d38b5c4?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13"
+                  ],
+        "colors":  [
+                       "Navy",
+                       "Tan",
+                       "Burgundy",
+                       "Black",
+                       "Olive"
+                   ],
+        "rating":  4.6,
+        "reviews":  203,
+        "featured":  false,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "fw-004",
+        "name":  "The Platinum Sneakers",
+        "category":  "Footwear",
+        "subcategory":  "Sneakers",
+        "price":  27999,
+        "originalPrice":  27999,
+        "description":  "Italian leather court sneakers with gold-tipped laces. Luxury redefines casual footwear.",
+        "details":  [
+                        "Italian calf leather",
+                        "Gold-tipped cotton laces",
+                        "Leather lining",
+                        "Rubber cup sole",
+                        "Removable insole",
+                        "Made in Italy"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800",
+                       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13"
+                  ],
+        "colors":  [
+                       "White",
+                       "Black",
+                       "Navy",
+                       "Tan"
+                   ],
+        "rating":  4.7,
+        "reviews":  289,
+        "featured":  true,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "fw-005",
+        "name":  "The Grandeur Monk Strap",
+        "category":  "Footwear",
+        "subcategory":  "Formal Shoes",
+        "price":  50999,
+        "originalPrice":  59499,
+        "description":  "Double monk strap shoes in patina calf leather. Where tradition meets contemporary flair.",
+        "details":  [
+                        "Patina calf leather",
+                        "Double buckle strap",
+                        "Goodyear welt",
+                        "Leather sole",
+                        "Hand-polished finish"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1604671804108-1b22e10e6b87?w=800",
+                       "https://images.unsplash.com/photo-1604671804108-1b22e10e6b87?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                      "13"
+                  ],
+        "colors":  [
+                       "Dark Brown",
+                       "Burgundy",
+                       "Black"
+                   ],
+        "rating":  4.8,
+        "reviews":  112,
+        "featured":  false,
+        "new":  true,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-001",
+        "name":  "The Celestial Chronograph",
+        "category":  "Accessories",
+        "subcategory":  "Watches",
+        "price":  199999,
+        "originalPrice":  249999,
+        "description":  "Swiss-made automatic chronograph with sapphire crystal. Timekeeping as an art form.",
+        "details":  [
+                        "Swiss automatic movement",
+                        "40mm stainless steel case",
+                        "Sapphire crystal",
+                        "Blue sunburst dial",
+                        "Alligator leather strap",
+                        "Water resistant to 100m"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800",
+                       "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800"
+                   ],
+        "sizes":  [
+                      "Standard"
+                  ],
+        "colors":  [
+                       "Silver/Blue",
+                       "Gold/Black",
+                       "Silver/Black"
+                   ],
+        "rating":  4.9,
+        "reviews":  87,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-002",
+        "name":  "The Viceroy Cufflinks",
+        "category":  "Accessories",
+        "subcategory":  "Cufflinks",
+        "price":  24999,
+        "originalPrice":  24999,
+        "description":  "18K gold-plated cufflinks with black onyx inlay. The finishing touch that speaks volumes.",
+        "details":  [
+                        "18K gold plating",
+                        "Black onyx inlay",
+                        "Toggle closure",
+                        "Presented in velvet box",
+                        "Made in France"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=800",
+                       "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=800"
+                   ],
+        "sizes":  [
+                      "Standard"
+                  ],
+        "colors":  [
+                       "Gold/Onyx",
+                       "Silver/Onyx",
+                       "Gold/MOP"
+                   ],
+        "rating":  4.7,
+        "reviews":  64,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-003",
+        "name":  "The Patrimony Leather Belt",
+        "category":  "Accessories",
+        "subcategory":  "Belts",
+        "price":  15999,
+        "originalPrice":  15999,
+        "description":  "Full-grain Italian leather belt with a brushed gold buckle. The foundation of a polished look.",
+        "details":  [
+                        "Full-grain Italian calf leather",
+                        "Brushed gold-plated buckle",
+                        "Roller buckle design",
+                        "35mm width",
+                        "Made in Italy"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",
+                       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"
+                   ],
+        "sizes":  [
+                      "30",
+                      "32",
+                      "34",
+                      "36",
+                      "38",
+                      "40"
+                  ],
+        "colors":  [
+                       "Black",
+                       "Dark Brown",
+                       "Tan"
+                   ],
+        "rating":  4.6,
+        "reviews":  234,
+        "featured":  false,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-004",
+        "name":  "The Sovereign Leather Wallet",
+        "category":  "Accessories",
+        "subcategory":  "Wallets",
+        "price":  19499,
+        "originalPrice":  23499,
+        "description":  "Shell cordovan bifold wallet with 8 card slots. Patina that ages like fine wine.",
+        "details":  [
+                        "Japanese shell cordovan",
+                        "8 card slots",
+                        "2 bill compartments",
+                        "RFID blocking",
+                        "Hand-stitched edges",
+                        "Made in Japan"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800",
+                       "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800"
+                   ],
+        "sizes":  [
+                      "Standard"
+                  ],
+        "colors":  [
+                       "Cognac",
+                       "Black",
+                       "Dark Brown",
+                       "Navy"
+                   ],
+        "rating":  4.8,
+        "reviews":  178,
+        "featured":  false,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-005",
+        "name":  "The Ambassador Silk Tie",
+        "category":  "Accessories",
+        "subcategory":  "Ties",
+        "price":  12499,
+        "originalPrice":  12499,
+        "description":  "Hand-rolled seven-fold silk tie in a woven pattern. The mark of a man who pays attention.",
+        "details":  [
+                        "100% Italian silk",
+                        "Seven-fold construction",
+                        "Hand-rolled edges",
+                        "3.25 inch width",
+                        "Made in Como, Italy"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1589756823695-278bc923f962?w=800",
+                       "https://images.unsplash.com/photo-1589756823695-278bc923f962?w=800"
+                   ],
+        "sizes":  [
+                      "Standard"
+                  ],
+        "colors":  [
+                       "Navy",
+                       "Burgundy",
+                       "Charcoal",
+                       "Forest Green",
+                       "Black"
+                   ],
+        "rating":  4.7,
+        "reviews":  145,
+        "featured":  false,
+        "new":  true,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-006",
+        "name":  "The Noble Bracelet",
+        "category":  "Accessories",
+        "subcategory":  "Bracelets",
+        "price":  15999,
+        "originalPrice":  15999,
+        "description":  "Handwoven leather bracelet with a 14K gold clasp. Minimalist luxury for the discerning wrist.",
+        "details":  [
+                        "Italian braided leather",
+                        "14K gold-plated clasp",
+                        "Adjustable length",
+                        "Handmade in Italy"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800",
+                       "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800"
+                   ],
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "colors":  [
+                       "Black/Gold",
+                       "Brown/Gold",
+                       "Navy/Silver"
+                   ],
+        "rating":  4.5,
+        "reviews":  98,
+        "featured":  false,
+        "new":  true,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-007",
+        "name":  "The Regent Fragrance",
+        "category":  "Accessories",
+        "subcategory":  "Fragrance",
+        "price":  15999,
+        "originalPrice":  15999,
+        "description":  "A sophisticated blend of bergamot, oud, and amber. The scent of quiet confidence.",
+        "details":  [
+                        "Top: Bergamot, Pink Pepper",
+                        "Heart: Oud, Saffron",
+                        "Base: Amber, Vetiver, Leather",
+                        "Eau de Parfum",
+                        "50ml / 1.7 fl oz"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=800",
+                       "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=800"
+                   ],
+        "sizes":  [
+                      "50ml",
+                      "100ml"
+                  ],
+        "colors":  [
+                       "Signature"
+                   ],
+        "rating":  4.8,
+        "reviews":  312,
+        "featured":  true,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-008",
+        "name":  "The Monarch Ring",
+        "category":  "Accessories",
+        "subcategory":  "Rings",
+        "price":  37999,
+        "originalPrice":  46499,
+        "description":  "Sterling silver signet ring with black onyx. A family heirloom in the making.",
+        "details":  [
+                        "925 Sterling silver",
+                        "Black onyx face",
+                        "Polished finish",
+                        "Comfort fit interior",
+                        "Hallmarked"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
+                       "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800"
+                   ],
+        "sizes":  [
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12"
+                  ],
+        "colors":  [
+                       "Silver/Onyx",
+                       "Gold/Onyx"
+                   ],
+        "rating":  4.6,
+        "reviews":  76,
+        "featured":  false,
+        "new":  true,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-009",
+        "name":  "The Diplomat Briefcase",
+        "category":  "Accessories",
+        "subcategory":  "Bags",
+        "price":  75999,
+        "originalPrice":  91999,
+        "description":  "Crocodile-embossed leather briefcase with solid brass hardware. Power carried with grace.",
+        "details":  [
+                        "Crocodile-embossed calf leather",
+                        "Solid brass hardware",
+                        "Combination lock",
+                        "Removable shoulder strap",
+                        "Padded laptop compartment",
+                        "Made in England"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",
+                       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"
+                   ],
+        "sizes":  [
+                      "Standard"
+                  ],
+        "colors":  [
+                       "Black",
+                       "Dark Brown",
+                       "Navy"
+                   ],
+        "rating":  4.9,
+        "reviews":  54,
+        "featured":  true,
+        "new":  false,
+        "onSale":  true,
+        "gender":  "men"
+    },
+    {
+        "id":  "ac-010",
+        "name":  "The Gold Chain Necklace",
+        "category":  "Accessories",
+        "subcategory":  "Chains",
+        "price":  67999,
+        "originalPrice":  67999,
+        "description":  "Solid 14K gold Figaro chain necklace. An investment in personal style.",
+        "details":  [
+                        "14K solid gold",
+                        "Figaro link pattern",
+                        "Polished finish",
+                        "Lobster clasp",
+                        "20 inch length"
+                    ],
+        "images":  [
+                       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+                       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800"
+                   ],
+        "sizes":  [
+                      "18in",
+                      "20in",
+                      "22in",
+                      "24in"
+                  ],
+        "colors":  [
+                       "Yellow Gold",
+                       "White Gold",
+                       "Rose Gold"
+                   ],
+        "rating":  4.7,
+        "reviews":  92,
+        "featured":  true,
+        "new":  false,
+        "onSale":  false,
+        "gender":  "men"
+    }
+]

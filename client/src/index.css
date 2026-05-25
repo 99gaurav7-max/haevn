@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-midnight-500 text-white font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-midnight-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-500/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-500/50;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-white;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-gold-500;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #C9A96E 0%, #E8D5A3 50%, #C9A96E 100%);
+  }
+
+  .gold-border {
+    @apply border border-gold-500/30;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-gold {
+    @apply bg-gold-500/10 backdrop-blur-xl border border-gold-500/20;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 gold-gradient text-midnight-900 font-semibold rounded-none
+           hover:shadow-lg hover:shadow-gold-500/25 transition-all duration-300
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 border border-gold-500 text-gold-500 font-semibold rounded-none
+           hover:bg-gold-500 hover:text-midnight-900 transition-all duration-300
+           active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 text-white/70 hover:text-gold-500 transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 text-white
+           placeholder:text-white/30 focus:outline-none focus:border-gold-500/50
+           transition-colors duration-200 rounded-none;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-5xl font-bold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-white/50 text-lg mt-2;
+  }
+
+  .divider {
+    @apply w-16 h-0.5 gold-gradient mx-auto my-6;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-xl hover:shadow-gold-500/10;
+  }
+
+  .text-shimmer {
+    background: linear-gradient(90deg, #C9A96E 0%, #E8D5A3 25%, #C9A96E 50%, #E8D5A3 75%, #C9A96E 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: fadeSlideUp 0.6s ease-out forwards;
+  }
+
+  .animate-in-delay-1 {
+    animation: fadeSlideUp 0.6s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-in-delay-2 {
+    animation: fadeSlideUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-in-delay-3 {
+    animation: fadeSlideUp 0.6s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  .glow-on-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-on-hover:hover {
+    box-shadow: 0 0 20px rgba(201, 169, 110, 0.3);
+  }
+
+  .scale-on-hover {
+    transition: transform 0.3s ease;
+  }
+
+  .scale-on-hover:hover {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(201, 169, 110, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(201, 169, 110, 0.6); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
