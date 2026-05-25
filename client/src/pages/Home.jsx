@@ -10,41 +10,46 @@ const heroSlides = [
     title: 'Gear Up for Greatness',
     subtitle: 'Premium Sportswear & Performance Gear for Champions',
     cta: 'Explore Sportswear',
-    image: 'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?w=1920',
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1920',
     align: 'left',
-    pos: 'center',
+    pos: 'center 40%',
+    link: '/shop?category=Footwear',
   },
   {
     title: 'Power Dressing Redefined',
     subtitle: 'Sharp Formal Attire for the Boardroom & Beyond',
     cta: 'Shop Formal Wear',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920',
+    image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=1920',
     align: 'right',
-    pos: 'center 25%',
+    pos: 'center 30%',
+    link: '/shop?category=Tops',
   },
   {
-    title: 'Style Across Generations',
-    subtitle: 'Curated Fashion for Teens, Families & Every Occasion',
-    cta: 'Shop Now',
-    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1920',
+    title: 'Everyday Essentials',
+    subtitle: 'Curated Casual Fashion for the Modern Man',
+    cta: 'Shop Casual Wear',
+    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1920',
     align: 'left',
     pos: 'center 30%',
+    link: '/shop?category=Tops',
   },
   {
-    title: 'Timeless Sophistication',
-    subtitle: 'Elegance That Only Experience Can Cultivate',
-    cta: 'Discover More',
-    image: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=1920',
+    title: 'Heritage of Elegance',
+    subtitle: 'Exquisite Indian Wedding & Festive Attire for the Discerning Gentleman',
+    cta: 'Explore Ethnic Wear',
+    image: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1920',
     align: 'right',
-    pos: 'center 30%',
+    pos: 'center',
+    link: '/shop?category=Accessories',
   },
   {
-    title: 'The Art of Refinement',
-    subtitle: 'Luxury Curated for the Discerning Gentleman',
-    cta: 'Explore Collection',
-    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=1920',
+    title: 'Fresh Styles for the Young',
+    subtitle: 'Trendsetting Fashion for Teens & Young Adults',
+    cta: 'Shop Now',
+    image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1920',
     align: 'center',
-    pos: 'center',
+    pos: 'center 35%',
+    link: '/shop',
   },
 ];
 
@@ -142,12 +147,12 @@ export default function Home() {
                 {heroSlides[currentSlide].subtitle}
               </p>
               <div className="flex gap-4 mt-10">
-                <Link to="/shop" className="btn-primary text-sm px-10 py-4 flex items-center gap-2 group tracking-[0.2em]">
+                <Link to={heroSlides[currentSlide].link || '/shop'} className="btn-primary text-sm px-10 py-4 flex items-center gap-2 group tracking-[0.2em]">
                   {heroSlides[currentSlide].cta}
                   <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/shop/Accessories" className="btn-outline text-sm px-10 py-4 tracking-[0.2em]">
-                  Accessories
+                <Link to="/shop" className="btn-outline text-sm px-10 py-4 tracking-[0.2em]">
+                  All Collections
                 </Link>
               </div>
             </motion.div>
