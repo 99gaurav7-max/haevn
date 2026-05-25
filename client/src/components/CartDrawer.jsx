@@ -18,11 +18,27 @@ export default function CartDrawer() {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   return (
     <>
@@ -49,7 +65,7 @@ export default function CartDrawer() {
                     <h2 className="text-xl font-serif text-white/90 tracking-wide">Your Cart</h2>
                     <p className="text-white/30 text-xs mt-1 uppercase tracking-[0.15em]">{cartCount} {cartCount === 1 ? 'item' : 'items'}</p>
                   </div>
-                  <button onClick={() => setIsOpen(false)}
+                  <button onClick={() => setIsOpen(false)} aria-label="Close cart"
                     className="w-10 h-10 flex items-center justify-center text-white/30 hover:text-gold-500 transition-colors">
                     <HiOutlineX className="text-xl" />
                   </button>

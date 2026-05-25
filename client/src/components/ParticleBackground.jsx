@@ -10,13 +10,32 @@ export default function ParticleBackground() {
     let stars = [];
     let shootingStars = [];
     const STAR_COUNT = 400;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
     };
     resize();
     window.addEventListener('resize', resize);
+
+    if (prefersReducedMotion) {
+      ctx.fillStyle = 'rgba(201, 169, 110, 0.03)';
+      for (let i = 0; i < 50; i++) {
+        ctx.beginPath();
+        ctx.arc(
+          Math.random() * window.innerWidth,
+          Math.random() * window.innerHeight,
+          Math.random() * 1.5 + 0.5,
+          0, Math.PI * 2
+        );
+        ctx.fill();
+      }
+      return () => window.removeEventListener('resize', resize);
+    }
 
     for (let i = 0; i < STAR_COUNT; i++) {
       const isGold = Math.random() > 0.7;

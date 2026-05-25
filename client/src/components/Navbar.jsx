@@ -19,6 +19,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { cartCount } = useCart();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -63,14 +65,21 @@ export default function Navbar() {
                   {cat.name}
                 </Link>
               ))}
-              <div className="relative group">
-                <button className="flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium">
+              <div className="relative"
+                onMouseEnter={() => setMoreOpen(true)}
+                onMouseLeave={() => setMoreOpen(false)}>
+                <button onClick={() => setMoreOpen(!moreOpen)}
+                  className="flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium"
+                  aria-expanded={moreOpen} aria-haspopup="true">
                   <span>More</span>
-                  <HiOutlineChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />
+                  <HiOutlineChevronDown className={`w-3 h-3 transition-transform duration-300 ${moreOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-[#080816]/95 backdrop-blur-2xl border border-white/[0.06] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/50">
+                <div className={`absolute top-full left-0 mt-2 w-48 bg-[#080816]/95 backdrop-blur-2xl border border-white/[0.06] transition-all duration-300 shadow-2xl shadow-black/50 ${
+                  moreOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}>
                   {categories.slice(3).map((cat) => (
                     <Link key={cat.name} to={cat.path}
+                      onClick={() => setMoreOpen(false)}
                       className="block px-6 py-3 text-xs text-white/50 hover:text-gold-500 hover:bg-white/[0.02] transition-colors duration-200 uppercase tracking-[0.15em]">
                       {cat.name}
                     </Link>
@@ -84,16 +93,21 @@ export default function Navbar() {
             </Link>
 
             <div className="flex items-center space-x-1 sm:space-x-3">
-              <button onClick={() => setSearchOpen(!searchOpen)}
+              <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search"
                 className="btn-ghost text-xl">
                 <HiOutlineSearch />
               </button>
               {user ? (
-                <div className="relative group hidden sm:block">
-                  <button className="btn-ghost text-xl">
+                <div className="relative hidden sm:block"
+                  onMouseEnter={() => setUserMenuOpen(true)}
+                  onMouseLeave={() => setUserMenuOpen(false)}>
+                  <button onClick={() => setUserMenuOpen(!userMenuOpen)} aria-label="User menu"
+                    className="btn-ghost text-xl">
                     <HiOutlineUser />
                   </button>
-                  <div className="absolute right-0 top-full mt-2 w-56 bg-[#080816]/95 backdrop-blur-2xl border border-white/[0.06] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/50">
+                  <div className={`absolute right-0 top-full mt-2 w-56 bg-[#080816]/95 backdrop-blur-2xl border border-white/[0.06] transition-all duration-300 shadow-2xl shadow-black/50 ${
+                    userMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}>
                     <div className="px-6 py-3 border-b border-white/5">
                       <p className="text-[10px] text-white/40 uppercase tracking-widest">Welcome</p>
                       <p className="text-sm font-medium text-white/80 mt-1">{user.name}</p>
@@ -108,7 +122,7 @@ export default function Navbar() {
                   <HiOutlineUser />
                 </Link>
               )}
-              <button onClick={toggleCartDrawer}
+              <button onClick={toggleCartDrawer} aria-label="Open cart"
                 className="btn-ghost text-xl relative">
                 <HiOutlineShoppingBag />
                 {cartCount > 0 && (

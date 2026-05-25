@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiOutlineMinus, HiOutlinePlus, HiOutlineShoppingBag, HiOutlineHeart, HiStar, HiShieldCheck, HiTruck, HiRefresh } from 'react-icons/hi';
 import { productAPI } from '../utils/api';
@@ -9,6 +9,7 @@ import ProductCard from '../components/ProductCard';
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [related, setRelated] = useState([]);
@@ -47,9 +48,9 @@ export default function ProductDetail() {
   };
 
   const handleBuyNow = () => {
-    handleAddToCart();
-    const event = new CustomEvent('toggleCart');
-    setTimeout(() => window.dispatchEvent(event), 300);
+    if (!product) return;
+    addToCart(product, selectedSize, selectedColor, quantity);
+    navigate('/checkout');
   };
 
   if (loading) {
@@ -121,7 +122,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-4 gap-4">
               {[0, 1, 2, 3].map((i) => (
                 <div key={i} className="aspect-square bg-[#060610] overflow-hidden cursor-pointer border border-transparent hover:border-gold-500/40 transition-colors">
-                  <img src={product.images[0]} alt=""
+                  <img src={product.images[i] || product.images[0]} alt=""
                     className="w-full h-full object-cover"
                     onError={(e) => { e.target.style.display = 'none'; }} />
                 </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiOutlineCheck, HiOutlineCreditCard, HiOutlineLocationMarker, HiOutlineUser, HiOutlineDeviceMobile } from 'react-icons/hi';
@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import { orderAPI } from '../utils/api';
 import { formatINR, formatINRDecimal } from '../utils/currency';
 
-const indianStates = ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Delhi','Chandigarh','Puducherry'];
+const indianStates = ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu & Kashmir','Jharkhand','Karnataka','Kerala','Ladakh','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman & Nicobar','Chandigarh','Dadra & Nagar Haveli','Daman & Diu','Delhi','Lakshadweep','Puducherry'];
 
 export default function Checkout() {
   const navigate = useNavigate();
@@ -16,19 +16,57 @@ export default function Checkout() {
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', phone: '',
-    address: '', city: '', state: '', zip: '', country: 'India',
-    paymentMethod: 'upi',
-    cardName: '', cardNumber: '', expDate: '', cvv: '',
-    upiId: '',
+  const [form, setForm] = useState(() => {
+    const saved = sessionStorage.getItem('checkoutForm');
+    return saved ? JSON.parse(saved) : {
+      firstName: '', lastName: '', email: '', phone: '',
+      address: '', city: '', state: '', zip: '', country: 'India',
+      paymentMethod: 'upi',
+      cardName: '', cardNumber: '', expDate: '', cvv: '',
+      upiId: '',
+    };
   });
 
-  const updateForm = (field) => (e) => setForm({ ...form, [field]: e.target.value });
+  const updateForm = (field) => (e) => {
+    const updated = { ...form, [field]: e.target.value };
+    setForm(updated);
+    sessionStorage.setItem('checkoutForm', JSON.stringify(updated));
+  };
+
+  const formatCardNumber = (val) => {
+    const digits = val.replace(/\D/g, '').slice(0, 16);
+    return digits.replace(/(\d{4})(?=\d)/g, '$1 ');
+  };
+
+  const formatExpDate = (val) => {
+    const digits = val.replace(/\D/g, '').slice(0, 4);
+    if (digits.length > 2) return digits.slice(0, 2) + '/' + digits.slice(2);
+    return digits;
+  };
+
+  useEffect(() => {
+    return () => sessionStorage.removeItem('checkoutForm');
+  }, []);
+
+  const validateForm = () => {
+    if (!form.phone || !/^[6-9]\d{9}$/.test(form.phone)) return 'Please enter a valid 10-digit Indian phone number.';
+    if (!form.zip || !/^\d{6}$/.test(form.zip)) return 'Please enter a valid 6-digit PIN code.';
+    if (form.paymentMethod === 'card') {
+      const digits = form.cardNumber.replace(/\s/g, '');
+      if (digits.length < 13 || digits.length > 16) return 'Please enter a valid card number.';
+      if (!form.expDate || form.expDate.length < 5) return 'Please enter a valid expiry date.';
+      if (!form.cvv || form.cvv.length < 3) return 'Please enter a valid CVV.';
+    }
+    if (form.paymentMethod === 'upi' && !form.upiId) return 'Please enter your UPI ID.';
+    return null;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const error = validateForm();
+    if (error) { alert(error); return; }
     if (!user) {
+      sessionStorage.setItem('checkoutForm', JSON.stringify(form));
       navigate('/auth?redirect=/checkout');
       return;
     }
@@ -45,6 +83,7 @@ export default function Checkout() {
         total: cartTotal,
       });
       setSuccess(true);
+      sessionStorage.removeItem('checkoutForm');
       clearCart();
     } catch (err) {
       console.error('Order failed:', err);
@@ -53,6 +92,12 @@ export default function Checkout() {
       setSubmitting(false);
     }
   };
+
+  const shippingCost = cartTotal > 20000 ? 0 : 499;
+  const gst = Math.round(cartTotal * 0.12);
+  const grandTotal = cartTotal + shippingCost + gst;
+
+  const GSTAmount = (amount) => formatINRDecimal(amount);
 
   if (success) {
     return (
@@ -147,7 +192,7 @@ export default function Checkout() {
                     <input disabled={submitting} required placeholder="First Name" value={form.firstName} onChange={updateForm('firstName')} className="input-field" />
                     <input disabled={submitting} required placeholder="Last Name" value={form.lastName} onChange={updateForm('lastName')} className="input-field" />
                     <input disabled={submitting} required type="email" placeholder="Email" value={form.email} onChange={updateForm('email')} className="input-field" />
-                    <input disabled={submitting} required placeholder="Phone" value={form.phone} onChange={updateForm('phone')} className="input-field" />
+                    <input disabled={submitting} required type="tel" placeholder="Phone (10-digit)" pattern="[6-9][0-9]{9}" maxLength={10} value={form.phone} onChange={updateForm('phone')} className="input-field" />
                     <div className="sm:col-span-2">
                       <input disabled={submitting} required placeholder="Address" value={form.address} onChange={updateForm('address')} className="input-field" />
                     </div>
@@ -158,7 +203,11 @@ export default function Checkout() {
                         <option key={s} value={s} className="bg-[#080816]">{s}</option>
                       ))}
                     </select>
-                    <input disabled={submitting} required placeholder="PIN Code" value={form.zip} onChange={updateForm('zip')} maxLength={6} className="input-field" />
+                    <input disabled={submitting} required type="text" placeholder="PIN Code" pattern="[0-9]{6}" value={form.zip} onChange={(e) => {
+                      const v = e.target.value.replace(/\D/g, '').slice(0, 6);
+                      setForm({ ...form, zip: v });
+                      sessionStorage.setItem('checkoutForm', JSON.stringify({ ...form, zip: v }));
+                    }} className="input-field" />
                     <input disabled={submitting} required placeholder="Country" value={form.country} onChange={updateForm('country')} className="input-field" />
                   </div>
                   <button type="button" onClick={() => setStep(2)}
@@ -211,10 +260,13 @@ export default function Checkout() {
                         <input disabled={submitting} required placeholder="Name on Card" value={form.cardName} onChange={updateForm('cardName')} className="input-field" />
                       </div>
                       <div className="sm:col-span-2">
-                        <input disabled={submitting} required placeholder="Card Number" maxLength={19} value={form.cardNumber} onChange={updateForm('cardNumber')} className="input-field" />
+                        <input disabled={submitting} required placeholder="Card Number" maxLength={19} value={form.cardNumber} onChange={(e) => setForm({ ...form, cardNumber: formatCardNumber(e.target.value) })} className="input-field" />
                       </div>
-                      <input disabled={submitting} required placeholder="MM/YY" maxLength={5} value={form.expDate} onChange={updateForm('expDate')} className="input-field" />
-                      <input disabled={submitting} required placeholder="CVV" maxLength={4} value={form.cvv} onChange={updateForm('cvv')} className="input-field" />
+                      <input disabled={submitting} required placeholder="MM/YY" maxLength={5} value={form.expDate} onChange={(e) => setForm({ ...form, expDate: formatExpDate(e.target.value) })} className="input-field" />
+                      <input disabled={submitting} required type="password" placeholder="CVV" maxLength={4} value={form.cvv} onChange={(e) => {
+                        const v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                        setForm({ ...form, cvv: v });
+                      }} className="input-field" />
                     </div>
                   )}
 
@@ -269,7 +321,7 @@ export default function Checkout() {
                       className="btn-outline text-sm tracking-[0.2em]">Back</button>
                     <button type="submit" disabled={submitting}
                       className="btn-primary flex-1 flex items-center justify-center gap-2 text-sm tracking-[0.2em]">
-                      {submitting ? 'Processing...' : `Pay ${formatINRDecimal(cartTotal + (cartTotal > 20000 ? 0 : 499) + cartTotal * 0.12)}`}
+                      {submitting ? 'Processing...' : `Pay ${GSTAmount(grandTotal)}`}
                     </button>
                   </div>
                 </motion.div>
@@ -308,13 +360,13 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/30">GST (12%)</span>
-                  <span className="text-white/70">{formatINRDecimal(cartTotal * 0.12)}</span>
+                  <span className="text-white/70">{GSTAmount(gst)}</span>
                 </div>
                 <hr className="border-white/5" />
                 <div className="flex justify-between">
                   <span className="text-white/60 text-sm font-medium">Total</span>
                   <span className="text-xl font-serif text-gold-500/90 font-bold">
-                    {formatINRDecimal(cartTotal + (cartTotal > 20000 ? 0 : 499) + cartTotal * 0.12)}
+                    {GSTAmount(grandTotal)}
                   </span>
                 </div>
               </div>

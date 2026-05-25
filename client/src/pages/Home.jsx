@@ -7,48 +7,48 @@ import ProductCard from '../components/ProductCard';
 
 const heroSlides = [
   {
-    title: 'Gear Up for Greatness',
-    subtitle: 'Premium Sportswear & Performance Gear for Champions',
-    cta: 'Explore Sportswear',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1920',
+    title: 'Supreme Athleticism',
+    subtitle: 'Elite Sportswear Engineered for Peak Performance',
+    cta: 'Explore Performance Gear',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920',
     align: 'left',
-    pos: 'center 40%',
+    pos: 'center 30%',
     link: '/shop?category=Footwear',
   },
   {
-    title: 'Power Dressing Redefined',
-    subtitle: 'Sharp Formal Attire for the Boardroom & Beyond',
-    cta: 'Shop Formal Wear',
-    image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=1920',
+    title: 'The Power of Formality',
+    subtitle: 'Impeccable Tailoring for the Discerning Professional',
+    cta: 'Discover Formal Collection',
+    image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=1920',
     align: 'right',
     pos: 'center 30%',
     link: '/shop?category=Tops',
   },
   {
-    title: 'Everyday Essentials',
-    subtitle: 'Curated Casual Fashion for the Modern Man',
-    cta: 'Shop Casual Wear',
-    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1920',
+    title: 'Refined Casual',
+    subtitle: 'Effortless Luxury for Life\'s Unscripted Moments',
+    cta: 'Explore Casual Edit',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920',
     align: 'left',
-    pos: 'center 30%',
-    link: '/shop?category=Tops',
+    pos: 'center 40%',
+    link: '/shop?category=Bottoms',
   },
   {
-    title: 'Heritage of Elegance',
-    subtitle: 'Exquisite Indian Wedding & Festive Attire for the Discerning Gentleman',
-    cta: 'Explore Ethnic Wear',
-    image: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1920',
+    title: 'Royal Heritage',
+    subtitle: 'Opulent Indian Wedding & Festive Ensembles',
+    cta: 'View Ethnic Collection',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1920',
     align: 'right',
-    pos: 'center',
+    pos: 'center 25%',
     link: '/shop?category=Accessories',
   },
   {
-    title: 'Fresh Styles for the Young',
-    subtitle: 'Trendsetting Fashion for Teens & Young Adults',
-    cta: 'Shop Now',
-    image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1920',
+    title: 'The Next Generation',
+    subtitle: 'Bold Styles for the Ambitious Young Gentleman',
+    cta: 'Shop Collection',
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1920',
     align: 'center',
-    pos: 'center 35%',
+    pos: 'center 30%',
     link: '/shop',
   },
 ];
@@ -73,6 +73,8 @@ export default function Home() {
   const [featured, setFeatured] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const [newsletterStatus, setNewsletterStatus] = useState(null);
   const featuredRef = useRef(null);
 
   useEffect(() => {
@@ -94,11 +96,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const scrollFeatured = (dir) => {
     if (featuredRef.current) {
@@ -109,7 +112,9 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px] overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}>
         {heroSlides.map((slide, i) => (
           <div
             key={i}
@@ -404,11 +409,27 @@ export default function Home() {
             <p className="text-white/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const email = e.target.elements[0].value.trim();
+              if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                setNewsletterStatus('error');
+                return;
+              }
+              setNewsletterStatus('success');
+              e.target.reset();
+              setTimeout(() => setNewsletterStatus(null), 4000);
+            }} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input type="email" placeholder="Enter your email"
                 className="input-field flex-1 text-center sm:text-left text-sm" />
               <button type="submit" className="btn-primary whitespace-nowrap text-sm tracking-[0.2em] px-10">Subscribe</button>
             </form>
+            {newsletterStatus === 'success' && (
+              <p className="text-green-400 text-xs mt-4 tracking-wide">Thank you! You've been subscribed.</p>
+            )}
+            {newsletterStatus === 'error' && (
+              <p className="text-red-400 text-xs mt-4 tracking-wide">Please enter a valid email address.</p>
+            )}
           </motion.div>
         </div>
       </section>

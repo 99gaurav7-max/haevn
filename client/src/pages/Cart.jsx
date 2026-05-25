@@ -46,7 +46,7 @@ export default function Cart() {
           <div className="lg:col-span-2 space-y-4">
             {cart.map((item, index) => (
               <motion.div
-                key={index}
+                key={`${item.id}-${item.size}-${item.color}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}

@@ -96,9 +96,14 @@ export default function ProductCard({ product, index = 0 }) {
                   if (c.includes(key)) { bg = colorMap[key]; break; }
                 }
               }
+              const isLight = ['white', 'cream', 'beige', 'tan'].some(k => c.includes(k));
               return (
-                <span key={color} className="w-3 h-3 rounded-full border border-white/10"
-                  style={{ backgroundColor: bg }}
+                <span key={color} className="w-3 h-3 rounded-full"
+                  style={{
+                    backgroundColor: bg,
+                    border: isLight ? '1px solid rgba(255,255,255,0.3)' : '1px solid rgba(255,255,255,0.1)',
+                  }}
+                  title={color}
                 />
               );
             })}

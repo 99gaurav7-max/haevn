@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 
+const socialLinks = {
+  IG: 'https://instagram.com', TW: 'https://twitter.com',
+  FB: 'https://facebook.com', YT: 'https://youtube.com',
+};
+
 export default function Footer() {
   return (
     <footer className="bg-[#05050f] border-t border-white/5">
@@ -14,9 +19,11 @@ export default function Footer() {
             </p>
             <div className="mt-8 flex space-x-3">
               {['IG', 'TW', 'FB', 'YT'].map((s) => (
-                <span key={s} className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/30 text-[10px] hover:border-gold-500/50 hover:text-gold-500 transition-all duration-500 cursor-pointer uppercase tracking-widest font-medium">
+                <a key={s} href={socialLinks[s]} target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/30 text-[10px] hover:border-gold-500/50 hover:text-gold-500 transition-all duration-500 uppercase tracking-widest font-medium"
+                  aria-label={`Follow us on ${s}`}>
                   {s}
-                </span>
+                </a>
               ))}
             </div>
           </div>
@@ -47,10 +54,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-[10px] uppercase tracking-[0.2em]">&copy; 2024 HAEVN. All rights reserved.</p>
+          <p className="text-white/20 text-[10px] uppercase tracking-[0.2em]">&copy; {new Date().getFullYear()} HAEVN. All rights reserved.</p>
           <div className="flex space-x-8">
-            <span className="text-white/20 text-[10px] uppercase tracking-[0.2em] hover:text-white/40 cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="text-white/20 text-[10px] uppercase tracking-[0.2em] hover:text-white/40 cursor-pointer transition-colors">Terms of Service</span>
+            <Link to="/privacy" className="text-white/20 text-[10px] uppercase tracking-[0.2em] hover:text-white/40 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-white/20 text-[10px] uppercase tracking-[0.2em] hover:text-white/40 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
