@@ -7,48 +7,48 @@ import ProductCard from '../components/ProductCard';
 
 const heroSlides = [
   {
-    title: 'Complete Sports Collection',
-    subtitle: 'Premium Equipment Across Football, Tennis, Basketball & Cricket',
-    cta: 'Explore Sports Gear',
-    image: 'https://images.unsplash.com/photo-1692626343802-3ee09e648120?w=1920',
+    title: 'The Pursuit of Excellence',
+    subtitle: 'Where Discipline Meets Distinction',
+    cta: 'Explore Performance',
+    image: 'https://images.unsplash.com/photo-1637430308606-86576d8fef3c?w=1920',
     align: 'left',
-    pos: 'center 35%',
+    pos: 'center 30%',
     link: '/shop?category=Footwear',
   },
   {
-    title: 'Power Dressing',
-    subtitle: 'Impeccable Formal Attire for the High-Stakes Professional',
-    cta: 'Discover Formal Wear',
+    title: 'Architect of Success',
+    subtitle: 'Impeccable Tailoring for Those Who Command the Room',
+    cta: 'Discover Formal',
     image: 'https://images.unsplash.com/photo-1771244670407-42e9585ab333?w=1920',
     align: 'right',
-    pos: 'center 40%',
+    pos: 'center 35%',
     link: '/shop?category=Tops',
   },
   {
-    title: 'Urban Street Style',
-    subtitle: 'Confident Casual Looks for the New York State of Mind',
-    cta: 'Shop Casual Edit',
-    image: 'https://images.unsplash.com/photo-1761301006152-0396c08f3b8a?w=1920',
+    title: 'Effortless Refinement',
+    subtitle: 'Luxury Casual for Life\'s Unscripted Moments',
+    cta: 'Shop Casual',
+    image: 'https://images.unsplash.com/photo-1742519902469-3a8a1bd54197?w=1920',
     align: 'left',
-    pos: 'center 40%',
-    link: '/shop?category=Bottoms',
+    pos: 'center 35%',
+    link: '/shop?category=Tops',
   },
   {
-    title: 'Youth in Motion',
-    subtitle: 'Vibrant Styles for the Energetic & Ambitious Young',
-    cta: 'Shop Kid\'s Collection',
-    image: 'https://images.unsplash.com/photo-1777489689168-497290f235d5?w=1920',
+    title: 'The New Guard',
+    subtitle: 'Bold Ambition. Fearless Style.',
+    cta: 'Shop Youth Collection',
+    image: 'https://images.unsplash.com/photo-1774542583509-a4471c0af45f?w=1920',
     align: 'right',
-    pos: 'center 35%',
+    pos: 'center 40%',
     link: '/shop',
   },
   {
-    title: 'Timeless Elegance',
-    subtitle: 'Refined Sophistication for the Distinguished Gentleman',
-    cta: 'Explore Premium Collection',
-    image: 'https://images.unsplash.com/photo-1761773916036-259709de5c2c?w=1920',
-    align: 'center',
-    pos: 'center 30%',
+    title: 'A Life Well Lived',
+    subtitle: 'Timeless Elegance for the Distinguished Gentleman',
+    cta: 'Explore Heritage',
+    image: 'https://images.unsplash.com/photo-1722369789061-2b9f10ce1880?w=1920',
+    align: 'left',
+    pos: 'center 25%',
     link: '/shop',
   },
 ];
@@ -115,48 +115,65 @@ export default function Home() {
       <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px] overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}>
-        {heroSlides.map((slide, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-all duration-1500 ease-out ${
-              i === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#05050f]/95 via-[#05050f]/70 to-[#05050f]/20 z-10" />
-            <img src={slide.image} alt="" loading={i === 0 ? 'eager' : 'lazy'} className="w-full h-full object-cover"
-              style={{ objectPosition: slide.pos || 'center' }}
-              onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
-          </div>
-        ))}
+        {heroSlides.map((slide, i) => {
+          const gradDir = slide.align === 'right' ? 'to left' : 'to right';
+          const gradBase = slide.align === 'center'
+            ? 'rgba(5,5,15,0.75) 0%, rgba(5,5,15,0.5) 30%, rgba(5,5,15,0.5) 70%, rgba(5,5,15,0.75) 100%'
+            : slide.align === 'right'
+              ? 'rgba(5,5,15,0.92) 0%, rgba(5,5,15,0.6) 35%, rgba(5,5,15,0.05) 70%, transparent 100%'
+              : 'rgba(5,5,15,0.92) 0%, rgba(5,5,15,0.6) 35%, rgba(5,5,15,0.05) 70%, transparent 100%';
+          return (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-all duration-1500 ease-out ${
+                i === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              }`}
+            >
+              <div className="absolute inset-0 z-10"
+                style={{
+                  background: `
+                    linear-gradient(to top, rgba(5,5,15,0.85) 0%, rgba(5,5,15,0.25) 40%, transparent 65%),
+                    linear-gradient(${gradDir}, ${gradBase})
+                  `
+                }}
+              />
+              <img src={slide.image} alt="" loading={i === 0 ? 'eager' : 'lazy'} className="w-full h-full object-cover"
+                style={{ objectPosition: slide.pos || 'center' }}
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
+            </div>
+          );
+        })}
 
-        <div className="relative z-20 h-full flex items-center">
+        <div className="relative z-20 h-full flex items-end sm:items-center pb-20 sm:pb-0">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className={`max-w-2xl ${
+              className={`max-w-xl lg:max-w-2xl ${
                 heroSlides[currentSlide].align === 'right' ? 'ml-auto text-right' :
                 heroSlides[currentSlide].align === 'center' ? 'mx-auto text-center' : ''
               }`}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-12 gold-gradient" />
-                <p className="text-gold-500/80 text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <div className="h-px w-8 sm:w-12 gold-gradient" />
+                <p className="text-gold-500/80 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
               </div>
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-serif font-bold text-white/95 leading-[1.05] tracking-tight">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white/95 leading-[1.05] tracking-tight">
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-lg sm:text-xl text-white/40 mt-6 max-w-xl leading-relaxed font-light tracking-wide">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/50 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide">
                 {heroSlides[currentSlide].subtitle}
               </p>
-              <div className="flex gap-4 mt-10">
-                <Link to={heroSlides[currentSlide].link || '/shop'} className="btn-primary text-sm px-10 py-4 flex items-center gap-2 group tracking-[0.2em]">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
+                <Link to={heroSlides[currentSlide].link || '/shop'}
+                  className="btn-primary text-xs sm:text-sm px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 group tracking-[0.2em]">
                   {heroSlides[currentSlide].cta}
-                  <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform hidden sm:inline" />
                 </Link>
-                <Link to="/shop" className="btn-outline text-sm px-10 py-4 tracking-[0.2em]">
+                <Link to="/shop"
+                  className="btn-outline text-xs sm:text-sm px-6 sm:px-10 py-3 sm:py-4 tracking-[0.2em] text-center">
                   All Collections
                 </Link>
               </div>
@@ -164,13 +181,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+        <div className="absolute bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 sm:gap-4">
           {heroSlides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
               className={`transition-all duration-500 ${
-                i === currentSlide ? 'w-16 h-[2px] gold-gradient' : 'w-8 h-[1px] bg-white/20 hover:bg-white/40'
+                i === currentSlide ? 'w-10 sm:w-16 h-[2px] gold-gradient' : 'w-5 sm:w-8 h-[1px] bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
