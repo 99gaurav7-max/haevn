@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { HiOutlineArrowRight, HiOutlineChevronLeft, HiOutlineChevronRight, HiStar, HiShieldCheck, HiTruck, HiRefresh } from 'react-icons/hi';
+import { HiOutlineArrowRight, HiOutlineChevronLeft, HiOutlineChevronRight, HiShieldCheck, HiTruck, HiRefresh } from 'react-icons/hi';
 import { productAPI } from '../utils/api';
 import ProductCard from '../components/ProductCard';
 
@@ -10,43 +10,43 @@ const heroSlides = [
     title: 'The Pursuit of Excellence',
     subtitle: 'Where Discipline Meets Distinction',
     cta: 'Explore Performance',
-    image: 'https://images.unsplash.com/photo-1637430308606-86576d8fef3c?w=1920',
+    image: 'https://i.pinimg.com/736x/0a/2d/09/0a2d0915f72e456f38422fcf77f3b796.jpg',
     align: 'left',
-    pos: 'center 30%',
+    pos: 'center 50%',
     link: '/shop?category=Footwear',
   },
   {
     title: 'Architect of Success',
     subtitle: 'Impeccable Tailoring for Those Who Command the Room',
     cta: 'Discover Formal',
-    image: 'https://images.unsplash.com/photo-1771244670407-42e9585ab333?w=1920',
+    image: 'https://i.pinimg.com/736x/bd/5d/81/bd5d812d92b55695b3691a09b2c681ce.jpg',
     align: 'right',
-    pos: 'center 35%',
+    pos: 'center 40%',
     link: '/shop?category=Tops',
   },
   {
     title: 'Effortless Refinement',
     subtitle: 'Luxury Casual for Life\'s Unscripted Moments',
     cta: 'Shop Casual',
-    image: 'https://images.unsplash.com/photo-1742519902469-3a8a1bd54197?w=1920',
+    image: 'https://i.pinimg.com/736x/31/b2/5e/31b25ecd5c46949c64483a0b9ef2bac4.jpg',
     align: 'left',
-    pos: 'center 35%',
+    pos: 'center 50%',
     link: '/shop?category=Tops',
   },
   {
     title: 'The New Guard',
     subtitle: 'Bold Ambition. Fearless Style.',
     cta: 'Shop Youth Collection',
-    image: 'https://images.unsplash.com/photo-1774542583509-a4471c0af45f?w=1920',
+    image: 'https://i.pinimg.com/736x/0a/a9/6e/0aa96ef1be6d6dbce6442f36d0b4a321.jpg',
     align: 'right',
-    pos: 'center 40%',
+    pos: 'center 50%',
     link: '/shop',
   },
   {
     title: 'A Life Well Lived',
     subtitle: 'Timeless Elegance for the Distinguished Gentleman',
     cta: 'Explore Heritage',
-    image: 'https://images.unsplash.com/photo-1722369789061-2b9f10ce1880?w=1920',
+    image: 'https://i.pinimg.com/736x/cd/71/29/cd7129bdad2628e49c3b59f62d71f18f.jpg',
     align: 'left',
     pos: 'center 25%',
     link: '/shop',
@@ -54,19 +54,15 @@ const heroSlides = [
 ];
 
 const categories = [
-  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1514327605050-0295e3c02d9b?w=600', items: '12 Items' },
-  { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600', items: '8 Items' },
-  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600', items: '24 Items' },
-  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=600', items: '18 Items' },
-  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1614252369475-5f6cb61c0d12?w=600', items: '16 Items' },
-  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600', items: '32 Items' },
+  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?w=600', items: '12 Items' },
+  { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600', items: '8 Items' },
+  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600', items: '24 Items' },
+  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1593030103060-c3cbd35a5540?w=600', items: '18 Items' },
+  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1608236415055-6c47395c5531?w=600', items: '16 Items' },
+  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600', items: '32 Items' },
 ];
 
-const testimonials = [
-  { name: 'James R.', text: 'The quality of HAEVN exceeds every expectation. From the packaging to the product itself — pure excellence.', rating: 5, title: 'CEO, Meridian Capital' },
-  { name: 'Alexander K.', text: 'Finally, a brand that understands what true luxury means for men. My entire wardrobe is HAEVN now.', rating: 5, title: 'Creative Director' },
-  { name: 'Marcus T.', text: 'The attention to detail is remarkable. These pieces don\'t just look good — they feel extraordinary.', rating: 5, title: 'Architect' },
-];
+
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -118,10 +114,10 @@ export default function Home() {
         {heroSlides.map((slide, i) => {
           const gradDir = slide.align === 'right' ? 'to left' : 'to right';
           const gradBase = slide.align === 'center'
-            ? 'rgba(5,5,15,0.75) 0%, rgba(5,5,15,0.5) 30%, rgba(5,5,15,0.5) 70%, rgba(5,5,15,0.75) 100%'
+            ? 'rgba(13,13,26,0.75) 0%, rgba(13,13,26,0.5) 30%, rgba(13,13,26,0.5) 70%, rgba(13,13,26,0.75) 100%'
             : slide.align === 'right'
-              ? 'rgba(5,5,15,0.92) 0%, rgba(5,5,15,0.6) 35%, rgba(5,5,15,0.05) 70%, transparent 100%'
-              : 'rgba(5,5,15,0.92) 0%, rgba(5,5,15,0.6) 35%, rgba(5,5,15,0.05) 70%, transparent 100%';
+              ? 'rgba(13,13,26,0.92) 0%, rgba(13,13,26,0.6) 35%, rgba(13,13,26,0.05) 70%, transparent 100%'
+              : 'rgba(13,13,26,0.92) 0%, rgba(13,13,26,0.6) 35%, rgba(13,13,26,0.05) 70%, transparent 100%';
           return (
             <div
               key={i}
@@ -132,7 +128,7 @@ export default function Home() {
               <div className="absolute inset-0 z-10"
                 style={{
                   background: `
-                    linear-gradient(to top, rgba(5,5,15,0.85) 0%, rgba(5,5,15,0.25) 40%, transparent 65%),
+                    linear-gradient(to top, rgba(13,13,26,0.85) 0%, rgba(13,13,26,0.25) 40%, transparent 65%),
                     linear-gradient(${gradDir}, ${gradBase})
                   `
                 }}
@@ -195,11 +191,11 @@ export default function Home() {
       </section>
 
       {/* Features Bar */}
-      <section className="border-y border-white/5 bg-[#05050f]/80">
+      <section className="border-y border-navy-500/8 bg-warm-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: HiTruck, title: 'Free Shipping', desc: 'On all orders over ₹20,000' },
+              { icon: HiTruck, title: 'Free Shipping', desc: 'On all orders over â‚¹20,000' },
               { icon: HiShieldCheck, title: 'Authenticity Guaranteed', desc: '100% genuine luxury products' },
               { icon: HiRefresh, title: '30-Day Returns', desc: 'Hassle-free, no questions asked' },
             ].map(({ icon: Icon, title, desc }) => (
@@ -208,8 +204,8 @@ export default function Home() {
                   <Icon className="text-gold-500/80 text-xl" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.2em] text-white/70 font-medium">{title}</h4>
-                  <p className="text-[10px] text-white/30 mt-1 tracking-wide">{desc}</p>
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-navy-500/70 font-medium">{title}</h4>
+                  <p className="text-[10px] text-navy-500/30 mt-1 tracking-wide">{desc}</p>
                 </div>
               </div>
             ))}
@@ -245,11 +241,11 @@ export default function Home() {
                   <img src={cat.image} alt={cat.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     onError={(e) => { e.target.src = `https://placehold.co/600x800/1a1a2e/C9A96E?text=${cat.name}`; }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#05050f]/90 via-[#05050f]/30 to-transparent" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D1A]/90 via-[#0D0D1A]/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <p className="text-gold-500/60 text-[9px] uppercase tracking-[0.25em] mb-2 font-medium">{cat.items}</p>
                     <h3 className="text-3xl font-serif text-white/90 group-hover:text-gold-500 transition-colors duration-300">{cat.name}</h3>
-                    <p className="text-white/40 text-sm mt-2 font-light tracking-wide">{cat.desc}</p>
+                    <p className="text-white/60 text-sm mt-2 font-light tracking-wide">{cat.desc}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -259,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-28 bg-[#05050f]/80">
+      <section className="py-28 bg-warm-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -269,16 +265,16 @@ export default function Home() {
           >
             <div>
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Editor's Pick</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white/90">Featured Selections</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy-500/90">Featured Selections</h2>
               <div className="divider-left mt-4" />
             </div>
             <div className="hidden sm:flex space-x-2">
               <button onClick={() => scrollFeatured(-1)}
-                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-navy-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronLeft />
               </button>
               <button onClick={() => scrollFeatured(1)}
-                className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-navy-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronRight />
               </button>
             </div>
@@ -288,11 +284,11 @@ export default function Home() {
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="flex-shrink-0 w-[280px] snap-start">
-                  <div className="aspect-[3/4] bg-white/[0.02] animate-pulse" />
+                  <div className="aspect-[3/4] bg-navy-500/5 animate-pulse" />
                   <div className="p-4 space-y-2">
-                    <div className="h-3 w-16 bg-white/[0.02] animate-pulse" />
-                    <div className="h-4 w-40 bg-white/[0.02] animate-pulse" />
-                    <div className="h-4 w-20 bg-white/[0.02] animate-pulse" />
+                    <div className="h-3 w-16 bg-navy-500/5 animate-pulse" />
+                    <div className="h-4 w-40 bg-navy-500/5 animate-pulse" />
+                    <div className="h-4 w-20 bg-navy-500/5 animate-pulse" />
                   </div>
                 </div>
               ))
@@ -344,7 +340,7 @@ export default function Home() {
           <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=1920" alt=""
             className="w-full h-full object-cover"
             onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#05050f]/95 via-[#05050f]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D1A]/95 via-[#0D0D1A]/80 to-transparent" />
         </div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -372,48 +368,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-28 bg-[#05050f]/50">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Testimonials</p>
-            <h2 className="section-title">What Our Clients Say</h2>
-            <div className="divider" />
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="p-10 bg-white/[0.02] border border-white/[0.06] relative"
-              >
-                <div className="flex mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <HiStar key={j} className="text-gold-500/80 text-lg" />
-                  ))}
-                </div>
-                <p className="text-white/50 text-sm leading-relaxed font-light italic tracking-wide">"{t.text}"</p>
-                <div className="mt-8 pt-6 border-t border-white/5">
-                  <p className="text-white/70 text-sm font-medium">{t.name}</p>
-                  <p className="text-white/30 text-xs mt-1 tracking-wide">{t.title}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Newsletter */}
-      <section className="py-28 border-t border-white/5">
+      <section className="py-28 border-t border-navy-500/8">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -423,7 +381,7 @@ export default function Home() {
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Stay Connected</p>
             <h2 className="section-title">Join the Inner Circle</h2>
             <div className="divider" />
-            <p className="text-white/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
+            <p className="text-navy-500/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
             <form onSubmit={(e) => {

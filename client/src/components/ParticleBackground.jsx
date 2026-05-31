@@ -17,12 +17,12 @@ export default function ParticleBackground() {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
-      ctx.scale(dpr, dpr);
     };
     resize();
     window.addEventListener('resize', resize);
 
     if (prefersReducedMotion) {
+      ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
       ctx.fillStyle = 'rgba(201, 169, 110, 0.03)';
       for (let i = 0; i < 50; i++) {
         ctx.beginPath();
@@ -40,8 +40,8 @@ export default function ParticleBackground() {
     for (let i = 0; i < STAR_COUNT; i++) {
       const isGold = Math.random() > 0.7;
       stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
         r: Math.random() * 2.5 + 0.5,
         dx: (Math.random() - 0.5) * 0.15,
         dy: (Math.random() - 0.5) * 0.15,
@@ -54,8 +54,8 @@ export default function ParticleBackground() {
 
     const createShootingStar = () => {
       shootingStars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height * 0.3,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight * 0.3,
         len: Math.random() * 150 + 80,
         speed: Math.random() * 6 + 4,
         angle: Math.PI / 4 + Math.random() * Math.PI / 6,
@@ -67,7 +67,10 @@ export default function ParticleBackground() {
     let shootingStarTimer = 0;
 
     const draw = () => {
+      const dpr = window.devicePixelRatio || 1;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.scale(dpr, dpr);
 
       for (const star of stars) {
         star.alpha += star.alphaSpeed * star.alphaDir;
@@ -94,10 +97,10 @@ export default function ParticleBackground() {
         star.x += star.dx;
         star.y += star.dy;
 
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
+        if (star.x < 0) star.x = window.innerWidth;
+        if (star.x > window.innerWidth) star.x = 0;
+        if (star.y < 0) star.y = window.innerHeight;
+        if (star.y > window.innerHeight) star.y = 0;
       }
 
       shootingStarTimer++;

@@ -16,8 +16,8 @@
   body {
     @apply font-sans antialiased;
     min-height: 100vh;
-    color: #f0efe7;
-    background: #05050f;
+    color: #0D0D1A;
+    background: #FBF7F0;
   }
 
   ::-webkit-scrollbar {
@@ -25,7 +25,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #05050f;
+    background: #FBF7F0;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -38,8 +38,8 @@
   }
 
   ::selection {
-    background: rgba(201, 169, 110, 0.35);
-    color: #fff;
+    background: rgba(13, 13, 26, 0.15);
+    color: #0D0D1A;
   }
 }
 
@@ -65,17 +65,17 @@
   }
 
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06];
+    @apply bg-white/80 backdrop-blur-xl border border-navy-500/10;
   }
 
   .glass-gold {
-    @apply bg-gold-500/[0.06] backdrop-blur-xl border border-gold-500/20;
+    @apply bg-gold-500/10 backdrop-blur-xl border border-gold-500/20;
   }
 
   .glass-deep {
-    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 100%);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(13,13,26,0.08);
   }
 
   .btn-primary {
@@ -120,8 +120,8 @@
 
   .btn-outline {
     @apply px-8 py-3 font-medium tracking-wider uppercase text-xs;
-    border: 1px solid rgba(201, 169, 110, 0.4);
-    color: #C9A96E;
+    border: 1px solid rgba(13,13,26,0.3);
+    color: #0D0D1A;
     position: relative;
     overflow: hidden;
     transition: color 0.4s ease, border-color 0.4s ease;
@@ -151,31 +151,36 @@
   }
 
   .btn-ghost {
-    @apply px-6 py-2 text-white/50 hover:text-gold-500 transition-colors duration-300;
+    @apply px-6 py-2 transition-colors duration-300;
+    color: rgba(13,13,26,0.5);
+  }
+
+  .btn-ghost:hover {
+    @apply text-gold-500;
   }
 
   .input-field {
     @apply w-full px-4 py-3 text-sm;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: #f0efe7;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(13,13,26,0.12);
+    color: #0D0D1A;
     outline: none;
     transition: all 0.3s ease;
   }
 
   .input-field::placeholder {
-    color: rgba(255,255,255,0.2);
+    color: rgba(13,13,26,0.25);
   }
 
   .input-field:focus {
-    border-color: rgba(201, 169, 110, 0.4);
-    background: rgba(255,255,255,0.05);
-    box-shadow: 0 0 20px rgba(201, 169, 110, 0.08);
+    border-color: rgba(201, 169, 110, 0.5);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 20px rgba(201, 169, 110, 0.1);
   }
 
   .section-title {
     @apply font-serif text-4xl md:text-6xl font-bold;
-    background: linear-gradient(135deg, #f0efe7 0%, #C9A96E 50%, #f0efe7 100%);
+    background: linear-gradient(135deg, #0D0D1A 0%, #C9A96E 50%, #0D0D1A 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -183,7 +188,7 @@
   }
 
   .section-subtitle {
-    @apply text-white/40 text-lg mt-3 font-light tracking-wide;
+    @apply text-navy-500/40 text-lg mt-3 font-light tracking-wide;
   }
 
   .divider {
@@ -202,7 +207,7 @@
     transform: translate(-50%, -50%);
     color: #C9A96E;
     font-size: 10px;
-    background: #0a0a1a;
+    background: #FBF7F0;
     padding: 0 8px;
   }
 
@@ -219,8 +224,8 @@
   }
 
   .card-hover:hover {
-    box-shadow: 0 10px 40px rgba(201, 169, 110, 0.1);
-    border-color: rgba(201, 169, 110, 0.2);
+    box-shadow: 0 10px 40px rgba(201, 169, 110, 0.15);
+    border-color: rgba(201, 169, 110, 0.3);
   }
 
   .text-shimmer {

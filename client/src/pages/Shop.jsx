@@ -73,7 +73,7 @@ export default function Shop() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <div className="bg-[#05050f]/80 border-b border-white/5">
+      <div className="bg-warm-200 border-b border-navy-500/8">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,11 +82,11 @@ export default function Shop() {
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">
               {category || (search ? 'Search Results' : 'The Collection')}
             </p>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-white/90">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-navy-500/90">
               {category || (search ? `"${search}"` : 'All Products')}
             </h1>
             {search && (
-              <p className="text-white/30 text-sm mt-3 font-light">{products.length} results found</p>
+              <p className="text-navy-500/30 text-sm mt-3 font-light">{products.length} results found</p>
             )}
           </motion.div>
         </div>
@@ -105,7 +105,7 @@ export default function Shop() {
                   className="input-field text-xs"
                 >
                   {sortOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value} className="bg-[#080816]">{opt.label}</option>
+                    <option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>
                   ))}
                 </select>
               </div>
@@ -116,7 +116,7 @@ export default function Shop() {
                   <input type="number" placeholder="Min" value={minPrice}
                     onChange={(e) => updateParam('minPrice', e.target.value)}
                     className="input-field text-xs w-full" />
-                  <span className="text-white/20">—</span>
+                  <span className="text-navy-500/20">—</span>
                   <input type="number" placeholder="Max" value={maxPrice}
                     onChange={(e) => updateParam('maxPrice', e.target.value)}
                     className="input-field text-xs w-full" />
@@ -130,13 +130,13 @@ export default function Shop() {
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-white/50 group-hover:text-white/80 transition-colors">On Sale</span>
+                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80 transition-colors">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-white/50 group-hover:text-white/80 transition-colors">New Arrivals</span>
+                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80 transition-colors">New Arrivals</span>
                   </label>
                 </div>
               </div>
@@ -153,18 +153,18 @@ export default function Shop() {
           {/* Main Content */}
           <div className="flex-1">
             {/* Toolbar */}
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/5">
-              <p className="text-xs text-white/30 tracking-wide">
-                <span className="text-white/70">{products.length}</span> Products
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-navy-500/8">
+              <p className="text-xs text-navy-500/30 tracking-wide">
+                <span className="text-navy-500/70">{products.length}</span> Products
               </p>
               <div className="flex items-center gap-4">
-                <div className="hidden sm:flex border border-white/10">
+                <div className="hidden sm:flex border border-navy-500/10">
                   <button onClick={() => setViewMode('grid')}
-                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-white/5' : 'text-white/30 hover:text-white/60'}`}>
+                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-navy-500/30 hover:text-navy-500/60'}`}>
                     <HiOutlineViewGrid />
                   </button>
                   <button onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-white/5' : 'text-white/30 hover:text-white/60'}`}>
+                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-navy-500/30 hover:text-navy-500/60'}`}>
                     <HiOutlineViewList />
                   </button>
                 </div>
@@ -180,19 +180,19 @@ export default function Shop() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div key={i}>
-                    <div className="aspect-[3/4] bg-white/[0.02] animate-pulse" />
+                    <div className="aspect-[3/4] bg-navy-500/5 animate-pulse" />
                     <div className="p-4 space-y-2">
-                      <div className="h-3 w-16 bg-white/[0.02] animate-pulse" />
-                      <div className="h-4 w-40 bg-white/[0.02] animate-pulse" />
-                      <div className="h-4 w-20 bg-white/[0.02] animate-pulse" />
+                      <div className="h-3 w-16 bg-navy-500/5 animate-pulse" />
+                      <div className="h-4 w-40 bg-navy-500/5 animate-pulse" />
+                      <div className="h-4 w-20 bg-navy-500/5 animate-pulse" />
                     </div>
                   </div>
                 ))}
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-white/40 text-lg font-light">No products found</p>
-                <p className="text-white/20 text-sm mt-2 font-light">Try adjusting your filters</p>
+                <p className="text-navy-500/40 text-lg font-light">No products found</p>
+                <p className="text-navy-500/20 text-sm mt-2 font-light">Try adjusting your filters</p>
                 <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
               </div>
             ) : (
@@ -218,7 +218,7 @@ export default function Shop() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-navy-500/70 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setFilterOpen(false)}
             />
             <motion.div
@@ -226,13 +226,13 @@ export default function Shop() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-full w-80 bg-[#080816] border-r border-white/5 z-50 lg:hidden p-8 pt-24 overflow-y-auto"
+              className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto"
             >
               <button onClick={() => setFilterOpen(false)}
-                className="absolute top-6 right-6 text-white/30 hover:text-gold-500 transition-colors">
+                className="absolute top-6 right-6 text-navy-500/30 hover:text-gold-500 transition-colors">
                 <HiOutlineX className="text-xl" />
               </button>
-              <h3 className="text-lg font-serif text-white/80 mb-8 font-medium">Filters</h3>
+              <h3 className="text-lg font-serif text-navy-500/80 mb-8 font-medium">Filters</h3>
 
               <div className="space-y-8">
                 <div>
@@ -241,7 +241,7 @@ export default function Shop() {
                     onChange={(e) => updateParam('sort', e.target.value)}
                     className="input-field text-xs">
                     {sortOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#080816]">{opt.label}</option>
+                      <option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>
                     ))}
                   </select>
                 </div>
@@ -252,7 +252,7 @@ export default function Shop() {
                     <input type="number" placeholder="Min" value={minPrice}
                       onChange={(e) => updateParam('minPrice', e.target.value)}
                       className="input-field text-xs w-full" />
-                    <span className="text-white/20">—</span>
+                    <span className="text-navy-500/20">—</span>
                     <input type="number" placeholder="Max" value={maxPrice}
                       onChange={(e) => updateParam('maxPrice', e.target.value)}
                       className="input-field text-xs w-full" />
@@ -264,13 +264,13 @@ export default function Shop() {
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-white/50 group-hover:text-white/80">On Sale</span>
+                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-white/50 group-hover:text-white/80">New Arrivals</span>
+                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80">New Arrivals</span>
                   </label>
                 </div>
 
