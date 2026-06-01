@@ -16,10 +16,10 @@ export default function Cart() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="w-24 h-24 rounded-full bg-warm-200 border border-navy-500/10 flex items-center justify-center mx-auto mb-6">
-              <HiOutlineShoppingBag className="text-4xl text-navy-500/15" />
+              <HiOutlineShoppingBag className="text-4xl text-royal-blue-500/15" />
             </div>
-            <h1 className="text-3xl font-serif text-navy-500/80 mb-4">Your Cart is Empty</h1>
-            <p className="text-navy-500/30 text-sm font-light mb-8">Looks like you haven't added anything yet.</p>
+            <h1 className="text-3xl font-serif text-royal-blue-500/80 mb-4">Your Cart is Empty</h1>
+            <p className="text-royal-blue-500/30 text-sm font-light mb-8">Looks like you haven't added anything yet.</p>
             <Link to="/shop" className="btn-primary inline-flex items-center gap-2 text-sm tracking-[0.2em] px-10">
               <HiOutlineArrowLeft /> Continue Shopping
             </Link>
@@ -35,8 +35,8 @@ export default function Cart() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Your Selection</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-navy-500/90">Shopping Cart</h1>
-            <p className="text-navy-500/30 text-xs mt-3 tracking-wide">{cartCount} {cartCount === 1 ? 'item' : 'items'} in your cart</p>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Shopping Cart</h1>
+            <p className="text-royal-blue-500/30 text-xs mt-3 tracking-wide">{cartCount} {cartCount === 1 ? 'item' : 'items'} in your cart</p>
           </motion.div>
         </div>
       </div>
@@ -61,10 +61,10 @@ export default function Cart() {
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="text-[9px] text-gold-500/60 uppercase tracking-[0.2em] mb-1 font-medium">{item.subcategory}</p>
-                      <Link to={`/product/${item.id}`} className="text-base font-medium text-navy-500/80 hover:text-gold-500 transition-colors">
+                      <Link to={`/product/${item.id}`} className="text-base font-medium text-royal-blue-500/80 hover:text-gold-500 transition-colors">
                         {item.name}
                       </Link>
-                      <p className="text-xs text-navy-500/30 mt-1 tracking-wide">{item.size} / {item.color}</p>
+                      <p className="text-xs text-royal-blue-500/30 mt-1 tracking-wide">{item.size} / {item.color}</p>
                     </div>
                     <p className="text-xl font-serif text-gold-500/90 font-semibold">{formatINRDecimal(item.price * item.quantity)}</p>
                   </div>
@@ -72,12 +72,12 @@ export default function Cart() {
                   <div className="flex items-center justify-between mt-6">
                     <div className="flex items-center border border-navy-500/15">
                       <button onClick={() => updateQuantity(index, item.quantity - 1)}
-                        className="px-3 py-2 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                        className="px-3 py-2 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                         <HiOutlineMinus />
                       </button>
-                      <span className="px-5 py-2 text-navy-500/60 border-x border-navy-500/15 min-w-[3rem] text-center text-sm">{item.quantity}</span>
+                      <span className="px-5 py-2 text-royal-blue-500/60 border-x border-navy-500/15 min-w-[3rem] text-center text-sm">{item.quantity}</span>
                       <button onClick={() => updateQuantity(index, item.quantity + 1)}
-                        className="px-3 py-2 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                        className="px-3 py-2 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                         <HiOutlinePlus />
                       </button>
                     </div>
@@ -93,23 +93,23 @@ export default function Cart() {
 
           <div className="lg:col-span-1">
             <div className="sticky top-28 p-8 bg-white border border-navy-500/10">
-              <h3 className="text-lg font-serif text-navy-500/80 mb-6 font-medium">Order Summary</h3>
+              <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Order Summary</h3>
               <div className="space-y-4">
                 <div className="flex justify-between text-xs">
-                  <span className="text-navy-500/30">Subtotal</span>
-                  <span className="text-navy-500/70">{formatINRDecimal(cartTotal)}</span>
+                  <span className="text-royal-blue-500/30">Subtotal</span>
+                  <span className="text-royal-blue-500/70">{formatINRDecimal(cartTotal)}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-navy-500/30">Shipping</span>
+                  <span className="text-royal-blue-500/30">Shipping</span>
                   <span className="text-green-600/80">{cartTotal > 20000 ? 'Free' : formatINR(499)}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-navy-500/30">GST (12%)</span>
-                  <span className="text-navy-500/70">{formatINRDecimal(Math.round(cartTotal * 0.12))}</span>
+                  <span className="text-royal-blue-500/30">GST (12%)</span>
+                  <span className="text-royal-blue-500/70">{formatINRDecimal(Math.round(cartTotal * 0.12))}</span>
                 </div>
                 <hr className="border-navy-500/8" />
                 <div className="flex justify-between">
-                  <span className="text-navy-500/60 text-sm font-medium">Total</span>
+                  <span className="text-royal-blue-500/60 text-sm font-medium">Total</span>
                   <span className="text-2xl font-serif text-gold-500/90 font-bold">
                     {formatINRDecimal(cartTotal + (cartTotal > 20000 ? 0 : 499) + Math.round(cartTotal * 0.12))}
                   </span>

@@ -16,7 +16,7 @@
   body {
     @apply font-sans antialiased;
     min-height: 100vh;
-    color: #0D0D1A;
+    color: #1A2D4A;
     background: #FBF7F0;
   }
 
@@ -38,8 +38,8 @@
   }
 
   ::selection {
-    background: rgba(13, 13, 26, 0.15);
-    color: #0D0D1A;
+    background: rgba(26, 45, 74, 0.15);
+    color: #1A2D4A;
   }
 }
 
@@ -136,7 +136,7 @@
   .btn-primary {
     @apply px-8 py-3 font-medium tracking-wider uppercase text-xs;
     background: linear-gradient(135deg, #C9A96E 0%, #E8D5A3 35%, #C9A96E 65%, #D4AF37 100%);
-    color: #0a0a1a;
+    color: #1A2D4A;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -175,8 +175,8 @@
 
   .btn-outline {
     @apply px-8 py-3 font-medium tracking-wider uppercase text-xs;
-    border: 1px solid rgba(13,13,26,0.3);
-    color: #0D0D1A;
+    border: 1px solid rgba(26,45,74,0.3);
+    color: #1A2D4A;
     position: relative;
     overflow: hidden;
     transition: color 0.4s ease, border-color 0.4s ease;
@@ -197,17 +197,30 @@
   }
 
   .btn-outline:hover {
-    color: #0a0a1a;
+    color: #1A2D4A;
     border-color: #C9A96E;
   }
 
-  .btn-outline:hover::before {
-    width: 100%;
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #C9A96E 0%, #E8D5A3 100%);
+    transition: width 0.4s ease;
+    z-index: -1;
+  }
+
+  .btn-outline:hover {
+    color: #1A2D4A;
+    border-color: #C9A96E;
   }
 
   .btn-ghost {
     @apply px-6 py-2 transition-colors duration-300;
-    color: rgba(13,13,26,0.5);
+    color: rgba(26,45,74,0.5);
   }
 
   .btn-ghost:hover {
@@ -217,14 +230,14 @@
   .input-field {
     @apply w-full px-4 py-3 text-sm;
     background: rgba(255,255,255,0.8);
-    border: 1px solid rgba(13,13,26,0.12);
-    color: #0D0D1A;
+    border: 1px solid rgba(26,45,74,0.12);
+    color: #1A2D4A;
     outline: none;
     transition: all 0.3s ease;
   }
 
   .input-field::placeholder {
-    color: rgba(13,13,26,0.25);
+    color: rgba(26,45,74,0.25);
   }
 
   .input-field:focus {
@@ -235,7 +248,7 @@
 
   .section-title {
     @apply font-serif text-4xl md:text-6xl font-bold;
-    background: linear-gradient(135deg, #0D0D1A 0%, #C9A96E 50%, #0D0D1A 100%);
+    background: linear-gradient(135deg, #1A2D4A 0%, #C9A96E 50%, #1A2D4A 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -243,7 +256,7 @@
   }
 
   .section-subtitle {
-    @apply text-navy-500/40 text-lg mt-3 font-light tracking-wide;
+    @apply text-royal-blue-500/40 text-lg mt-3 font-light tracking-wide;
   }
 
   .divider {
@@ -317,7 +330,7 @@
 
   .badge-new {
     background: linear-gradient(135deg, #C9A96E, #E8D5A3, #D4AF37);
-    color: #0a0a1a;
+    color: #1A2D4A;
     font-size: 9px;
     letter-spacing: 0.15em;
     padding: 4px 12px;

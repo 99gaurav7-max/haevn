@@ -82,11 +82,11 @@ export default function Shop() {
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">
               {category || (search ? 'Search Results' : 'The Collection')}
             </p>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-navy-500/90">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-royal-blue-500/90">
               {category || (search ? `"${search}"` : 'All Products')}
             </h1>
             {search && (
-              <p className="text-navy-500/30 text-sm mt-3 font-light">{products.length} results found</p>
+              <p className="text-royal-blue-500/30 text-sm mt-3 font-light">{products.length} results found</p>
             )}
           </motion.div>
         </div>
@@ -116,7 +116,7 @@ export default function Shop() {
                   <input type="number" placeholder="Min" value={minPrice}
                     onChange={(e) => updateParam('minPrice', e.target.value)}
                     className="input-field text-xs w-full" />
-                  <span className="text-navy-500/20">—</span>
+                  <span className="text-royal-blue-500/20">—</span>
                   <input type="number" placeholder="Max" value={maxPrice}
                     onChange={(e) => updateParam('maxPrice', e.target.value)}
                     className="input-field text-xs w-full" />
@@ -130,13 +130,13 @@ export default function Shop() {
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80 transition-colors">On Sale</span>
+                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80 transition-colors">New Arrivals</span>
+                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">New Arrivals</span>
                   </label>
                 </div>
               </div>
@@ -154,17 +154,17 @@ export default function Shop() {
           <div className="flex-1">
             {/* Toolbar */}
             <div className="flex items-center justify-between mb-8 pb-6 border-b border-navy-500/8">
-              <p className="text-xs text-navy-500/30 tracking-wide">
-                <span className="text-navy-500/70">{products.length}</span> Products
+              <p className="text-xs text-royal-blue-500/30 tracking-wide">
+                <span className="text-royal-blue-500/70">{products.length}</span> Products
               </p>
               <div className="flex items-center gap-4">
                 <div className="hidden sm:flex border border-navy-500/10">
                   <button onClick={() => setViewMode('grid')}
-                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-navy-500/30 hover:text-navy-500/60'}`}>
+                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}>
                     <HiOutlineViewGrid />
                   </button>
                   <button onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-navy-500/30 hover:text-navy-500/60'}`}>
+                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}>
                     <HiOutlineViewList />
                   </button>
                 </div>
@@ -191,8 +191,8 @@ export default function Shop() {
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-navy-500/40 text-lg font-light">No products found</p>
-                <p className="text-navy-500/20 text-sm mt-2 font-light">Try adjusting your filters</p>
+                <p className="text-royal-blue-500/40 text-lg font-light">No products found</p>
+                <p className="text-royal-blue-500/20 text-sm mt-2 font-light">Try adjusting your filters</p>
                 <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
               </div>
             ) : (
@@ -229,10 +229,10 @@ export default function Shop() {
               className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto"
             >
               <button onClick={() => setFilterOpen(false)}
-                className="absolute top-6 right-6 text-navy-500/30 hover:text-gold-500 transition-colors">
+                className="absolute top-6 right-6 text-royal-blue-500/30 hover:text-gold-500 transition-colors">
                 <HiOutlineX className="text-xl" />
               </button>
-              <h3 className="text-lg font-serif text-navy-500/80 mb-8 font-medium">Filters</h3>
+              <h3 className="text-lg font-serif text-royal-blue-500/80 mb-8 font-medium">Filters</h3>
 
               <div className="space-y-8">
                 <div>
@@ -252,7 +252,7 @@ export default function Shop() {
                     <input type="number" placeholder="Min" value={minPrice}
                       onChange={(e) => updateParam('minPrice', e.target.value)}
                       className="input-field text-xs w-full" />
-                    <span className="text-navy-500/20">—</span>
+                    <span className="text-royal-blue-500/20">—</span>
                     <input type="number" placeholder="Max" value={maxPrice}
                       onChange={(e) => updateParam('maxPrice', e.target.value)}
                       className="input-field text-xs w-full" />
@@ -264,13 +264,13 @@ export default function Shop() {
                     <input type="checkbox" checked={onSale}
                       onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80">On Sale</span>
+                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input type="checkbox" checked={isNew}
                       onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
                       className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-navy-500/50 group-hover:text-navy-500/80">New Arrivals</span>
+                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">New Arrivals</span>
                   </label>
                 </div>
 

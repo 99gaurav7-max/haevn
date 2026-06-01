@@ -57,16 +57,16 @@ export default function CartDrawer() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 250 }}
-              className="fixed top-0 right-0 h-full w-full max-w-md bg-warm-100 border-l border-navy-500/10 z-50 shadow-2xl shadow-navy-500/20"
+              className="fixed top-0 right-0 h-full w-full max-w-md bg-warm-100 border-l border-navy-500/10 z-50 shadow-2xl shadow-royal-blue-500/20"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-6 border-b border-navy-500/8">
                   <div>
-                    <h2 className="text-xl font-serif text-navy-500/90 tracking-wide">Your Cart</h2>
-                    <p className="text-navy-500/30 text-xs mt-1 uppercase tracking-[0.15em]">{cartCount} {cartCount === 1 ? 'item' : 'items'}</p>
+                    <h2 className="text-xl font-serif text-royal-blue-500/90 tracking-wide">Your Cart</h2>
+                    <p className="text-royal-blue-500/30 text-xs mt-1 uppercase tracking-[0.15em]">{cartCount} {cartCount === 1 ? 'item' : 'items'}</p>
                   </div>
                   <button onClick={() => setIsOpen(false)} aria-label="Close cart"
-                    className="w-10 h-10 flex items-center justify-center text-navy-500/30 hover:text-gold-500 transition-colors">
+                    className="w-10 h-10 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 transition-colors">
                     <HiOutlineX className="text-xl" />
                   </button>
                 </div>
@@ -75,10 +75,10 @@ export default function CartDrawer() {
                   {cart.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-center">
                       <div className="w-24 h-24 rounded-full bg-warm-200 border border-navy-500/10 flex items-center justify-center mb-6">
-                        <HiOutlineShoppingBag className="text-4xl text-navy-500/15" />
+                        <HiOutlineShoppingBag className="text-4xl text-royal-blue-500/15" />
                       </div>
-                      <p className="text-navy-500/40 text-lg font-light">Your cart is empty</p>
-                      <p className="text-navy-500/20 text-sm mt-2 font-light">Add some luxury to your life</p>
+                      <p className="text-royal-blue-500/40 text-lg font-light">Your cart is empty</p>
+                      <p className="text-royal-blue-500/20 text-sm mt-2 font-light">Add some luxury to your life</p>
                       <Link to="/shop" onClick={() => setIsOpen(false)}
                         className="btn-primary mt-8 inline-block text-sm px-10 py-3">
                         Start Shopping
@@ -99,20 +99,20 @@ export default function CartDrawer() {
                             onError={(e) => { e.target.style.display = 'none'; }} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-medium text-navy-500/80 truncate">{item.name}</h4>
-                          <p className="text-[10px] text-navy-500/30 mt-1 uppercase tracking-[0.1em]">
+                          <h4 className="text-sm font-medium text-royal-blue-500/80 truncate">{item.name}</h4>
+                          <p className="text-[10px] text-royal-blue-500/30 mt-1 uppercase tracking-[0.1em]">
                             {item.size && `${item.size} / `}{item.color}
                           </p>
                           <p className="text-gold-500/90 font-medium mt-2 text-sm">{formatINRDecimal(item.price)}</p>
                           <div className="flex items-center justify-between mt-3">
                             <div className="flex items-center border border-navy-500/15">
                               <button onClick={() => updateQuantity(index, item.quantity - 1)}
-                                className="px-2 py-1 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                                className="px-2 py-1 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                                 <HiOutlineMinus className="w-3 h-3" />
                               </button>
-                              <span className="px-3 py-1 text-xs text-navy-500/70 border-x border-navy-500/15">{item.quantity}</span>
+                              <span className="px-3 py-1 text-xs text-royal-blue-500/70 border-x border-navy-500/15">{item.quantity}</span>
                               <button onClick={() => updateQuantity(index, item.quantity + 1)}
-                                className="px-2 py-1 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                                className="px-2 py-1 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                                 <HiOutlinePlus className="w-3 h-3" />
                               </button>
                             </div>
@@ -130,7 +130,7 @@ export default function CartDrawer() {
                 {cart.length > 0 && (
                   <div className="border-t border-navy-500/8 p-6 space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-navy-500/40 text-xs uppercase tracking-widest">Total</span>
+                      <span className="text-royal-blue-500/40 text-xs uppercase tracking-widest">Total</span>
                       <span className="text-2xl font-serif text-gold-500/90">{formatINRDecimal(cartTotal)}</span>
                     </div>
                     <Link to="/checkout"

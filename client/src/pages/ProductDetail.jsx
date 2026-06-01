@@ -77,7 +77,7 @@ export default function ProductDetail() {
     return (
       <div className="pt-20">
         <div className="max-w-8xl mx-auto px-4 py-20 text-center">
-          <p className="text-navy-500/40 text-lg font-light">Product not found</p>
+          <p className="text-royal-blue-500/40 text-lg font-light">Product not found</p>
           <Link to="/shop" className="btn-outline mt-6 inline-block text-sm tracking-[0.2em]">Back to Shop</Link>
         </div>
       </div>
@@ -89,14 +89,14 @@ export default function ProductDetail() {
       {/* Breadcrumb */}
       <div className="border-b border-navy-500/8 bg-warm-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-2 text-[10px] text-navy-500/30 tracking-wide">
+          <div className="flex items-center gap-2 text-[10px] text-royal-blue-500/30 tracking-wide">
             <Link to="/" className="hover:text-gold-500/80 transition-colors">Home</Link>
             <span>/</span>
             <Link to="/shop" className="hover:text-gold-500/80 transition-colors">Shop</Link>
             <span>/</span>
             <Link to={`/shop/${product.category}`} className="hover:text-gold-500/80 transition-colors">{product.category}</Link>
             <span>/</span>
-            <span className="text-navy-500/50">{product.name}</span>
+            <span className="text-royal-blue-500/50">{product.name}</span>
           </div>
         </div>
       </div>
@@ -138,14 +138,14 @@ export default function ProductDetail() {
           >
             <div>
               <p className="text-gold-500/70 text-[10px] uppercase tracking-[0.3em] font-medium mb-3">{product.subcategory}</p>
-              <h1 className="text-3xl md:text-4xl font-serif font-bold text-navy-500/90">{product.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-serif font-bold text-royal-blue-500/90">{product.name}</h1>
               <div className="flex items-center gap-4 mt-4">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <HiStar key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-gold-500/80' : 'text-navy-500/10'}`} />
+                    <HiStar key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-gold-500/80' : 'text-royal-blue-500/10'}`} />
                   ))}
                 </div>
-                <span className="text-navy-500/30 text-xs tracking-wide">{product.rating} ({product.reviews} reviews)</span>
+                <span className="text-royal-blue-500/30 text-xs tracking-wide">{product.rating} ({product.reviews} reviews)</span>
               </div>
             </div>
 
@@ -153,7 +153,7 @@ export default function ProductDetail() {
               <span className="text-3xl font-serif text-gold-500/90 font-bold">{formatINR(product.price)}</span>
               {product.originalPrice > product.price && (
                 <>
-                  <span className="text-xl text-navy-500/20 line-through">{formatINR(product.originalPrice)}</span>
+                  <span className="text-xl text-royal-blue-500/20 line-through">{formatINR(product.originalPrice)}</span>
                   <span className="text-xs text-red-400/80 font-medium">
                     Save {formatINR(product.originalPrice - product.price)}
                   </span>
@@ -161,12 +161,12 @@ export default function ProductDetail() {
               )}
             </div>
 
-            <p className="text-navy-500/50 leading-relaxed text-sm font-light tracking-wide">{product.description}</p>
+            <p className="text-royal-blue-500/50 leading-relaxed text-sm font-light tracking-wide">{product.description}</p>
 
             {/* Size */}
             <div>
               <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-3">
-                Size <span className="text-navy-500/20 normal-case font-light">— {selectedSize}</span>
+                Size <span className="text-royal-blue-500/20 normal-case font-light">— {selectedSize}</span>
               </h4>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (
@@ -176,7 +176,7 @@ export default function ProductDetail() {
                     className={`px-5 py-2.5 text-xs border transition-all duration-200 ${
                       selectedSize === size
                         ? 'border-gold-500 bg-gold-500/10 text-gold-500'
-                        : 'border-navy-500/15 text-navy-500/40 hover:border-navy-500/30 hover:text-navy-500/70'
+                        : 'border-navy-500/15 text-royal-blue-500/40 hover:border-navy-500/30 hover:text-royal-blue-500/70'
                     }`}
                   >
                     {size}
@@ -188,7 +188,7 @@ export default function ProductDetail() {
             {/* Color */}
             <div>
               <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-3">
-                Color <span className="text-navy-500/20 normal-case font-light">— {selectedColor}</span>
+                Color <span className="text-royal-blue-500/20 normal-case font-light">— {selectedColor}</span>
               </h4>
               <div className="flex flex-wrap gap-3">
                 {product.colors.map((color) => (
@@ -198,7 +198,7 @@ export default function ProductDetail() {
                     className={`group relative px-5 py-2.5 text-xs border transition-all duration-200 ${
                       selectedColor === color
                         ? 'border-gold-500 bg-gold-500/10 text-gold-500'
-                        : 'border-navy-500/15 text-navy-500/40 hover:border-navy-500/30 hover:text-navy-500/70'
+                        : 'border-navy-500/15 text-royal-blue-500/40 hover:border-navy-500/30 hover:text-royal-blue-500/70'
                     }`}
                   >
                     {color}
@@ -212,12 +212,12 @@ export default function ProductDetail() {
               <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-3">Quantity</h4>
               <div className="flex items-center border border-navy-500/15 w-fit">
                 <button onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-4 py-3 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                  className="px-4 py-3 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                   <HiOutlineMinus />
                 </button>
-                <span className="px-6 py-3 text-navy-500/70 border-x border-navy-500/15 min-w-[3rem] text-center text-sm">{quantity}</span>
+                <span className="px-6 py-3 text-royal-blue-500/70 border-x border-navy-500/15 min-w-[3rem] text-center text-sm">{quantity}</span>
                 <button onClick={() => setQuantity(quantity + 1)}
-                  className="px-4 py-3 text-navy-500/30 hover:text-navy-500/70 transition-colors">
+                  className="px-4 py-3 text-royal-blue-500/30 hover:text-royal-blue-500/70 transition-colors">
                   <HiOutlinePlus />
                 </button>
               </div>
@@ -236,7 +236,7 @@ export default function ProductDetail() {
                 <HiOutlineShoppingBag />
                 {addedToCart ? 'Added!' : 'Add to Cart'}
               </button>
-              <button className="w-14 h-14 border border-navy-500/15 flex items-center justify-center text-navy-500/30 hover:text-red-400/70 hover:border-red-400/40 transition-all duration-300">
+              <button className="w-14 h-14 border border-navy-500/15 flex items-center justify-center text-royal-blue-500/30 hover:text-red-400/70 hover:border-red-400/40 transition-all duration-300">
                 <HiOutlineHeart className="text-xl" />
               </button>
             </div>
@@ -246,7 +246,7 @@ export default function ProductDetail() {
               <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Product Details</h4>
               <ul className="space-y-2">
                 {product.details.map((detail, i) => (
-                  <li key={i} className="text-navy-500/40 text-xs flex items-start gap-2 font-light tracking-wide">
+                  <li key={i} className="text-royal-blue-500/40 text-xs flex items-start gap-2 font-light tracking-wide">
                     <span className="text-gold-500/60 mt-1">—</span> {detail}
                   </li>
                 ))}
@@ -263,8 +263,8 @@ export default function ProductDetail() {
                 <div key={text} className="flex items-center gap-3 p-4 bg-white border border-navy-500/10">
                   <Icon className="text-gold-500/70 text-xl flex-shrink-0" />
                   <div>
-                    <p className="text-[10px] font-medium text-navy-500/60 uppercase tracking-wider">{text}</p>
-                    <p className="text-[9px] text-navy-500/30 mt-0.5">{sub}</p>
+                    <p className="text-[10px] font-medium text-royal-blue-500/60 uppercase tracking-wider">{text}</p>
+                    <p className="text-[9px] text-royal-blue-500/30 mt-0.5">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -283,7 +283,7 @@ export default function ProductDetail() {
               viewport={{ once: true }}
               className="mb-10"
             >
-              <h2 className="text-2xl md:text-3xl font-serif text-navy-500/80">Complete the Look</h2>
+              <h2 className="text-2xl md:text-3xl font-serif text-royal-blue-500/80">Complete the Look</h2>
               <div className="divider-left mt-4" />
             </motion.div>
 

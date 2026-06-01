@@ -52,7 +52,7 @@ export default function Profile() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Account</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-navy-500/90">My Account</h1>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">My Account</h1>
           </motion.div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function Profile() {
                   className={`w-full flex items-center gap-3 px-5 py-3 text-xs transition-all duration-200 tracking-wider ${
                     activeTab === id
                       ? 'gold-gradient text-[#0a0a1a] font-semibold'
-                      : 'text-navy-500/40 hover:text-navy-500/70 hover:bg-navy-500/5'
+                      : 'text-royal-blue-500/40 hover:text-royal-blue-500/70 hover:bg-navy-500/5'
                   }`}
                 >
                   <Icon className="text-lg" />
@@ -93,15 +93,15 @@ export default function Profile() {
                 animate={{ opacity: 1, y: 0 }}
                 className="p-8 bg-white border border-navy-500/10"
               >
-                <h3 className="text-lg font-serif text-navy-500/80 mb-6 font-medium">Profile Information</h3>
+                <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Profile Information</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-[10px] text-navy-500/30 uppercase tracking-[0.2em]">Name</label>
-                    <p className="text-navy-500/70 text-sm mt-1">{user.name}</p>
+                    <label className="text-[10px] text-royal-blue-500/30 uppercase tracking-[0.2em]">Name</label>
+                    <p className="text-royal-blue-500/70 text-sm mt-1">{user.name}</p>
                   </div>
                   <div>
-                    <label className="text-[10px] text-navy-500/30 uppercase tracking-[0.2em]">Email</label>
-                    <p className="text-navy-500/70 text-sm mt-1">{user.email}</p>
+                    <label className="text-[10px] text-royal-blue-500/30 uppercase tracking-[0.2em]">Email</label>
+                    <p className="text-royal-blue-500/70 text-sm mt-1">{user.email}</p>
                   </div>
                 </div>
               </motion.div>
@@ -112,7 +112,7 @@ export default function Profile() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <h3 className="text-lg font-serif text-navy-500/80 mb-6 font-medium">Order History</h3>
+                <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Order History</h3>
                 {loadingOrders ? (
                   <div className="space-y-4">
                     {[1, 2, 3].map((i) => (
@@ -121,7 +121,7 @@ export default function Profile() {
                   </div>
                 ) : orders.length === 0 ? (
                   <div className="p-8 bg-white border border-navy-500/10 text-center">
-                    <p className="text-navy-500/40 text-sm font-light">No orders yet</p>
+                    <p className="text-royal-blue-500/40 text-sm font-light">No orders yet</p>
                     <button onClick={() => navigate('/shop')}
                       className="btn-outline mt-6 text-xs tracking-[0.2em]">Start Shopping</button>
                   </div>
@@ -130,13 +130,13 @@ export default function Profile() {
                     {orders.map((order) => (
                       <div key={order.id} className="p-6 bg-white border border-navy-500/10">
                         <div className="flex items-center justify-between mb-4">
-                          <p className="text-[10px] text-navy-500/30 uppercase tracking-wider">Order #{order.id.slice(0, 8)}</p>
+                          <p className="text-[10px] text-royal-blue-500/30 uppercase tracking-wider">Order #{order.id.slice(0, 8)}</p>
                           <span className="px-3 py-1 text-[9px] bg-green-500/10 text-green-600/70 border border-green-500/20 uppercase tracking-wider">
                             {order.status}
                           </span>
                         </div>
-                        <p className="text-sm text-navy-500/70">{formatINRDecimal(order.total)}</p>
-                        <p className="text-[10px] text-navy-500/30 mt-1 tracking-wide">{new Date(order.createdAt).toLocaleDateString()}</p>
+                        <p className="text-sm text-royal-blue-500/70">{formatINRDecimal(order.total)}</p>
+                        <p className="text-[10px] text-royal-blue-500/30 mt-1 tracking-wide">{new Date(order.createdAt).toLocaleDateString()}</p>
                       </div>
                     ))}
                   </div>
@@ -150,8 +150,8 @@ export default function Profile() {
                 animate={{ opacity: 1, y: 0 }}
                 className="p-8 bg-white border border-navy-500/10"
               >
-                <h3 className="text-lg font-serif text-navy-500/80 mb-6 font-medium">Saved Addresses</h3>
-                <p className="text-navy-500/40 text-xs font-light">No saved addresses yet.</p>
+                <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Saved Addresses</h3>
+                <p className="text-royal-blue-500/40 text-xs font-light">No saved addresses yet.</p>
               </motion.div>
             )}
           </div>

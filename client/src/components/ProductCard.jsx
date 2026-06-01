@@ -49,10 +49,10 @@ export default function ProductCard({ product, index = 0 }) {
 
           <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 space-y-2 z-10">
             <button onClick={handleQuickAdd}
-              className="w-10 h-10 bg-navy-500/10 backdrop-blur-xl border border-navy-500/20 flex items-center justify-center text-navy-500/70 hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
+              className="w-10 h-10 bg-navy-500/10 backdrop-blur-xl border border-navy-500/20 flex items-center justify-center text-royal-blue-500/70 hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
               <HiOutlineShoppingBag className="text-lg" />
             </button>
-            <button className="w-10 h-10 bg-navy-500/10 backdrop-blur-xl border border-navy-500/20 flex items-center justify-center text-navy-500/70 hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
+            <button className="w-10 h-10 bg-navy-500/10 backdrop-blur-xl border border-navy-500/20 flex items-center justify-center text-royal-blue-500/70 hover:bg-gold-500 hover:text-[#0a0a1a] transition-all duration-200">
               <HiOutlineHeart className="text-lg" />
             </button>
           </div>
@@ -68,13 +68,13 @@ export default function ProductCard({ product, index = 0 }) {
 
         <div className="p-4">
           <p className="text-[9px] uppercase tracking-[0.25em] text-gold-500/60 mb-1.5 font-medium">{product.subcategory}</p>
-          <h3 className="text-sm font-medium text-navy-500/80 group-hover:text-gold-500 transition-colors duration-300 truncate">
+          <h3 className="text-sm font-medium text-royal-blue-500/80 group-hover:text-gold-500 transition-colors duration-300 truncate">
             {product.name}
           </h3>
           <div className="flex items-center mt-2 space-x-2">
             <span className="text-gold-500/90 font-medium">{formatINR(product.price)}</span>
             {product.originalPrice > product.price && (
-              <span className="text-navy-500/20 text-xs line-through">{formatINR(product.originalPrice)}</span>
+              <span className="text-royal-blue-500/20 text-xs line-through">{formatINR(product.originalPrice)}</span>
             )}
           </div>
           <div className="flex items-center mt-2.5 space-x-1">
@@ -108,7 +108,7 @@ export default function ProductCard({ product, index = 0 }) {
               );
             })}
             {product.colors.length > 4 && (
-              <span className="text-[9px] text-navy-500/20">+{product.colors.length - 4}</span>
+              <span className="text-[9px] text-royal-blue-500/20">+{product.colors.length - 4}</span>
             )}
           </div>
         </div>

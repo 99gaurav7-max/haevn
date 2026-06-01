@@ -110,9 +110,9 @@ export default function Checkout() {
           >
             <HiOutlineCheck className="text-3xl text-[#0a0a1a]" />
           </motion.div>
-          <h1 className="text-3xl font-serif text-navy-500/80 mb-4">Order Confirmed</h1>
-          <p className="text-navy-500/40 text-sm font-light mb-2">Thank you for your purchase.</p>
-          <p className="text-navy-500/30 text-xs font-light mb-8">A confirmation has been sent to {form.email || user?.email}</p>
+          <h1 className="text-3xl font-serif text-royal-blue-500/80 mb-4">Order Confirmed</h1>
+          <p className="text-royal-blue-500/40 text-sm font-light mb-2">Thank you for your purchase.</p>
+          <p className="text-royal-blue-500/30 text-xs font-light mb-8">A confirmation has been sent to {form.email || user?.email}</p>
           <Link to="/shop" className="btn-primary inline-block text-sm tracking-[0.2em] px-10">Continue Shopping</Link>
         </div>
       </div>
@@ -123,7 +123,7 @@ export default function Checkout() {
     return (
       <div className="pt-20">
         <div className="max-w-8xl mx-auto px-4 py-20 text-center">
-          <h1 className="text-3xl font-serif text-navy-500/80 mb-4">Your cart is empty</h1>
+          <h1 className="text-3xl font-serif text-royal-blue-500/80 mb-4">Your cart is empty</h1>
           <Link to="/shop" className="btn-primary inline-block text-sm tracking-[0.2em] px-10">Start Shopping</Link>
         </div>
       </div>
@@ -136,7 +136,7 @@ export default function Checkout() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Secure Checkout</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-navy-500/90">Complete Your Order</h1>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Complete Your Order</h1>
           </motion.div>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function Checkout() {
 
             <div className="mb-8 p-4 bg-gold-500/5 border border-gold-500/10 flex items-center gap-3">
               <HiOutlineDeviceMobile className="text-gold-500/70 text-xl flex-shrink-0" />
-              <p className="text-[10px] text-navy-500/40 tracking-wide">
+              <p className="text-[10px] text-royal-blue-500/40 tracking-wide">
                 We accept <strong className="text-gold-500/80">UPI (GPay, PhonePe, Paytm)</strong>, 
                 Credit/Debit Cards, Net Banking & <strong className="text-gold-500/80">Cash on Delivery</strong>
               </p>
@@ -166,12 +166,12 @@ export default function Checkout() {
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
                       step > i + 1 ? 'gold-gradient text-[#0a0a1a]' :
                       step === i + 1 ? 'border-2 border-gold-500/60 text-gold-500/80' :
-                      'border border-navy-500/20 text-navy-500/20'
+                      'border border-navy-500/20 text-royal-blue-500/20'
                     }`}>
                       {step > i + 1 ? <HiOutlineCheck /> : i + 1}
                     </div>
                     <span className={`text-[10px] hidden sm:inline uppercase tracking-wider ${
-                      step === i + 1 ? 'text-gold-500/80' : 'text-navy-500/30'
+                      step === i + 1 ? 'text-gold-500/80' : 'text-royal-blue-500/30'
                     }`}>{label}</span>
                     {i < 2 && <div className="w-8 h-px bg-navy-500/10" />}
                   </div>
@@ -185,7 +185,7 @@ export default function Checkout() {
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-6"
                 >
-                  <h3 className="text-base font-serif text-navy-500/80 flex items-center gap-2">
+                  <h3 className="text-base font-serif text-royal-blue-500/80 flex items-center gap-2">
                     <HiOutlineLocationMarker className="text-gold-500/70" /> Shipping Address
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -222,7 +222,7 @@ export default function Checkout() {
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-6"
                 >
-                  <h3 className="text-base font-serif text-navy-500/80 flex items-center gap-2">
+                  <h3 className="text-base font-serif text-royal-blue-500/80 flex items-center gap-2">
                     <HiOutlineCreditCard className="text-gold-500/70" /> Payment Method
                   </h3>
 
@@ -241,8 +241,8 @@ export default function Checkout() {
                           checked={form.paymentMethod === id}
                           onChange={updateForm('paymentMethod')}
                           className="accent-gold-500 w-4 h-4" />
-                        <Icon className={`text-lg ${form.paymentMethod === id ? 'text-gold-500/80' : 'text-navy-500/30'}`} />
-                        <span className="text-xs text-navy-500/60">{label}</span>
+                        <Icon className={`text-lg ${form.paymentMethod === id ? 'text-gold-500/80' : 'text-royal-blue-500/30'}`} />
+                        <span className="text-xs text-royal-blue-500/60">{label}</span>
                       </label>
                     ))}
                   </div>
@@ -250,7 +250,7 @@ export default function Checkout() {
                   {form.paymentMethod === 'upi' && (
                     <div className="mb-6">
                       <input disabled={submitting} placeholder="UPI ID (e.g., name@upi)" value={form.upiId} onChange={updateForm('upiId')} className="input-field" />
-                      <p className="text-[9px] text-navy-500/20 mt-1">Enter your UPI ID to receive payment request</p>
+                      <p className="text-[9px] text-royal-blue-500/20 mt-1">Enter your UPI ID to receive payment request</p>
                     </div>
                   )}
 
@@ -272,7 +272,7 @@ export default function Checkout() {
 
                   {form.paymentMethod === 'cod' && (
                     <div className="mb-6 p-4 bg-gold-500/5 border border-gold-500/10">
-                      <p className="text-xs text-navy-500/50 font-light">Pay with cash when your order is delivered. Please keep the exact amount ready.</p>
+                      <p className="text-xs text-royal-blue-500/50 font-light">Pay with cash when your order is delivered. Please keep the exact amount ready.</p>
                     </div>
                   )}
                   <div className="flex gap-4">
@@ -291,27 +291,27 @@ export default function Checkout() {
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-6"
                 >
-                  <h3 className="text-base font-serif text-navy-500/80 flex items-center gap-2">
+                  <h3 className="text-base font-serif text-royal-blue-500/80 flex items-center gap-2">
                     <HiOutlineUser className="text-gold-500/70" /> Review Your Order
                   </h3>
 
                   <div className="p-6 bg-white border border-navy-500/10 space-y-4">
                     <h4 className="text-[10px] text-gold-500/70 uppercase tracking-[0.25em] font-semibold">Shipping To</h4>
-                    <p className="text-navy-500/70 text-xs">{form.firstName} {form.lastName}</p>
-                    <p className="text-navy-500/40 text-xs font-light">{form.address}, {form.city}, {form.state} {form.zip}</p>
+                    <p className="text-royal-blue-500/70 text-xs">{form.firstName} {form.lastName}</p>
+                    <p className="text-royal-blue-500/40 text-xs font-light">{form.address}, {form.city}, {form.state} {form.zip}</p>
                   </div>
 
                   <div className="p-6 bg-white border border-navy-500/10 space-y-3">
                     <h4 className="text-[10px] text-gold-500/70 uppercase tracking-[0.25em] font-semibold">Payment Method</h4>
-                    <p className="text-navy-500/60 text-xs capitalize">{form.paymentMethod === 'upi' ? 'UPI — ' + form.upiId : form.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Credit/Debit Card'}</p>
+                    <p className="text-royal-blue-500/60 text-xs capitalize">{form.paymentMethod === 'upi' ? 'UPI — ' + form.upiId : form.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Credit/Debit Card'}</p>
                   </div>
 
                   <div className="p-6 bg-white border border-navy-500/10 space-y-3">
                     <h4 className="text-[10px] text-gold-500/70 uppercase tracking-[0.25em] font-semibold">Items ({cart.length})</h4>
                     {cart.map((item, i) => (
                       <div key={i} className="flex justify-between text-xs">
-                        <span className="text-navy-500/50 font-light">{item.name} × {item.quantity}</span>
-                        <span className="text-navy-500/70">{formatINRDecimal(item.price * item.quantity)}</span>
+                        <span className="text-royal-blue-500/50 font-light">{item.name} × {item.quantity}</span>
+                        <span className="text-royal-blue-500/70">{formatINRDecimal(item.price * item.quantity)}</span>
                       </div>
                     ))}
                   </div>
@@ -332,7 +332,7 @@ export default function Checkout() {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="sticky top-28 p-8 bg-white border border-navy-500/10">
-              <h3 className="text-lg font-serif text-navy-500/80 mb-6 font-medium">Order Summary</h3>
+              <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Order Summary</h3>
               <div className="space-y-3 mb-6">
                 {cart.map((item, i) => (
                   <div key={i} className="flex gap-3">
@@ -341,8 +341,8 @@ export default function Checkout() {
                         onError={(e) => { e.target.style.display = 'none'; }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs text-navy-500/60 truncate">{item.name}</p>
-                      <p className="text-[9px] text-navy-500/30 tracking-wide">{item.size} / {item.color} × {item.quantity}</p>
+                      <p className="text-xs text-royal-blue-500/60 truncate">{item.name}</p>
+                      <p className="text-[9px] text-royal-blue-500/30 tracking-wide">{item.size} / {item.color} × {item.quantity}</p>
                       <p className="text-[10px] text-gold-500/80 font-medium mt-1">{formatINRDecimal(item.price * item.quantity)}</p>
                     </div>
                   </div>
@@ -351,20 +351,20 @@ export default function Checkout() {
               <hr className="border-navy-500/8 mb-4" />
               <div className="space-y-3 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-navy-500/30">Subtotal</span>
-                  <span className="text-navy-500/70">{formatINRDecimal(cartTotal)}</span>
+                  <span className="text-royal-blue-500/30">Subtotal</span>
+                  <span className="text-royal-blue-500/70">{formatINRDecimal(cartTotal)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-navy-500/30">Shipping</span>
+                  <span className="text-royal-blue-500/30">Shipping</span>
                   <span className="text-green-600/70">{cartTotal > 20000 ? 'Free' : formatINR(499)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-navy-500/30">GST (12%)</span>
-                  <span className="text-navy-500/70">{GSTAmount(gst)}</span>
+                  <span className="text-royal-blue-500/30">GST (12%)</span>
+                  <span className="text-royal-blue-500/70">{GSTAmount(gst)}</span>
                 </div>
                 <hr className="border-navy-500/8" />
                 <div className="flex justify-between">
-                  <span className="text-navy-500/60 text-sm font-medium">Total</span>
+                  <span className="text-royal-blue-500/60 text-sm font-medium">Total</span>
                   <span className="text-xl font-serif text-gold-500/90 font-bold">
                     {GSTAmount(grandTotal)}
                   </span>

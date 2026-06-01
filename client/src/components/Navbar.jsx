@@ -58,11 +58,11 @@ export default function Navbar() {
   };
 
   const linkClass = scrolled
-    ? 'text-xs uppercase tracking-[0.25em] text-navy-500/60 hover:text-gold-500 transition-colors duration-300 font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full'
+    ? 'text-xs uppercase tracking-[0.25em] text-royal-blue-500/60 hover:text-gold-500 transition-colors duration-300 font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full'
     : 'text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full';
 
   const moreBtnClass = scrolled
-    ? 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-navy-500/60 hover:text-gold-500 transition-colors duration-300 font-medium'
+    ? 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-royal-blue-500/60 hover:text-gold-500 transition-colors duration-300 font-medium'
     : 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium';
 
   return (
@@ -101,7 +101,7 @@ export default function Navbar() {
                   {categories.slice(3).map((cat) => (
                     <Link key={cat.name} to={cat.path}
                       onClick={() => setMoreOpen(false)}
-                      className="block px-6 py-3 text-xs text-navy-500/50 hover:text-gold-500 hover:bg-navy-500/5 transition-colors duration-200 uppercase tracking-[0.15em]">
+                      className="block px-6 py-3 text-xs text-royal-blue-500/50 hover:text-gold-500 hover:bg-navy-500/5 transition-colors duration-200 uppercase tracking-[0.15em]">
                       {cat.name}
                     </Link>
                   ))}
@@ -115,7 +115,7 @@ export default function Navbar() {
 
             <div className="flex items-center space-x-1 sm:space-x-3">
               <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search"
-                className={`btn-ghost text-xl ${scrolled ? 'text-navy-500/50' : 'text-white/50'}`}>
+                className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
                 <HiOutlineSearch />
               </button>
               {user ? (
@@ -123,28 +123,28 @@ export default function Navbar() {
                   onMouseEnter={() => setUserMenuOpen(true)}
                   onMouseLeave={() => setUserMenuOpen(false)}>
                   <button onClick={() => setUserMenuOpen(!userMenuOpen)} aria-label="User menu"
-                    className={`btn-ghost text-xl ${scrolled ? 'text-navy-500/50' : 'text-white/50'}`}>
+                    className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
                     <HiOutlineUser />
                   </button>
                   <div className={`absolute right-0 top-full mt-2 w-56 bg-warm-100/95 backdrop-blur-2xl border border-navy-500/10 transition-all duration-300 shadow-2xl shadow-black/10 ${
                     userMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                   }`}>
                     <div className="px-6 py-3 border-b border-navy-500/8">
-                      <p className="text-[10px] text-navy-500/40 uppercase tracking-widest">Welcome</p>
-                      <p className="text-sm font-medium text-navy-500/80 mt-1">{user.name}</p>
+                      <p className="text-[10px] text-royal-blue-500/40 uppercase tracking-widest">Welcome</p>
+                      <p className="text-sm font-medium text-royal-blue-500/80 mt-1">{user.name}</p>
                     </div>
-                    <Link to="/profile" className="block px-6 py-3 text-xs text-navy-500/50 hover:text-gold-500 hover:bg-navy-500/5 uppercase tracking-[0.1em]">My Profile</Link>
-                    <Link to="/profile?tab=orders" className="block px-6 py-3 text-xs text-navy-500/50 hover:text-gold-500 hover:bg-navy-500/5 uppercase tracking-[0.1em]">My Orders</Link>
+                    <Link to="/profile" className="block px-6 py-3 text-xs text-royal-blue-500/50 hover:text-gold-500 hover:bg-navy-500/5 uppercase tracking-[0.1em]">My Profile</Link>
+                    <Link to="/profile?tab=orders" className="block px-6 py-3 text-xs text-royal-blue-500/50 hover:text-gold-500 hover:bg-navy-500/5 uppercase tracking-[0.1em]">My Orders</Link>
                     <button onClick={logout} className="block w-full text-left px-6 py-3 text-xs text-red-400/70 hover:text-red-400 hover:bg-navy-500/5 uppercase tracking-[0.1em]">Sign Out</button>
                   </div>
                 </div>
               ) : (
-                <Link to="/auth" className={`btn-ghost text-xl hidden sm:block ${scrolled ? 'text-navy-500/50' : 'text-white/50'}`}>
+                <Link to="/auth" className={`btn-ghost text-xl hidden sm:block ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
                   <HiOutlineUser />
                 </Link>
               )}
               <button onClick={toggleCartDrawer} aria-label="Open cart"
-                className={`btn-ghost text-xl relative ${scrolled ? 'text-navy-500/50' : 'text-white/50'}`}>
+                className={`btn-ghost text-xl relative ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
                 <HiOutlineShoppingBag />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 w-5 h-5 gold-gradient rounded-full flex items-center justify-center text-[9px] font-bold text-[#0a0a1a] shadow-lg shadow-gold-500/30">
@@ -171,7 +171,7 @@ export default function Navbar() {
                     placeholder="Search the collection..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-6 py-4 bg-warm-50/80 border border-gold-500/30 text-navy-500/90 placeholder:text-navy-500/25 focus:outline-none focus:border-gold-500/50 pr-14 text-lg font-light tracking-wide"
+                    className="w-full px-6 py-4 bg-warm-50/80 border border-gold-500/30 text-royal-blue-500/90 placeholder:text-royal-blue-500/25 focus:outline-none focus:border-gold-500/50 pr-14 text-lg font-light tracking-wide"
                     autoFocus
                   />
                   <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-gold-500/70 hover:text-gold-500 text-2xl transition-colors">
@@ -204,7 +204,7 @@ export default function Navbar() {
                 {categories.map((cat) => (
                   <Link key={cat.name} to={cat.path}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 text-sm text-navy-500/60 hover:text-gold-500 hover:bg-navy-500/5 transition-colors duration-200 uppercase tracking-[0.15em]">
+                    className="block px-4 py-3 text-sm text-royal-blue-500/60 hover:text-gold-500 hover:bg-navy-500/5 transition-colors duration-200 uppercase tracking-[0.15em]">
                     {cat.name}
                   </Link>
                 ))}
@@ -212,13 +212,13 @@ export default function Navbar() {
                 {user ? (
                   <>
                     <Link to="/profile" onClick={() => setMobileOpen(false)}
-                      className="block px-4 py-3 text-sm text-navy-500/60 hover:text-gold-500 uppercase tracking-[0.1em]">My Profile</Link>
+                      className="block px-4 py-3 text-sm text-royal-blue-500/60 hover:text-gold-500 uppercase tracking-[0.1em]">My Profile</Link>
                     <button onClick={() => { logout(); setMobileOpen(false); }}
                       className="block w-full text-left px-4 py-3 text-sm text-red-400/70 hover:text-red-400 uppercase tracking-[0.1em]">Sign Out</button>
                   </>
                 ) : (
                   <Link to="/auth" onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 text-sm text-navy-500/60 hover:text-gold-500 uppercase tracking-[0.1em]">Sign In</Link>
+                    className="block px-4 py-3 text-sm text-royal-blue-500/60 hover:text-gold-500 uppercase tracking-[0.1em]">Sign In</Link>
                 )}
               </div>
             </motion.div>

@@ -54,12 +54,12 @@ const heroSlides = [
 ];
 
 const categories = [
-  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?w=600', items: '12 Items' },
+  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600', items: '12 Items' },
   { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600', items: '8 Items' },
-  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600', items: '24 Items' },
-  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1593030103060-c3cbd35a5540?w=600', items: '18 Items' },
-  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1608236415055-6c47395c5531?w=600', items: '16 Items' },
-  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600', items: '32 Items' },
+  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600', items: '24 Items' },
+  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600', items: '18 Items' },
+  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600', items: '16 Items' },
+  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600', items: '32 Items' },
 ];
 
 
@@ -204,8 +204,8 @@ export default function Home() {
                   <Icon className="text-gold-500/80 text-xl" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.2em] text-navy-500/70 font-medium">{title}</h4>
-                  <p className="text-[10px] text-navy-500/30 mt-1 tracking-wide">{desc}</p>
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-royal-blue-500/70 font-medium">{title}</h4>
+                  <p className="text-[10px] text-royal-blue-500/30 mt-1 tracking-wide">{desc}</p>
                 </div>
               </div>
             ))}
@@ -265,16 +265,16 @@ export default function Home() {
           >
             <div>
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Editor's Pick</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy-500/90">Featured Selections</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Featured Selections</h2>
               <div className="divider-left mt-4" />
             </div>
             <div className="hidden sm:flex space-x-2">
               <button onClick={() => scrollFeatured(-1)}
-                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-navy-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronLeft />
               </button>
               <button onClick={() => scrollFeatured(1)}
-                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-navy-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronRight />
               </button>
             </div>
@@ -381,7 +381,7 @@ export default function Home() {
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Stay Connected</p>
             <h2 className="section-title">Join the Inner Circle</h2>
             <div className="crown-divider" />
-            <p className="text-navy-500/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
+            <p className="text-royal-blue-500/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
             <form onSubmit={(e) => {
