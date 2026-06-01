@@ -28,7 +28,7 @@ const heroSlides = [
     title: 'Effortless Refinement',
     subtitle: 'Luxury Casual for Life\'s Unscripted Moments',
     cta: 'Shop Casual',
-    image: 'https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6?w=1920',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1920',
     align: 'left',
     pos: 'center 50%',
     link: '/shop?category=Tops',
@@ -37,7 +37,7 @@ const heroSlides = [
     title: 'The New Guard',
     subtitle: 'Bold Ambition. Fearless Style.',
     cta: 'Shop Youth Collection',
-    image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1920',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1920',
     align: 'right',
     pos: 'center 50%',
     link: '/shop',
@@ -114,10 +114,10 @@ export default function Home() {
         {heroSlides.map((slide, i) => {
           const gradDir = slide.align === 'right' ? 'to left' : 'to right';
           const gradBase = slide.align === 'center'
-            ? 'rgba(13,13,26,0.75) 0%, rgba(13,13,26,0.5) 30%, rgba(13,13,26,0.5) 70%, rgba(13,13,26,0.75) 100%'
+            ? 'rgba(13,13,26,0.55) 0%, rgba(201,169,110,0.3) 30%, rgba(201,169,110,0.3) 70%, rgba(13,13,26,0.55) 100%'
             : slide.align === 'right'
-              ? 'rgba(13,13,26,0.92) 0%, rgba(13,13,26,0.6) 35%, rgba(13,13,26,0.05) 70%, transparent 100%'
-              : 'rgba(13,13,26,0.92) 0%, rgba(13,13,26,0.6) 35%, rgba(13,13,26,0.05) 70%, transparent 100%';
+              ? 'rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.25) 40%, rgba(201,169,110,0.05) 70%, transparent 100%'
+              : 'rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.25) 40%, rgba(201,169,110,0.05) 70%, transparent 100%';
           return (
             <div
               key={i}
@@ -128,7 +128,7 @@ export default function Home() {
               <div className="absolute inset-0 z-10"
                 style={{
                   background: `
-                    linear-gradient(to top, rgba(13,13,26,0.85) 0%, rgba(13,13,26,0.25) 40%, transparent 65%),
+                    linear-gradient(to top, rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.15) 40%, transparent 65%),
                     linear-gradient(${gradDir}, ${gradBase})
                   `
                 }}
@@ -156,10 +156,10 @@ export default function Home() {
                 <div className="h-px w-8 sm:w-12 gold-gradient" />
                 <p className="text-gold-500/80 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white/95 leading-[1.05] tracking-tight">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight">
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/50 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/70 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide">
                 {heroSlides[currentSlide].subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
@@ -183,7 +183,7 @@ export default function Home() {
               key={i}
               onClick={() => setCurrentSlide(i)}
               className={`transition-all duration-500 ${
-                i === currentSlide ? 'w-10 sm:w-16 h-[2px] gold-gradient' : 'w-5 sm:w-8 h-[1px] bg-white/20 hover:bg-white/40'
+                i === currentSlide ? 'w-10 sm:w-16 h-[2px] gold-gradient' : 'w-5 sm:w-8 h-[1px] bg-warm-50/20 hover:bg-white/40'
               }`}
             />
           ))}
@@ -214,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-28">
+      <section className="py-28 section-premium">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -224,7 +224,7 @@ export default function Home() {
           >
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Categories</p>
             <h2 className="section-title">Shop by Category</h2>
-            <div className="divider" />
+            <div className="crown-divider" />
             <p className="section-subtitle">From head to toe, we have you covered</p>
           </motion.div>
 
@@ -241,11 +241,11 @@ export default function Home() {
                   <img src={cat.image} alt={cat.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     onError={(e) => { e.target.src = `https://placehold.co/600x800/1a1a2e/C9A96E?text=${cat.name}`; }} />
-                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D1A]/90 via-[#0D0D1A]/30 to-transparent" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D1A]/60 via-gold-500/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <p className="text-gold-500/60 text-[9px] uppercase tracking-[0.25em] mb-2 font-medium">{cat.items}</p>
-                    <h3 className="text-3xl font-serif text-white/90 group-hover:text-gold-500 transition-colors duration-300">{cat.name}</h3>
-                    <p className="text-white/60 text-sm mt-2 font-light tracking-wide">{cat.desc}</p>
+                    <h3 className="text-3xl font-serif text-warm-50/90 group-hover:text-gold-500 transition-colors duration-300">{cat.name}</h3>
+                    <p className="text-warm-50/60 text-sm mt-2 font-light tracking-wide">{cat.desc}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-28 bg-warm-200">
+      <section className="py-28 section-premium">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -315,7 +315,7 @@ export default function Home() {
             >
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Fresh Collection</p>
               <h2 className="section-title">New Arrivals</h2>
-              <div className="divider" />
+              <div className="crown-divider" />
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -340,7 +340,7 @@ export default function Home() {
           <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=1920" alt=""
             className="w-full h-full object-cover"
             onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920'; }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D1A]/95 via-[#0D0D1A]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D1A]/70 via-[#0D0D1A]/40 to-transparent" />
         </div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -352,10 +352,10 @@ export default function Home() {
               className="max-w-xl"
             >
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-5 font-medium">The HAEVN Standard</p>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-white/95 leading-tight">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-50/95 leading-tight">
                 Luxury Defined.<br />Style Refined.
               </h2>
-              <p className="text-white/40 mt-6 text-lg leading-relaxed font-light tracking-wide">
+              <p className="text-warm-50/50 mt-6 text-lg leading-relaxed font-light tracking-wide">
                 Every piece in our collection is hand-selected for its exceptional craftsmanship,
                 premium materials, and timeless design. Experience fashion that transcends trends.
               </p>
@@ -380,7 +380,7 @@ export default function Home() {
           >
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Stay Connected</p>
             <h2 className="section-title">Join the Inner Circle</h2>
-            <div className="divider" />
+            <div className="crown-divider" />
             <p className="text-navy-500/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>

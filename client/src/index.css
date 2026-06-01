@@ -65,7 +65,9 @@
   }
 
   .glass {
-    @apply bg-white/80 backdrop-blur-xl border border-navy-500/10;
+    background: rgba(254,252,248,0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(201,169,110,0.15);
   }
 
   .glass-gold {
@@ -73,9 +75,62 @@
   }
 
   .glass-deep {
-    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 100%);
+    background: linear-gradient(135deg, rgba(254,252,248,0.9) 0%, rgba(254,252,248,0.6) 100%);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(13,13,26,0.08);
+    border: 1px solid rgba(201,169,110,0.12);
+  }
+
+  .section-premium {
+    background: linear-gradient(180deg, #FEFCF8 0%, #FBF7F0 50%, #F5EFE6 100%);
+    position: relative;
+  }
+
+  .section-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #C9A96E, #E8D5A3, #D4AF37, #E8D5A3, #C9A96E, transparent);
+  }
+
+  .crown-divider {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A96E, #E8D5A3, #D4AF37, #E8D5A3, #C9A96E, transparent);
+    margin: 1.5rem auto;
+    position: relative;
+  }
+
+  .crown-divider::before {
+    content: '♛';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #C9A96E;
+    font-size: 14px;
+    background: #FBF7F0;
+    padding: 0 12px;
+  }
+
+  .divider-left {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #C9A96E, #E8D5A3, transparent);
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .divider-left::before {
+    content: '♛';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C9A96E;
+    font-size: 8px;
   }
 
   .btn-primary {
