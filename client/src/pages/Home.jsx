@@ -11,9 +11,9 @@ const heroSlides = [
     subtitle: 'Where Discipline Meets Distinction',
     quote: '— Excellence is not a skill. It is an attitude. —',
     cta: 'Explore Performance',
-    image: 'https://unsplash.com/photos/y_HhpiHr03I/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/d1hGvcsN2Bk/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 45%',
+    pos: 'center 40%',
     link: '/shop?category=Footwear',
   },
   {
@@ -21,9 +21,9 @@ const heroSlides = [
     subtitle: 'Impeccable Tailoring for Those Who Command the Room',
     quote: '— Dress for the position you want, not the one you have. —',
     cta: 'Discover Formal',
-    image: 'https://unsplash.com/photos/WMD64tMfc4k/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/wUZjnOv7t0g/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 40%',
+    pos: 'center 50%',
     link: '/shop?category=Tops',
   },
   {
@@ -51,18 +51,18 @@ const heroSlides = [
     subtitle: 'Timeless Elegance for the Distinguished Gentleman',
     quote: '— Wisdom wears its years with grace. —',
     cta: 'Explore Heritage',
-    image: 'https://unsplash.com/photos/EE-dpDhZqeg/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/Jrzz1tymfgc/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 30%',
+    pos: 'center 40%',
     link: '/shop',
   },
 ];
 
 const categories = [
-  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop', items: '12 Items' },
+  { name: 'Headwear', desc: 'Crown your style', image: 'https://unsplash.com/photos/t8HiP3e5abg/download?force=true&w=600&h=800&fit=crop', items: '12 Items' },
   { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&h=800&fit=crop', items: '8 Items' },
   { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop', items: '24 Items' },
-  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop', items: '18 Items' },
+  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://unsplash.com/photos/jC7nVH_Sw8k/download?force=true&w=600&h=800&fit=crop', items: '18 Items' },
   { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&h=800&fit=crop', items: '16 Items' },
   { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&h=800&fit=crop', items: '32 Items' },
 ];
@@ -161,13 +161,13 @@ export default function Home() {
                 <div className="h-px w-8 sm:w-12 gold-gradient" />
                 <p className="text-gold-500/80 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight [text-shadow:0_4px_24px_rgba(13,13,26,0.7),0_2px_8px_rgba(13,13,26,0.4)]">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight animate-text-sparkle">
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/75 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide [text-shadow:0_2px_12px_rgba(13,13,26,0.6),0_1px_4px_rgba(13,13,26,0.3)]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/75 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide animate-text-glow-pulse">
                 {heroSlides[currentSlide].subtitle}
               </p>
-              <p className="text-xs sm:text-sm text-gold-500/60 mt-4 italic font-light tracking-wider [text-shadow:0_2px_8px_rgba(13,13,26,0.5)]">
+              <p className="text-xs sm:text-sm text-gold-500/60 mt-4 italic font-light tracking-wider animate-text-glow-pulse">
                 {heroSlides[currentSlide].quote}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
@@ -360,10 +360,10 @@ export default function Home() {
               className="max-w-xl"
             >
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-5 font-medium">The HAEVN Standard</p>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-50/95 leading-tight [text-shadow:0_4px_20px_rgba(13,13,26,0.6)]">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-50/95 leading-tight animate-text-sparkle">
                 Luxury Defined.<br />Style Refined.
               </h2>
-              <p className="text-warm-50/55 mt-6 text-lg leading-relaxed font-light tracking-wide [text-shadow:0_2px_10px_rgba(13,13,26,0.4)]">
+              <p className="text-warm-50/55 mt-6 text-lg leading-relaxed font-light tracking-wide animate-text-glow-pulse">
                 Every piece in our collection is hand-selected for its exceptional craftsmanship,
                 premium materials, and timeless design. Experience fashion that transcends trends.
               </p>
