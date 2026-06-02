@@ -11,9 +11,9 @@ const heroSlides = [
     subtitle: 'Where Discipline Meets Distinction',
     quote: '— Excellence is not a skill. It is an attitude. —',
     cta: 'Explore Performance',
-    image: 'https://unsplash.com/photos/DZhSsCoeNGo/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/Ed2NUyrUwmI/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 40%',
+    pos: 'center 45%',
     link: '/shop?category=Footwear',
   },
   {
@@ -21,9 +21,9 @@ const heroSlides = [
     subtitle: 'Impeccable Tailoring for Those Who Command the Room',
     quote: '— Dress for the position you want, not the one you have. —',
     cta: 'Discover Formal',
-    image: 'https://unsplash.com/photos/bigmTFsEwoM/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/gpBchDCXVlU/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop?category=Tops',
   },
   {
@@ -33,7 +33,7 @@ const heroSlides = [
     cta: 'Shop Casual',
     image: 'https://unsplash.com/photos/36vvo7t_7y4/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 30%',
+    pos: 'center 35%',
     link: '/shop?category=Tops',
   },
   {
@@ -41,9 +41,9 @@ const heroSlides = [
     subtitle: 'Bold Ambition. Fearless Style.',
     quote: '— Youth is the spirit of adventure waking up. —',
     cta: 'Shop Youth Collection',
-    image: 'https://unsplash.com/photos/ydcwZ3VY2G0/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/r9SnJ4TRr0I/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 35%',
+    pos: 'center 45%',
     link: '/shop',
   },
   {
@@ -118,11 +118,11 @@ export default function Home() {
         onMouseLeave={() => setIsPaused(false)}>
         {heroSlides.map((slide, i) => {
           const gradDir = slide.align === 'right' ? 'to left' : 'to right';
-          const gradBase = slide.align === 'center'
-            ? 'rgba(13,13,26,0.55) 0%, rgba(201,169,110,0.3) 30%, rgba(201,169,110,0.3) 70%, rgba(13,13,26,0.55) 100%'
+              const gradBase = slide.align === 'center'
+            ? 'rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.35) 30%, rgba(201,169,110,0.35) 70%, rgba(13,13,26,0.65) 100%'
             : slide.align === 'right'
-              ? 'rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.25) 40%, rgba(201,169,110,0.05) 70%, transparent 100%'
-              : 'rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.25) 40%, rgba(201,169,110,0.05) 70%, transparent 100%';
+              ? 'rgba(13,13,26,0.78) 0%, rgba(201,169,110,0.30) 40%, rgba(201,169,110,0.08) 70%, transparent 100%'
+              : 'rgba(13,13,26,0.78) 0%, rgba(201,169,110,0.30) 40%, rgba(201,169,110,0.08) 70%, transparent 100%';
           return (
             <div
               key={i}
@@ -132,8 +132,8 @@ export default function Home() {
             >
               <div className="absolute inset-0 z-10"
                 style={{
-                  background: `
-                    linear-gradient(to top, rgba(13,13,26,0.88) 0%, rgba(13,13,26,0.55) 25%, rgba(201,169,110,0.15) 45%, transparent 68%),
+                    background: `
+                    linear-gradient(to top, rgba(13,13,26,0.92) 0%, rgba(13,13,26,0.65) 25%, rgba(201,169,110,0.20) 45%, transparent 68%),
                     linear-gradient(${gradDir}, ${gradBase})
                   `
                 }}
@@ -161,13 +161,13 @@ export default function Home() {
                 <div className="h-px w-8 sm:w-12 gold-gradient" />
                 <p className="text-gold-500/80 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight animate-text-sparkle">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50 leading-[1.05] tracking-tight" style={{textShadow:'0 2px 12px rgba(0,0,0,0.5)'}}>
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/75 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide animate-text-glow-pulse">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/90 mt-3 sm:mt-6 max-w-xl leading-relaxed font-medium tracking-wide" style={{textShadow:'0 2px 10px rgba(0,0,0,0.6)'}}>
                 {heroSlides[currentSlide].subtitle}
               </p>
-              <p className="text-xs sm:text-sm text-gold-500/60 mt-4 italic font-light tracking-wider animate-text-glow-pulse">
+              <p className="text-xs sm:text-sm text-gold-400 mt-4 italic font-semibold tracking-wider" style={{textShadow:'0 2px 8px rgba(0,0,0,0.5)'}}>
                 {heroSlides[currentSlide].quote}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
