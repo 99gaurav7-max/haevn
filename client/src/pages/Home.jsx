@@ -116,6 +116,7 @@ export default function Home() {
       <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] lg:h-screen lg:min-h-[700px] overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}>
+        <div className="absolute top-0 left-0 right-0 z-30 h-48 bg-gradient-to-b from-[#0D0D1A]/90 via-[#0D0D1A]/50 to-transparent pointer-events-none" />
         {heroSlides.map((slide, i) => {
           const gradDir = slide.align === 'right' ? 'to left' : 'to right';
               const gradBase = slide.align === 'center'
