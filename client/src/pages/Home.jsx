@@ -9,17 +9,19 @@ const heroSlides = [
   {
     title: 'The Pursuit of Excellence',
     subtitle: 'Where Discipline Meets Distinction',
+    quote: '— Excellence is not a skill. It is an attitude. —',
     cta: 'Explore Performance',
-    image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/y_HhpiHr03I/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 40%',
+    pos: 'center 45%',
     link: '/shop?category=Footwear',
   },
   {
     title: 'Architect of Success',
     subtitle: 'Impeccable Tailoring for Those Who Command the Room',
+    quote: '— Dress for the position you want, not the one you have. —',
     cta: 'Discover Formal',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/WMD64tMfc4k/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
     pos: 'center 40%',
     link: '/shop?category=Tops',
@@ -27,28 +29,31 @@ const heroSlides = [
   {
     title: 'Effortless Refinement',
     subtitle: 'Luxury Casual for Life\'s Unscripted Moments',
+    quote: '— Style is a way to say who you are without having to speak. —',
     cta: 'Shop Casual',
-    image: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/5BjLjh_2FQc/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 40%',
+    pos: 'center 30%',
     link: '/shop?category=Tops',
   },
   {
     title: 'The New Guard',
     subtitle: 'Bold Ambition. Fearless Style.',
+    quote: '— Youth is the spirit of adventure waking up. —',
     cta: 'Shop Youth Collection',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/hxV9rbGz1Rk/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 40%',
+    pos: 'center 35%',
     link: '/shop',
   },
   {
     title: 'A Life Well Lived',
     subtitle: 'Timeless Elegance for the Distinguished Gentleman',
+    quote: '— Wisdom wears its years with grace. —',
     cta: 'Explore Heritage',
-    image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/EE-dpDhZqeg/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 40%',
+    pos: 'center 30%',
     link: '/shop',
   },
 ];
@@ -161,6 +166,9 @@ export default function Home() {
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/75 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide [text-shadow:0_2px_12px_rgba(13,13,26,0.6),0_1px_4px_rgba(13,13,26,0.3)]">
                 {heroSlides[currentSlide].subtitle}
+              </p>
+              <p className="text-xs sm:text-sm text-gold-500/60 mt-4 italic font-light tracking-wider [text-shadow:0_2px_8px_rgba(13,13,26,0.5)]">
+                {heroSlides[currentSlide].quote}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
                 <Link to={heroSlides[currentSlide].link || '/shop'}
