@@ -10,56 +10,56 @@ const heroSlides = [
     title: 'The Pursuit of Excellence',
     subtitle: 'Where Discipline Meets Distinction',
     cta: 'Explore Performance',
-    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop?category=Footwear',
   },
   {
     title: 'Architect of Success',
     subtitle: 'Impeccable Tailoring for Those Who Command the Room',
     cta: 'Discover Formal',
-    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop?category=Tops',
   },
   {
     title: 'Effortless Refinement',
     subtitle: 'Luxury Casual for Life\'s Unscripted Moments',
     cta: 'Shop Casual',
-    image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop?category=Tops',
   },
   {
     title: 'The New Guard',
     subtitle: 'Bold Ambition. Fearless Style.',
     cta: 'Shop Youth Collection',
-    image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&h=1080&fit=crop',
     align: 'right',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop',
   },
   {
     title: 'A Life Well Lived',
     subtitle: 'Timeless Elegance for the Distinguished Gentleman',
     cta: 'Explore Heritage',
-    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1920&h=1080&fit=crop',
+    image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1920&h=1080&fit=crop',
     align: 'left',
-    pos: 'center 50%',
+    pos: 'center 40%',
     link: '/shop',
   },
 ];
 
 const categories = [
-  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600', items: '12 Items' },
-  { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600', items: '8 Items' },
-  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600', items: '24 Items' },
-  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600', items: '18 Items' },
-  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600', items: '16 Items' },
-  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600', items: '32 Items' },
+  { name: 'Headwear', desc: 'Crown your style', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop', items: '12 Items' },
+  { name: 'Eyewear', desc: 'See the difference', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&h=800&fit=crop', items: '8 Items' },
+  { name: 'Tops', desc: 'Define your silhouette', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop', items: '24 Items' },
+  { name: 'Bottoms', desc: 'Foundation of style', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop', items: '18 Items' },
+  { name: 'Footwear', desc: 'Step up your game', image: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&h=800&fit=crop', items: '16 Items' },
+  { name: 'Accessories', desc: 'The final touch', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&h=800&fit=crop', items: '32 Items' },
 ];
 
 
@@ -128,7 +128,7 @@ export default function Home() {
               <div className="absolute inset-0 z-10"
                 style={{
                   background: `
-                    linear-gradient(to top, rgba(13,13,26,0.65) 0%, rgba(201,169,110,0.15) 40%, transparent 65%),
+                    linear-gradient(to top, rgba(13,13,26,0.88) 0%, rgba(13,13,26,0.55) 25%, rgba(201,169,110,0.15) 45%, transparent 68%),
                     linear-gradient(${gradDir}, ${gradBase})
                   `
                 }}
@@ -156,10 +156,10 @@ export default function Home() {
                 <div className="h-px w-8 sm:w-12 gold-gradient" />
                 <p className="text-gold-500/80 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-medium">HAEVN Premium Collection</p>
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-warm-50/95 leading-[1.05] tracking-tight [text-shadow:0_4px_24px_rgba(13,13,26,0.7),0_2px_8px_rgba(13,13,26,0.4)]">
                 {heroSlides[currentSlide].title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/70 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warm-50/75 mt-3 sm:mt-6 max-w-xl leading-relaxed font-light tracking-wide [text-shadow:0_2px_12px_rgba(13,13,26,0.6),0_1px_4px_rgba(13,13,26,0.3)]">
                 {heroSlides[currentSlide].subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10">
@@ -204,8 +204,8 @@ export default function Home() {
                   <Icon className="text-gold-500/80 text-xl" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.2em] text-royal-blue-500/70 font-medium">{title}</h4>
-                  <p className="text-[10px] text-royal-blue-500/30 mt-1 tracking-wide">{desc}</p>
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-royal-blue-500/80 font-medium">{title}</h4>
+                  <p className="text-[10px] text-royal-blue-500/40 mt-1 tracking-wide">{desc}</p>
                 </div>
               </div>
             ))}
@@ -352,10 +352,10 @@ export default function Home() {
               className="max-w-xl"
             >
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-5 font-medium">The HAEVN Standard</p>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-50/95 leading-tight">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-warm-50/95 leading-tight [text-shadow:0_4px_20px_rgba(13,13,26,0.6)]">
                 Luxury Defined.<br />Style Refined.
               </h2>
-              <p className="text-warm-50/50 mt-6 text-lg leading-relaxed font-light tracking-wide">
+              <p className="text-warm-50/55 mt-6 text-lg leading-relaxed font-light tracking-wide [text-shadow:0_2px_10px_rgba(13,13,26,0.4)]">
                 Every piece in our collection is hand-selected for its exceptional craftsmanship,
                 premium materials, and timeless design. Experience fashion that transcends trends.
               </p>
