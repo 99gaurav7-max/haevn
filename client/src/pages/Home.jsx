@@ -41,7 +41,7 @@ const heroSlides = [
     subtitle: 'Bold Ambition. Fearless Style.',
     quote: '— Youth is the spirit of adventure waking up. —',
     cta: 'Shop Youth Collection',
-    image: 'https://unsplash.com/photos/3kdPQUgHzIo/download?force=true&w=1920&h=1080&fit=crop',
+    image: 'https://unsplash.com/photos/iZL0Cis7Ye4/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
     pos: 'center 40%',
     link: '/shop',
