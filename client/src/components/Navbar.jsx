@@ -58,18 +58,18 @@ export default function Navbar() {
   };
 
   const linkClass = scrolled
-    ? 'text-xs uppercase tracking-[0.25em] text-royal-blue-500/60 hover:text-gold-500 transition-colors duration-300 font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full'
-    : 'text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full';
+    ? 'text-xs uppercase tracking-[0.25em] text-royal-blue-500/70 hover:text-gold-500 transition-colors duration-300 font-semibold relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full'
+    : 'text-xs uppercase tracking-[0.25em] text-white/85 hover:text-gold-400 transition-colors duration-300 font-semibold relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-gold-400 after:transition-all after:duration-300 after:w-0 hover:after:w-full';
 
   const moreBtnClass = scrolled
-    ? 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-royal-blue-500/60 hover:text-gold-500 transition-colors duration-300 font-medium'
-    : 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-white/60 hover:text-gold-500 transition-colors duration-300 font-medium';
+    ? 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-royal-blue-500/70 hover:text-gold-500 transition-colors duration-300 font-semibold'
+    : 'flex items-center space-x-1 text-xs uppercase tracking-[0.25em] text-white/85 hover:text-gold-400 transition-colors duration-300 font-semibold';
 
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled ? 'bg-warm-100/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.06)]' : 'bg-transparent'
-      }`}>
+      }`} style={!scrolled ? {textShadow:'0 2px 12px rgba(0,0,0,0.6)'} : {}}>
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <button
@@ -110,12 +110,12 @@ export default function Navbar() {
             </div>
 
             <Link to="/" className="flex items-center space-x-2 group">
-              <span className="text-3xl font-serif font-bold gold-gradient-text tracking-[0.15em]">HAEVN</span>
+              <span className="text-3xl font-serif font-bold gold-gradient-text tracking-[0.15em] animate-text-glow-pulse">HAEVN</span>
             </Link>
 
             <div className="flex items-center space-x-1 sm:space-x-3">
               <button onClick={() => setSearchOpen(!searchOpen)} aria-label="Search"
-                className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
+                className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/60' : 'text-white/80'}`}>
                 <HiOutlineSearch />
               </button>
               {user ? (
@@ -123,7 +123,7 @@ export default function Navbar() {
                   onMouseEnter={() => setUserMenuOpen(true)}
                   onMouseLeave={() => setUserMenuOpen(false)}>
                   <button onClick={() => setUserMenuOpen(!userMenuOpen)} aria-label="User menu"
-                    className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
+                    className={`btn-ghost text-xl ${scrolled ? 'text-royal-blue-500/60' : 'text-white/80'}`}>
                     <HiOutlineUser />
                   </button>
                   <div className={`absolute right-0 top-full mt-2 w-56 bg-warm-100/95 backdrop-blur-2xl border border-navy-500/10 transition-all duration-300 shadow-2xl shadow-black/10 ${
@@ -139,12 +139,12 @@ export default function Navbar() {
                   </div>
                 </div>
               ) : (
-                <Link to="/auth" className={`btn-ghost text-xl hidden sm:block ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
+                <Link to="/auth" className={`btn-ghost text-xl hidden sm:block ${scrolled ? 'text-royal-blue-500/60' : 'text-white/80'}`}>
                   <HiOutlineUser />
                 </Link>
               )}
               <button onClick={toggleCartDrawer} aria-label="Open cart"
-                className={`btn-ghost text-xl relative ${scrolled ? 'text-royal-blue-500/50' : 'text-white/50'}`}>
+                className={`btn-ghost text-xl relative ${scrolled ? 'text-royal-blue-500/60' : 'text-white/80'}`}>
                 <HiOutlineShoppingBag />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 w-5 h-5 gold-gradient rounded-full flex items-center justify-center text-[9px] font-bold text-[#0a0a1a] shadow-lg shadow-gold-500/30">
