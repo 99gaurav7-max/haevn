@@ -12,7 +12,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Get in Touch</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Contact Us</h1>
-            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">Reach out and experience the HAEVN standard of service.</p>
+            <p className="text-gold-500/80 text-sm mt-4 font-light max-w-xl tracking-wide" style={{textShadow:'0 0 12px rgba(201,169,110,0.15)'}}>Reach out and experience the HAEVN standard of service.</p>
           </motion.div>
         </div>
       </div>

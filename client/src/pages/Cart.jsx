@@ -36,7 +36,7 @@ export default function Cart() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Your Selection</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Shopping Cart</h1>
-            <p className="text-royal-blue-500/30 text-xs mt-3 tracking-wide">{cartCount} {cartCount === 1 ? 'item' : 'items'} in your cart</p>
+            <p className="text-royal-blue-500/50 text-xs mt-3 tracking-wide">{cartCount} {cartCount === 1 ? 'item' : 'items'} in your cart</p>
           </motion.div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Cart() {
                       <Link to={`/product/${item.id}`} className="text-base font-medium text-royal-blue-500/80 hover:text-gold-500 transition-colors">
                         {item.name}
                       </Link>
-                      <p className="text-xs text-royal-blue-500/30 mt-1 tracking-wide">{item.size} / {item.color}</p>
+                      <p className="text-xs text-royal-blue-500/50 mt-1 tracking-wide">{item.size} / {item.color}</p>
                     </div>
                     <p className="text-xl font-serif text-gold-500/90 font-semibold">{formatINRDecimal(item.price * item.quantity)}</p>
                   </div>

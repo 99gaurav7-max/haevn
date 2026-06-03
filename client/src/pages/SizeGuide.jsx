@@ -66,7 +66,7 @@ export default function SizeGuide() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Fit Guide</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Size Guide</h1>
-            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">
+            <p className="text-gold-500/80 text-sm mt-4 font-light max-w-xl tracking-wide" style={{textShadow:'0 0 12px rgba(201,169,110,0.15)'}}>
               Find your perfect fit with our detailed measurement guide. All measurements in centimetres unless noted.
             </p>
           </motion.div>
@@ -84,7 +84,7 @@ export default function SizeGuide() {
                 <thead>
                   <tr className="bg-navy-500/5">
                     {Object.keys(cat.sizes[0]).map((key) => (
-                      <th key={key} className="px-6 py-4 text-[10px] text-royal-blue-500/40 uppercase tracking-wider text-left font-semibold">
+                      <th key={key} className="px-6 py-4 text-[10px] text-royal-blue-500/60 uppercase tracking-wider text-left font-semibold">
                         {key === 'label' ? 'Size' : key.charAt(0).toUpperCase() + key.slice(1)}
                       </th>
                     ))}

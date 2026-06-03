@@ -56,7 +56,7 @@ export default function ShippingReturns() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Information</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Shipping & Returns</h1>
-            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">Everything you need to know about delivery, returns, and payments.</p>
+            <p className="text-gold-500/80 text-sm mt-4 font-light max-w-xl tracking-wide" style={{textShadow:'0 0 12px rgba(201,169,110,0.15)'}}>Everything you need to know about delivery, returns, and payments.</p>
           </motion.div>
         </div>
       </div>

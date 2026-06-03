@@ -11,7 +11,7 @@ export default function Terms() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Legal</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Terms of Service</h1>
-            <p className="text-gold-500/40 text-xs mt-4 font-light tracking-wide">Last updated: June 2026</p>
+            <p className="text-gold-500/80 text-xs mt-4 font-light tracking-wide" style={{textShadow:'0 0 12px rgba(201,169,110,0.15)'}}>Last updated: June 2026</p>
           </motion.div>
         </div>
       </div>

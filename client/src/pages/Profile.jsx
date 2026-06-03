@@ -96,11 +96,11 @@ export default function Profile() {
                 <h3 className="text-lg font-serif text-royal-blue-500/80 mb-6 font-medium">Profile Information</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-[10px] text-royal-blue-500/30 uppercase tracking-[0.2em]">Name</label>
+                    <label className="text-[10px] text-royal-blue-500/50 uppercase tracking-[0.2em]">Name</label>
                     <p className="text-royal-blue-500/70 text-sm mt-1">{user.name}</p>
                   </div>
                   <div>
-                    <label className="text-[10px] text-royal-blue-500/30 uppercase tracking-[0.2em]">Email</label>
+                    <label className="text-[10px] text-royal-blue-500/50 uppercase tracking-[0.2em]">Email</label>
                     <p className="text-royal-blue-500/70 text-sm mt-1">{user.email}</p>
                   </div>
                 </div>
@@ -130,13 +130,13 @@ export default function Profile() {
                     {orders.map((order) => (
                       <div key={order.id} className="p-6 bg-white border border-navy-500/10">
                         <div className="flex items-center justify-between mb-4">
-                          <p className="text-[10px] text-royal-blue-500/30 uppercase tracking-wider">Order #{order.id.slice(0, 8)}</p>
+                          <p className="text-[10px] text-royal-blue-500/50 uppercase tracking-wider">Order #{order.id.slice(0, 8)}</p>
                           <span className="px-3 py-1 text-[9px] bg-green-500/10 text-green-600/70 border border-green-500/20 uppercase tracking-wider">
                             {order.status}
                           </span>
                         </div>
                         <p className="text-sm text-royal-blue-500/70">{formatINRDecimal(order.total)}</p>
-                        <p className="text-[10px] text-royal-blue-500/30 mt-1 tracking-wide">{new Date(order.createdAt).toLocaleDateString()}</p>
+                        <p className="text-[10px] text-royal-blue-500/50 mt-1 tracking-wide">{new Date(order.createdAt).toLocaleDateString()}</p>
                       </div>
                     ))}
                   </div>

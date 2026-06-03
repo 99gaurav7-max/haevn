@@ -88,7 +88,7 @@ export default function Shop() {
               {category || (search ? `"${search}"` : 'All Products')}
             </h1>
             {search && (
-              <p className="text-royal-blue-500/30 text-sm mt-3 font-light">{products.length} results found</p>
+              <p className="text-royal-blue-500/50 text-sm mt-3 font-light">{products.length} results found</p>
             )}
           </motion.div>
         </div>

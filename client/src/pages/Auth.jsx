@@ -45,7 +45,7 @@ export default function Auth() {
           <h1 className="text-3xl font-serif text-royal-blue-500/80 mb-2">
             {isLogin ? 'Welcome Back' : 'Join HAEVN'}
           </h1>
-          <p className="text-royal-blue-500/30 text-xs font-light tracking-wide">
+          <p className="text-royal-blue-500/50 text-xs font-light tracking-wide">
             {isLogin ? 'Sign in to your account' : 'Create your account to unlock the full experience'}
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export default function Auth() {
           >
             {!isLogin && (
               <div className="relative">
-                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/20" />
+                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -94,7 +94,7 @@ export default function Auth() {
             )}
 
             <div className="relative">
-              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/20" />
+              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
               <input
                 type="email"
                 placeholder="Email"
@@ -106,7 +106,7 @@ export default function Auth() {
             </div>
 
             <div className="relative">
-              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/20" />
+              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
               <input
                 type="password"
                 placeholder="Password"
