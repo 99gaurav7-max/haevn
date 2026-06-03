@@ -204,7 +204,7 @@ export default function Home() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: HiTruck, title: 'Free Shipping', desc: 'On all orders over â‚¹20,000' },
+              { icon: HiTruck, title: 'Free Shipping', desc: 'On all orders over Rs.1,000' },
               { icon: HiShieldCheck, title: 'Authenticity Guaranteed', desc: '100% genuine luxury products' },
               { icon: HiRefresh, title: '30-Day Returns', desc: 'Hassle-free, no questions asked' },
             ].map(({ icon: Icon, title, desc }) => (
@@ -380,17 +380,17 @@ export default function Home() {
 
 
       {/* Newsletter */}
-      <section className="py-28 border-t border-navy-500/8">
+      <section className="py-28 bg-[#0D0D1A] border-t border-gold-500/10">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-gold-600 text-xs uppercase tracking-[0.35em] mb-4 font-bold">Stay Connected</p>
-            <h2 className="section-title">Join the Inner Circle</h2>
+            <p className="text-gold-500/80 text-xs uppercase tracking-[0.35em] mb-4 font-semibold" style={{textShadow:'0 0 20px rgba(201,169,110,0.3)'}}>Stay Connected</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text leading-tight" style={{textShadow:'0 0 30px rgba(201,169,110,0.25), 0 0 60px rgba(201,169,110,0.1)'}}>Join the Inner Circle</h2>
             <div className="crown-divider" />
-            <p className="text-royal-blue-500/70 mt-6 mb-10 text-sm font-medium tracking-wide max-w-md mx-auto">
+            <p className="text-gold-500/70 mt-6 mb-10 text-sm font-medium tracking-wide max-w-md mx-auto animate-text-glow-pulse" style={{textShadow:'0 0 15px rgba(201,169,110,0.2)'}}>
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
             <form onSubmit={(e) => {

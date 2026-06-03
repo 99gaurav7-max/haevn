@@ -101,7 +101,7 @@ export default function Cart() {
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-royal-blue-500/30">Shipping</span>
-                  <span className="text-green-600/80">{cartTotal > 20000 ? 'Free' : formatINR(499)}</span>
+                  <span className="text-green-600/80">{cartTotal > 1000 ? 'Free' : formatINR(499)}</span>
                 </div>
                 <div className="flex justify-between text-xs">
                   <span className="text-royal-blue-500/30">GST (12%)</span>
@@ -111,7 +111,7 @@ export default function Cart() {
                 <div className="flex justify-between">
                   <span className="text-royal-blue-500/60 text-sm font-medium">Total</span>
                   <span className="text-2xl font-serif text-gold-500/90 font-bold">
-                    {formatINRDecimal(cartTotal + (cartTotal > 20000 ? 0 : 499) + Math.round(cartTotal * 0.12))}
+                    {formatINRDecimal(cartTotal + (cartTotal > 1000 ? 0 : 499) + Math.round(cartTotal * 0.12))}
                   </span>
                 </div>
               </div>

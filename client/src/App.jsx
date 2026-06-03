@@ -12,6 +12,13 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Auth from './pages/Auth';
 import Profile from './pages/Profile';
+import Contact from './pages/Contact';
+import ShippingReturns from './pages/ShippingReturns';
+import SizeGuide from './pages/SizeGuide';
+import FAQ from './pages/FAQ';
+import CareInstructions from './pages/CareInstructions';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 export default function App() {
   const location = useLocation();
@@ -34,6 +41,13 @@ export default function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/contact-us" element={<Contact />} />
+              <Route path="/shipping-returns" element={<ShippingReturns />} />
+              <Route path="/size-guide" element={<SizeGuide />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/care-instructions" element={<CareInstructions />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </AnimatePresence>
         </main>

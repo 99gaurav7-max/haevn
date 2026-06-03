@@ -256,7 +256,7 @@ export default function ProductDetail() {
             {/* Shipping Info */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               {[
-                { icon: HiTruck, text: 'Free Shipping', sub: 'On orders over ₹20,000' },
+                { icon: HiTruck, text: 'Free Shipping', sub: 'On orders over Rs.1,000' },
                 { icon: HiShieldCheck, text: 'Authenticity Guarantee', sub: '100% genuine' },
                 { icon: HiRefresh, text: '30-Day Returns', sub: 'Hassle-free' },
               ].map(({ icon: Icon, text, sub }) => (

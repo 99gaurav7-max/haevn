@@ -69,7 +69,7 @@ const responses = {
     "If you're unsure between two sizes, we recommend the larger size for a more comfortable fit.",
   ],
   shipping: [
-    "We ship to all cities across India — free shipping on orders above ₹20,000.",
+    "We ship to all cities across India — free shipping on orders above Rs.1,000.",
     "Expected delivery is 5-7 business days across India. Metro cities typically receive orders in 3-5 days.",
     "We use premium courier services to ensure your HAEVN package arrives in perfect condition.",
   ],

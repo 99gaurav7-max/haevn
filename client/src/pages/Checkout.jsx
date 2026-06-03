@@ -93,7 +93,7 @@ export default function Checkout() {
     }
   };
 
-  const shippingCost = cartTotal > 20000 ? 0 : 499;
+  const shippingCost = cartTotal > 1000 ? 0 : 499;
   const gst = Math.round(cartTotal * 0.12);
   const grandTotal = cartTotal + shippingCost + gst;
 
@@ -356,7 +356,7 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-royal-blue-500/30">Shipping</span>
-                  <span className="text-green-600/70">{cartTotal > 20000 ? 'Free' : formatINR(499)}</span>
+                  <span className="text-green-600/70">{cartTotal > 1000 ? 'Free' : formatINR(499)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-royal-blue-500/30">GST (12%)</span>

@@ -22,6 +22,8 @@ export default function Shop() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid');
 
+  useEffect(() => { window.scrollTo(0, 0); }, [category, searchParams.toString()]);
+
   const search = searchParams.get('search') || '';
   const sort = searchParams.get('sort') || '';
   const minPrice = searchParams.get('minPrice') || '';

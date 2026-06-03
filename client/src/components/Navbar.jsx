@@ -54,6 +54,10 @@ export default function Navbar() {
   };
 
   const toggleCartDrawer = () => {
+    if (!user) {
+      navigate('/auth?redirect=/cart');
+      return;
+    }
     window.dispatchEvent(new CustomEvent('toggleCart'));
   };
 
