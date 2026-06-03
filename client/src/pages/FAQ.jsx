@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiOutlineChevronDown } from 'react-icons/hi';
 
@@ -9,7 +9,7 @@ const faqData = [
   },
   {
     q: 'What payment methods do you accept?',
-    a: 'We accept Visa, Mastercard, RuPay, UPI (GPay, PhonePe, Paytm), Net Banking, and EMI options on select cards. All transactions are secured with 256-bit SSL encryption.',
+    a: 'We accept Visa, Mastercard, RuPay, UPI (GPay, PhonePe, Paytm), Net Banking, EMI options on select cards, and Cash on Delivery on selected orders. All transactions are secured with 256-bit SSL encryption.',
   },
   {
     q: 'How long does delivery take?',
@@ -54,30 +54,34 @@ const faqData = [
 ];
 
 export default function FAQ() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <div className="pt-20">
-      <div className="border-b border-navy-500/8 bg-warm-200">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-[#0D0D1A] border-b border-gold-500/10">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Help Centre</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Frequently Asked Questions</h1>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Frequently Asked Questions</h1>
+            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">Find answers to the most common enquiries about shopping at HAEVN.</p>
           </motion.div>
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqData.map((faq, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}
-              className="border border-navy-500/10 bg-white overflow-hidden">
+              className="border border-navy-500/10 bg-white shadow-md shadow-black/5 overflow-hidden">
               <button onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-8 py-5 text-left transition-colors hover:bg-navy-500/5">
-                <span className="text-sm text-royal-blue-500/80 font-medium pr-4">{faq.q}</span>
-                <HiOutlineChevronDown className={`text-gold-500/60 flex-shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`} />
+                className="w-full flex items-center justify-between px-8 py-5 text-left transition-all duration-300 hover:bg-gold-500/5 group">
+                <span className="text-sm text-royal-blue-500/85 font-medium pr-4 group-hover:text-gold-600 transition-colors duration-300">
+                  {faq.q}
+                </span>
+                <HiOutlineChevronDown className={`text-gold-500/60 flex-shrink-0 transition-all duration-300 ${openIndex === i ? 'rotate-180 text-gold-500' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-96' : 'max-h-0'}`}>
-                <p className="px-8 pb-5 text-sm text-royal-blue-500/50 leading-relaxed font-light">{faq.a}</p>
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="px-8 pb-5 text-sm text-royal-blue-500/55 leading-relaxed font-light">{faq.a}</p>
               </div>
             </motion.div>
           ))}

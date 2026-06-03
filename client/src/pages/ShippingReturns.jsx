@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HiOutlineTruck, HiOutlineRefresh, HiOutlineShieldCheck, HiOutlineCurrencyRupee } from 'react-icons/hi';
 
@@ -38,7 +39,7 @@ const policies = [
     icon: HiOutlineCurrencyRupee,
     title: 'Payment & Pricing',
     items: [
-      'We accept Visa, Mastercard, RuPay, UPI, Net Banking, and EMI options.',
+      'We accept Visa, Mastercard, RuPay, UPI, Net Banking, EMI options, and Cash on Delivery on selected orders.',
       'All prices are inclusive of applicable taxes unless stated otherwise.',
       'Price matching is not available on limited-edition and collaboration drops.',
     ],
@@ -46,29 +47,32 @@ const policies = [
 ];
 
 export default function ShippingReturns() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="pt-20">
-      <div className="border-b border-navy-500/8 bg-warm-200">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-[#0D0D1A] border-b border-gold-500/10">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Information</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Shipping & Returns</h1>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Shipping & Returns</h1>
+            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">Everything you need to know about delivery, returns, and payments.</p>
           </motion.div>
         </div>
       </div>
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {policies.map(({ icon: Icon, title, items }, i) => (
             <motion.div key={title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-              className="bg-white border border-navy-500/10 p-10">
+              className="bg-white border border-navy-500/10 p-10 shadow-xl shadow-black/5 card-hover">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 flex items-center justify-center bg-gold-500/10"><Icon className="text-gold-500/80 text-xl" /></div>
-                <h2 className="text-lg font-serif text-royal-blue-500/80 font-medium">{title}</h2>
+                <div className="w-14 h-14 flex items-center justify-center bg-gold-500/10 border border-gold-500/20"><Icon className="text-gold-500/80 text-2xl" /></div>
+                <h2 className="text-xl font-serif text-royal-blue-500/90 font-semibold">{title}</h2>
               </div>
               <ul className="space-y-3">
                 {items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-royal-blue-500/60 leading-relaxed">
-                    <span className="text-gold-500/60 mt-1.5 w-1 h-1 bg-gold-500/60 rounded-full flex-shrink-0" />
+                  <li key={j} className="flex items-start gap-3 text-sm text-royal-blue-500/60 leading-relaxed font-light">
+                    <span className="text-gold-500/60 mt-2 w-1.5 h-1.5 bg-gold-500/60 rounded-full flex-shrink-0" />
                     {item}
                   </li>
                 ))}

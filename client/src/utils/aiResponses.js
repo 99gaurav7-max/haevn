@@ -74,7 +74,7 @@ const responses = {
     "We use premium courier services to ensure your HAEVN package arrives in perfect condition.",
   ],
   payment: [
-    "We accept UPI (Google Pay, PhonePe, Paytm), Net Banking, Credit/Debit Cards, and Cash on Delivery.",
+    "We accept UPI (Google Pay, PhonePe, Paytm), Net Banking, Credit/Debit Cards, and Cash on Delivery on selected orders.",
     "All payments are 100% secure. You can pay via UPI, cards, net banking, or COD.",
     "For COD orders, please keep the exact amount ready. Our delivery partner will collect the payment.",
   ],

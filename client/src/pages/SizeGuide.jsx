@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const categories = [
@@ -56,15 +57,17 @@ const categories = [
 ];
 
 export default function SizeGuide() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="pt-20">
-      <div className="border-b border-navy-500/8 bg-warm-200">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-[#0D0D1A] border-b border-gold-500/10">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">Fit Guide</p>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Size Guide</h1>
-            <p className="text-royal-blue-500/40 text-sm mt-4 font-light max-w-xl">
-              Find your perfect fit with our detailed measurement guide. All measurements are in centimetres unless noted.
+            <h1 className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text" style={{textShadow:'0 0 30px rgba(201,169,110,0.3)'}}>Size Guide</h1>
+            <p className="text-gold-500/40 text-sm mt-4 font-light max-w-xl tracking-wide">
+              Find your perfect fit with our detailed measurement guide. All measurements in centimetres unless noted.
             </p>
           </motion.div>
         </div>
@@ -72,13 +75,16 @@ export default function SizeGuide() {
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
         {categories.map((cat, i) => (
           <motion.div key={cat.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
-            <h2 className="text-2xl font-serif text-royal-blue-500/80 font-medium mb-6">{cat.name}</h2>
-            <div className="overflow-x-auto">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-1 h-8 gold-gradient" />
+              <h2 className="text-2xl font-serif text-royal-blue-500/90 font-semibold">{cat.name}</h2>
+            </div>
+            <div className="overflow-x-auto bg-white border border-navy-500/10 shadow-lg shadow-black/5">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-navy-500/5">
                     {Object.keys(cat.sizes[0]).map((key) => (
-                      <th key={key} className="px-6 py-4 text-[10px] text-royal-blue-500/40 uppercase tracking-wider text-left font-medium">
+                      <th key={key} className="px-6 py-4 text-[10px] text-royal-blue-500/40 uppercase tracking-wider text-left font-semibold">
                         {key === 'label' ? 'Size' : key.charAt(0).toUpperCase() + key.slice(1)}
                       </th>
                     ))}
@@ -86,9 +92,9 @@ export default function SizeGuide() {
                 </thead>
                 <tbody>
                   {cat.sizes.map((row, j) => (
-                    <tr key={j} className="border-b border-navy-500/8 hover:bg-navy-500/5 transition-colors">
+                    <tr key={j} className="border-b border-navy-500/8 hover:bg-gold-500/5 transition-colors duration-200">
                       {Object.values(row).map((val, k) => (
-                        <td key={k} className={`px-6 py-4 text-sm ${k === 0 ? 'text-royal-blue-500/80 font-medium' : 'text-royal-blue-500/50'}`}>
+                        <td key={k} className={`px-6 py-4 text-sm ${k === 0 ? 'text-royal-blue-500/80 font-semibold' : 'text-royal-blue-500/50'}`}>
                           {val}
                         </td>
                       ))}
@@ -97,13 +103,16 @@ export default function SizeGuide() {
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-gold-500/60 mt-4 italic tracking-wide">{cat.note}</p>
+            <p className="text-xs text-gold-500/70 mt-4 italic tracking-wide flex items-center gap-2">
+              <span className="w-1 h-1 bg-gold-500/70 rounded-full" />{cat.note}
+            </p>
           </motion.div>
         ))}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-warm-200 border border-navy-500/10 p-8 text-center">
-          <p className="text-sm text-royal-blue-500/60 font-light">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="bg-gradient-to-r from-gold-500/5 via-gold-500/10 to-gold-500/5 border border-gold-500/20 p-8 text-center">
+          <p className="text-sm text-royal-blue-500/70 font-medium">
             Still unsure? Our style advisors are happy to help you find the perfect fit.{' '}
-            <a href="mailto:concierge@haevn.com" className="text-gold-500/80 hover:text-gold-500 underline underline-offset-4">concierge@haevn.com</a>
+            <a href="mailto:concierge@haevn.com" className="text-gold-500 hover:text-gold-400 underline underline-offset-4 font-semibold">concierge@haevn.com</a>
           </p>
         </motion.div>
       </div>
