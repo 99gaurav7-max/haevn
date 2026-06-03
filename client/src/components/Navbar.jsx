@@ -110,7 +110,7 @@ export default function Navbar() {
             </div>
 
             <Link to="/" className="flex items-center space-x-2 group">
-              <span className="text-3xl font-serif font-bold gold-gradient-text tracking-[0.15em] animate-text-glow-pulse">HAEVN</span>
+              <span className="text-3xl font-serif font-bold gold-gradient-text tracking-[0.15em]" style={{textShadow:'0 0 15px rgba(13,13,26,0.6), 0 0 35px rgba(13,13,26,0.3), 0 0 60px rgba(201,169,110,0.2)'}}>HAEVN</span>
             </Link>
 
             <div className="flex items-center space-x-1 sm:space-x-3">

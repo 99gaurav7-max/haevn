@@ -387,10 +387,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Stay Connected</p>
+            <p className="text-gold-600 text-xs uppercase tracking-[0.35em] mb-4 font-bold">Stay Connected</p>
             <h2 className="section-title">Join the Inner Circle</h2>
             <div className="crown-divider" />
-            <p className="text-royal-blue-500/40 mt-6 mb-10 text-sm font-light tracking-wide max-w-md mx-auto">
+            <p className="text-royal-blue-500/70 mt-6 mb-10 text-sm font-medium tracking-wide max-w-md mx-auto">
               Be the first to know about exclusive drops, private sales, and curated style guides.
             </p>
             <form onSubmit={(e) => {
