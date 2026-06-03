@@ -14,7 +14,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/atsTDZfD2qw/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
     pos: 'center 45%',
-    link: '/shop?category=Footwear',
+    link: '/shop',
   },
   {
     title: 'Architect of Success',
@@ -24,7 +24,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/bigmTFsEwoM/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
     pos: 'center 40%',
-    link: '/shop?category=Tops',
+    link: '/shop',
   },
   {
     title: 'Effortless Refinement',
@@ -34,7 +34,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/oDOwQwWuCyE/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
     pos: 'center 40%',
-    link: '/shop?category=Tops',
+    link: '/shop',
   },
   {
     title: 'The New Guard',
