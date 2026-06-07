@@ -14,7 +14,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/atsTDZfD2qw/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
     pos: 'center 45%',
-    link: '/shop',
+    link: '/shop/Footwear',
   },
   {
     title: 'Architect of Success',
@@ -24,7 +24,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/bigmTFsEwoM/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
     pos: 'center 40%',
-    link: '/shop',
+    link: '/shop/Tops',
   },
   {
     title: 'Effortless Refinement',
@@ -34,7 +34,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/oDOwQwWuCyE/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
     pos: 'center 40%',
-    link: '/shop',
+    link: '/shop/Bottoms',
   },
   {
     title: 'The New Guard',
@@ -44,7 +44,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/iZL0Cis7Ye4/download?force=true&w=1920&h=1080&fit=crop',
     align: 'right',
     pos: 'center 40%',
-    link: '/shop',
+    link: '/shop/Headwear',
   },
   {
     title: 'A Life Well Lived',
@@ -54,7 +54,7 @@ const heroSlides = [
     image: 'https://unsplash.com/photos/1HQcJTFBXbs/download?force=true&w=1920&h=1080&fit=crop',
     align: 'left',
     pos: 'center 45%',
-    link: '/shop',
+    link: '/shop/Accessories',
   },
 ];
 

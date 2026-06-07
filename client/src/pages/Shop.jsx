@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineAdjustments, HiOutlineX, HiOutlineChevronDown, HiOutlineViewGrid, HiOutlineViewList } from 'react-icons/hi';
@@ -14,10 +14,20 @@ const sortOptions = [
   { value: 'name', label: 'Name: A-Z' },
 ];
 
+const categorySubcategories = {
+  Headwear: ['Hats', 'Caps', 'Beanies'],
+  Eyewear: ['Sunglasses', 'Glasses'],
+  Tops: ['Shirts', 'Sweaters', 'Blazers', 'Jackets', 'Polos'],
+  Bottoms: ['Trousers', 'Jeans', 'Chinos'],
+  Footwear: ['Formal Shoes', 'Boots', 'Loafers', 'Sneakers'],
+  Accessories: ['Watches', 'Cufflinks', 'Belts', 'Wallets', 'Ties', 'Bracelets', 'Fragrance', 'Rings', 'Bags', 'Chains'],
+};
+
 export default function Shop() {
   const { category } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
+  const [allSubcategories, setAllSubcategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterOpen, setFilterOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid');
@@ -30,6 +40,13 @@ export default function Shop() {
   const maxPrice = searchParams.get('maxPrice') || '';
   const onSale = searchParams.get('onSale') === 'true';
   const isNew = searchParams.get('new') === 'true';
+  const activeSubcategory = searchParams.get('subcategory') || '';
+
+  useEffect(() => {
+    productAPI.getAll({}).then(({ data }) => {
+      setAllSubcategories(data.subcategories || []);
+    }).catch(() => {});
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -37,6 +54,7 @@ export default function Shop() {
       try {
         const params = {};
         if (category) params.category = category;
+        if (activeSubcategory) params.subcategory = activeSubcategory;
         if (search) params.search = search;
         if (sort) params.sort = sort;
         if (minPrice) params.minPrice = minPrice;
@@ -47,40 +65,33 @@ export default function Shop() {
         const { data } = await productAPI.getAll(params);
         setProducts(data.products || []);
       } catch (err) {
-        console.error('Failed to fetch products:', err);
         setProducts([]);
       } finally {
         setLoading(false);
       }
     };
     fetchProducts();
-  }, [category, search, sort, minPrice, maxPrice, onSale, isNew]);
+  }, [category, activeSubcategory, search, sort, minPrice, maxPrice, onSale, isNew]);
 
-  const updateParam = (key, value) => {
+  const updateParam = useCallback((key, value) => {
     const params = new URLSearchParams(searchParams);
-    if (value) {
-      params.set(key, value);
-    } else {
-      params.delete(key);
-    }
+    if (value) { params.set(key, value); } else { params.delete(key); }
     setSearchParams(params);
-  };
+  }, [searchParams, setSearchParams]);
 
-  const clearFilters = () => {
-    setSearchParams({});
-  };
+  const clearFilters = () => setSearchParams(category ? { category } : {});
+  const hasFilters = search || sort || minPrice || maxPrice || onSale || isNew || activeSubcategory;
 
-  const hasFilters = search || sort || minPrice || maxPrice || onSale || isNew;
+  const subcategories = category ? (categorySubcategories[category] || allSubcategories.filter(s => {
+    const cat = category.toLowerCase();
+    return s.toLowerCase().includes(cat) || cat.includes(s.toLowerCase());
+  })) : [];
 
   return (
     <div className="pt-20">
-      {/* Hero */}
       <div className="bg-warm-200 border-b border-navy-500/8">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">
               {category || (search ? 'Search Results' : 'The Collection')}
             </p>
@@ -94,90 +105,94 @@ export default function Shop() {
         </div>
       </div>
 
+      {category && subcategories.length > 0 && (
+        <div className="border-b border-navy-500/8 bg-white">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <p className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] mb-5 font-semibold">Shop by Type</p>
+              <div className="flex flex-wrap gap-3">
+                <button onClick={() => updateParam('subcategory', '')}
+                  className={`px-6 py-3 text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-300 border ${
+                    !activeSubcategory
+                      ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20'
+                      : 'border-navy-500/10 text-royal-blue-500/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
+                  }`}>
+                  Shop All
+                </button>
+                {subcategories.map((sub) => (
+                  <button key={sub} onClick={() => updateParam('subcategory', sub)}
+                    className={`px-6 py-3 text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-300 border ${
+                      activeSubcategory === sub
+                        ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20'
+                        : 'border-navy-500/10 text-royal-blue-500/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
+                    }`}>
+                    {sub}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex gap-8">
-          {/* Filters - Desktop */}
           <div className="hidden lg:block w-64 flex-shrink-0">
             <div className="sticky top-28 space-y-10">
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
-                <select
-                  value={sort}
-                  onChange={(e) => updateParam('sort', e.target.value)}
-                  className="input-field text-xs"
-                >
+                <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
                   {sortOptions.map((opt) => (
                     <option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>
                   ))}
                 </select>
               </div>
-
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                 <div className="flex items-center gap-2">
-                  <input type="number" placeholder="Min" value={minPrice}
-                    onChange={(e) => updateParam('minPrice', e.target.value)}
-                    className="input-field text-xs w-full" />
+                  <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
                   <span className="text-royal-blue-500/20">—</span>
-                  <input type="number" placeholder="Max" value={maxPrice}
-                    onChange={(e) => updateParam('maxPrice', e.target.value)}
-                    className="input-field text-xs w-full" />
+                  <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
                 </div>
               </div>
-
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Filters</h4>
                 <div className="space-y-4">
                   <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={onSale}
-                      onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
-                      className="w-4 h-4 accent-gold-500" />
+                    <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
                     <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={isNew}
-                      onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
-                      className="w-4 h-4 accent-gold-500" />
+                    <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
                     <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">New Arrivals</span>
                   </label>
                 </div>
               </div>
-
               {hasFilters && (
-                <button onClick={clearFilters}
-                  className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1">
+                <button onClick={clearFilters} className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1">
                   <HiOutlineX className="text-sm" /> Clear all filters
                 </button>
               )}
             </div>
           </div>
 
-          {/* Main Content */}
           <div className="flex-1">
-            {/* Toolbar */}
             <div className="flex items-center justify-between mb-8 pb-6 border-b border-navy-500/8">
               <p className="text-xs text-royal-blue-500/30 tracking-wide">
                 <span className="text-royal-blue-500/70">{products.length}</span> Products
+                {activeSubcategory && <span className="text-gold-500/60 ml-2">— {activeSubcategory}</span>}
               </p>
               <div className="flex items-center gap-4">
                 <div className="hidden sm:flex border border-navy-500/10">
-                  <button onClick={() => setViewMode('grid')}
-                    className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}>
-                    <HiOutlineViewGrid />
-                  </button>
-                  <button onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}>
-                    <HiOutlineViewList />
-                  </button>
+                  <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewGrid /></button>
+                  <button onClick={() => setViewMode('list')} className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewList /></button>
                 </div>
-                <button onClick={() => setFilterOpen(!filterOpen)}
-                  className="lg:hidden btn-ghost flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
+                <button onClick={() => setFilterOpen(!filterOpen)} className="lg:hidden btn-ghost flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
                   <HiOutlineAdjustments /> Filters
                 </button>
               </div>
             </div>
 
-            {/* Products */}
             {loading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.from({ length: 6 }).map((_, i) => (
@@ -198,11 +213,7 @@ export default function Shop() {
                 <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
               </div>
             ) : (
-              <div className={`grid gap-6 ${
-                viewMode === 'grid'
-                  ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-                  : 'grid-cols-1'
-              }`}>
+              <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                 {products.map((product, i) => (
                   <ProductCard key={product.id} product={product} index={i} />
                 ))}
@@ -212,74 +223,39 @@ export default function Shop() {
         </div>
       </div>
 
-      {/* Mobile Filter Drawer */}
       <AnimatePresence>
         {filterOpen && (
           <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-navy-500/70 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setFilterOpen(false)}
-            />
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto"
-            >
-              <button onClick={() => setFilterOpen(false)}
-                className="absolute top-6 right-6 text-royal-blue-500/30 hover:text-gold-500 transition-colors">
-                <HiOutlineX className="text-xl" />
-              </button>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-navy-500/70 backdrop-blur-sm z-40 lg:hidden" onClick={() => setFilterOpen(false)} />
+            <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto">
+              <button onClick={() => setFilterOpen(false)} className="absolute top-6 right-6 text-royal-blue-500/30 hover:text-gold-500 transition-colors"><HiOutlineX className="text-xl" /></button>
               <h3 className="text-lg font-serif text-royal-blue-500/80 mb-8 font-medium">Filters</h3>
-
               <div className="space-y-8">
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
-                  <select value={sort}
-                    onChange={(e) => updateParam('sort', e.target.value)}
-                    className="input-field text-xs">
-                    {sortOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>
-                    ))}
+                  <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
+                    {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>))}
                   </select>
                 </div>
-
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                   <div className="flex items-center gap-2">
-                    <input type="number" placeholder="Min" value={minPrice}
-                      onChange={(e) => updateParam('minPrice', e.target.value)}
-                      className="input-field text-xs w-full" />
+                    <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
                     <span className="text-royal-blue-500/20">—</span>
-                    <input type="number" placeholder="Max" value={maxPrice}
-                      onChange={(e) => updateParam('maxPrice', e.target.value)}
-                      className="input-field text-xs w-full" />
+                    <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
                   </div>
                 </div>
-
                 <div>
                   <label className="flex items-center gap-3 cursor-pointer group mb-4">
-                    <input type="checkbox" checked={onSale}
-                      onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')}
-                      className="w-4 h-4 accent-gold-500" />
+                    <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
                     <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">On Sale</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={isNew}
-                      onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')}
-                      className="w-4 h-4 accent-gold-500" />
+                    <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
                     <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">New Arrivals</span>
                   </label>
                 </div>
-
-                <button onClick={clearFilters}
-                  className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1">
-                  <HiOutlineX /> Clear filters
-                </button>
+                <button onClick={clearFilters} className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1"><HiOutlineX /> Clear filters</button>
               </div>
             </motion.div>
           </>
