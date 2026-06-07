@@ -35,6 +35,11 @@ export default function App() {
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/shop/sports" element={<Shop />} />
+              <Route path="/shop/formal" element={<Shop />} />
+              <Route path="/shop/casual" element={<Shop />} />
+              <Route path="/shop/youth" element={<Shop />} />
+              <Route path="/shop/heritage" element={<Shop />} />
               <Route path="/shop/:category" element={<Shop />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
