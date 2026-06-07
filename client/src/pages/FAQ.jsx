@@ -72,16 +72,16 @@ export default function FAQ() {
         <div className="space-y-2">
           {faqData.map((faq, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}
-              className="border border-navy-500/10 bg-white shadow-md shadow-black/5 overflow-hidden">
+              className="border border-gold-500/10 bg-navy-500/80 backdrop-blur-xl overflow-hidden">
               <button onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-8 py-5 text-left transition-all duration-300 hover:bg-gold-500/5 group">
-                <span className="text-sm text-royal-blue-500/85 font-medium pr-4 group-hover:text-gold-600 transition-colors duration-300">
+                className="w-full flex items-center justify-between px-8 py-5 text-left transition-all duration-300 hover:bg-gold-500/10 group">
+                <span className="text-sm text-warm-50/85 font-medium pr-4 group-hover:text-gold-500 transition-colors duration-300">
                   {faq.q}
                 </span>
                 <HiOutlineChevronDown className={`text-gold-500/60 flex-shrink-0 transition-all duration-300 ${openIndex === i ? 'rotate-180 text-gold-500' : ''}`} />
               </button>
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="px-8 pb-5 text-sm text-royal-blue-500/55 leading-relaxed font-light">{faq.a}</p>
+                <p className="px-8 pb-5 text-sm text-warm-50/55 leading-relaxed font-light">{faq.a}</p>
               </div>
             </motion.div>
           ))}

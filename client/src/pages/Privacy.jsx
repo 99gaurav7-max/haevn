@@ -26,9 +26,9 @@ export default function Privacy() {
             { title: '6. Contact', content: 'For privacy-related enquiries, write to us at HAEVN House, Bandra Kurla Complex, Mumbai — 400051 or email privacy@haevn.com.' },
           ].map(({ title, content }, i) => (
             <motion.section key={title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
-              className="bg-white border border-navy-500/10 p-10 shadow-lg shadow-black/5">
-              <h2 className="text-xl font-serif text-royal-blue-500/90 font-semibold mb-4">{title}</h2>
-              <p className="text-sm text-royal-blue-500/55 leading-relaxed font-light">{content}</p>
+              className="bg-navy-500/80 backdrop-blur-xl border border-gold-500/10 p-10">
+              <h2 className="text-xl font-serif text-warm-50/90 font-semibold mb-4">{title}</h2>
+              <p className="text-sm text-warm-50/55 leading-relaxed font-light">{content}</p>
             </motion.section>
           ))}
         </div>

@@ -77,14 +77,14 @@ export default function SizeGuide() {
           <motion.div key={cat.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
             <div className="flex items-center gap-4 mb-6">
               <div className="w-1 h-8 gold-gradient" />
-              <h2 className="text-2xl font-serif text-royal-blue-500/90 font-semibold">{cat.name}</h2>
+              <h2 className="text-2xl font-serif text-warm-50/90 font-semibold">{cat.name}</h2>
             </div>
-            <div className="overflow-x-auto bg-white border border-navy-500/10 shadow-lg shadow-black/5">
+            <div className="overflow-x-auto bg-navy-500/80 backdrop-blur-xl border border-gold-500/10">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-navy-500/5">
+                  <tr className="bg-white/5">
                     {Object.keys(cat.sizes[0]).map((key) => (
-                      <th key={key} className="px-6 py-4 text-[10px] text-royal-blue-500/60 uppercase tracking-wider text-left font-semibold">
+                      <th key={key} className="px-6 py-4 text-[10px] text-warm-50/60 uppercase tracking-wider text-left font-semibold">
                         {key === 'label' ? 'Size' : key.charAt(0).toUpperCase() + key.slice(1)}
                       </th>
                     ))}
@@ -92,9 +92,9 @@ export default function SizeGuide() {
                 </thead>
                 <tbody>
                   {cat.sizes.map((row, j) => (
-                    <tr key={j} className="border-b border-navy-500/8 hover:bg-gold-500/5 transition-colors duration-200">
+                    <tr key={j} className="border-b border-gold-500/10 hover:bg-gold-500/10 transition-colors duration-200">
                       {Object.values(row).map((val, k) => (
-                        <td key={k} className={`px-6 py-4 text-sm ${k === 0 ? 'text-royal-blue-500/80 font-semibold' : 'text-royal-blue-500/50'}`}>
+                        <td key={k} className={`px-6 py-4 text-sm ${k === 0 ? 'text-warm-50/80 font-semibold' : 'text-warm-50/50'}`}>
                           {val}
                         </td>
                       ))}
@@ -108,9 +108,9 @@ export default function SizeGuide() {
             </p>
           </motion.div>
         ))}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="bg-gradient-to-r from-gold-500/5 via-gold-500/10 to-gold-500/5 border border-gold-500/20 p-8 text-center">
-          <p className="text-sm text-royal-blue-500/70 font-medium">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            className="bg-gradient-to-r from-gold-500/5 via-gold-500/10 to-gold-500/5 border border-gold-500/20 p-8 text-center">
+          <p className="text-sm text-warm-50/70 font-medium">
             Still unsure? Our style advisors are happy to help you find the perfect fit.{' '}
             <a href="mailto:concierge@haevn.com" className="text-gold-500 hover:text-gold-400 underline underline-offset-4 font-semibold">concierge@haevn.com</a>
           </p>

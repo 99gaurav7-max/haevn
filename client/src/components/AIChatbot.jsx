@@ -82,7 +82,7 @@ export default function AIChatbot() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 100, scale: 0.9 }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-8rem)] bg-warm-100/95 backdrop-blur-2xl border border-gold-500/20 shadow-2xl shadow-royal-blue-500/20 flex flex-col overflow-hidden"
+              className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-8rem)] bg-navy-600/95 backdrop-blur-2xl border border-gold-500/20 shadow-2xl shadow-black/50 flex flex-col overflow-hidden"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-gold-500/10 bg-gradient-to-r from-gold-500/[0.08] to-transparent">
@@ -91,12 +91,12 @@ export default function AIChatbot() {
                     <HiOutlineSparkles className="text-lg text-[#0a0a1a]" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-royal-blue-500/90">HAEVN Assistant</h3>
+                    <h3 className="text-sm font-medium text-warm-50/90">HAEVN Assistant</h3>
                     <p className="text-[9px] text-gold-500/50 uppercase tracking-[0.2em]">Style Concierge</p>
                   </div>
                 </div>
                 <button onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 transition-colors">
+                  className="w-8 h-8 flex items-center justify-center text-warm-50/50 hover:text-gold-500 transition-colors">
                   <HiOutlineX className="text-lg" />
                 </button>
               </div>
@@ -112,8 +112,8 @@ export default function AIChatbot() {
                   >
                     <div className={`max-w-[85%] p-3 ${
                       msg.sender === 'user'
-                        ? 'bg-gold-500/10 border border-gold-500/20 text-royal-blue-500/90'
-                        : 'bg-navy-500/5 border border-navy-500/10 text-royal-blue-500/70'
+                        ? 'bg-gold-500/10 border border-gold-500/20 text-warm-50/90'
+                        : 'bg-white/5 border border-gold-500/10 text-warm-50/70'
                     }`}>
                       <p className="text-xs leading-relaxed font-light">{msg.text}</p>
                       {msg.sender === 'ai' && (
@@ -133,7 +133,7 @@ export default function AIChatbot() {
                     animate={{ opacity: 1 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-navy-500/5 border border-navy-500/10 p-4">
+                    <div className="bg-white/5 border border-gold-500/10 p-4">
                       <div className="flex gap-1.5">
                         <span className="w-2 h-2 bg-gold-500/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-2 h-2 bg-gold-500/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -158,7 +158,7 @@ export default function AIChatbot() {
                             setIsTyping(false);
                           }, 1000);
                         }}
-                        className="p-3 text-xs text-left text-royal-blue-500/40 border border-navy-500/10 hover:border-gold-500/30 hover:text-gold-500/80 transition-all duration-200 bg-transparent font-light tracking-wide"
+                        className="p-3 text-xs text-left text-warm-50/40 border border-gold-500/10 hover:border-gold-500/30 hover:text-gold-500/80 transition-all duration-200 bg-transparent font-light tracking-wide"
                       >
                         {action.label}
                       </button>
@@ -170,7 +170,7 @@ export default function AIChatbot() {
               </div>
 
               {/* Input */}
-              <form onSubmit={handleSend} className="p-4 border-t border-navy-500/8">
+              <form onSubmit={handleSend} className="p-4 border-t border-gold-500/10">
                 <div className="flex gap-2">
                   <input
                     ref={inputRef}
@@ -178,7 +178,7 @@ export default function AIChatbot() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Ask about men's fashion..."
-                    className="flex-1 px-4 py-2.5 bg-navy-500/5 border border-navy-500/10 text-royal-blue-500/70 text-xs placeholder:text-royal-blue-500/25 focus:outline-none focus:border-gold-500/30 transition-colors font-light"
+                    className="flex-1 px-4 py-2.5 bg-white/5 border border-gold-500/10 text-warm-50/70 text-xs placeholder:text-warm-50/30 focus:outline-none focus:border-gold-500/30 transition-colors font-light"
                     disabled={isTyping}
                   />
                   <button

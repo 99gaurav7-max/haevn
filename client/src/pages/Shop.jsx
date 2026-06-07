@@ -123,7 +123,7 @@ export default function Shop() {
           </div>
         </div>
 
-        <div className="border-b border-navy-500/8 bg-white">
+        <div className="border-b border-gold-500/10 bg-navy-500/80 backdrop-blur-xl">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <p className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] mb-8 font-semibold">Shop by Type</p>
@@ -154,14 +154,14 @@ export default function Shop() {
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                   <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
-                    {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>))}
+                    {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-navy-500">{opt.label}</option>))}
                   </select>
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                   <div className="flex items-center gap-2">
                     <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
-                    <span className="text-royal-blue-500/20">—</span>
+                    <span className="text-warm-50/20">—</span>
                     <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
                   </div>
                 </div>
@@ -170,11 +170,11 @@ export default function Shop() {
                   <div className="space-y-4">
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                      <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">On Sale</span>
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80 transition-colors">On Sale</span>
                     </label>
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                      <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">New Arrivals</span>
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80 transition-colors">New Arrivals</span>
                     </label>
                   </div>
                 </div>
@@ -187,14 +187,14 @@ export default function Shop() {
             </div>
 
             <div className="flex-1">
-              <div className="flex items-center justify-between mb-8 pb-6 border-b border-navy-500/8">
-                <p className="text-xs text-royal-blue-500/30 tracking-wide">
-                  <span className="text-royal-blue-500/70">{products.length}</span> Products
+              <div className="flex items-center justify-between mb-8 pb-6 border-b border-gold-500/10">
+                <p className="text-xs text-warm-50/50 tracking-wide">
+                  <span className="text-warm-50/70">{products.length}</span> Products
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="hidden sm:flex border border-navy-500/10">
-                    <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewGrid /></button>
-                    <button onClick={() => setViewMode('list')} className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewList /></button>
+                  <div className="hidden sm:flex border border-gold-500/10">
+                    <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-white/5' : 'text-warm-50/40 hover:text-warm-50/60'}`}><HiOutlineViewGrid /></button>
+                    <button onClick={() => setViewMode('list')} className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-white/5' : 'text-warm-50/40 hover:text-warm-50/60'}`}><HiOutlineViewList /></button>
                   </div>
                   <button onClick={() => setFilterOpen(!filterOpen)} className="lg:hidden btn-ghost flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
                     <HiOutlineAdjustments /> Filters
@@ -213,8 +213,8 @@ export default function Shop() {
                 </div>
               ) : products.length === 0 ? (
                 <div className="text-center py-20">
-                  <p className="text-royal-blue-500/40 text-lg font-light">No products found</p>
-                  <p className="text-royal-blue-500/20 text-sm mt-2 font-light">Try adjusting your filters</p>
+                    <p className="text-warm-50/40 text-lg font-light">No products found</p>
+                  <p className="text-warm-50/40 text-sm mt-2 font-light">Try adjusting your filters</p>
                   <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
                 </div>
               ) : (
@@ -230,32 +230,32 @@ export default function Shop() {
           {filterOpen && (
             <>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-navy-500/70 backdrop-blur-sm z-40 lg:hidden" onClick={() => setFilterOpen(false)} />
-              <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto">
-                <button onClick={() => setFilterOpen(false)} className="absolute top-6 right-6 text-royal-blue-500/30 hover:text-gold-500 transition-colors"><HiOutlineX className="text-xl" /></button>
-                <h3 className="text-lg font-serif text-royal-blue-500/80 mb-8 font-medium">Filters</h3>
+              <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 left-0 h-full w-80 bg-navy-600 border-r border-gold-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto">
+                <button onClick={() => setFilterOpen(false)} className="absolute top-6 right-6 text-warm-50/50 hover:text-gold-500 transition-colors"><HiOutlineX className="text-xl" /></button>
+                <h3 className="text-lg font-serif text-warm-50/90 mb-8 font-medium">Filters</h3>
                 <div className="space-y-8">
                   <div>
                     <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                     <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
-                      {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>))}
+                      {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-navy-500">{opt.label}</option>))}
                     </select>
                   </div>
                   <div>
                     <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                     <div className="flex items-center gap-2">
                       <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
-                      <span className="text-royal-blue-500/20">—</span>
+                      <span className="text-warm-50/20">—</span>
                       <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
                     </div>
                   </div>
                   <div>
                     <label className="flex items-center gap-3 cursor-pointer group mb-4">
                       <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                      <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">On Sale</span>
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80">On Sale</span>
                     </label>
                     <label className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                      <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">New Arrivals</span>
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80">New Arrivals</span>
                     </label>
                   </div>
                   <button onClick={clearFilters} className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1"><HiOutlineX /> Clear filters</button>
@@ -270,30 +270,30 @@ export default function Shop() {
 
   return (
     <div className="pt-20">
-      <div className="bg-warm-200 border-b border-navy-500/8">
+      <div className="bg-[#0D0D1A] border-b border-gold-500/10">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-3 font-medium">{headerLabel}</p>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-royal-blue-500/90">{headerTitle}</h1>
-            {search && <p className="text-royal-blue-500/50 text-sm mt-3 font-light">{products.length} results found</p>}
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-warm-50/90">{headerTitle}</h1>
+            {search && <p className="text-warm-50/50 text-sm mt-3 font-light">{products.length} results found</p>}
           </motion.div>
         </div>
       </div>
 
       {category && subcategories.length > 0 && (
-        <div className="border-b border-navy-500/8 bg-white">
+        <div className="border-b border-gold-500/10 bg-navy-500/80 backdrop-blur-xl">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <p className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] mb-5 font-semibold">Shop by Type</p>
               <div className="flex flex-wrap gap-3">
                 <button onClick={() => updateParam('subcategory', '')}
                   className={`px-6 py-3 text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-300 border ${
-                    !activeSubcategory ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20' : 'border-navy-500/10 text-royal-blue-500/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
+                    !activeSubcategory ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20' : 'border-gold-500/10 text-warm-50/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
                   }`}>Shop All</button>
                 {subcategories.map((sub) => (
                   <button key={sub} onClick={() => updateParam('subcategory', sub)}
                     className={`px-6 py-3 text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-300 border ${
-                      activeSubcategory === sub ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20' : 'border-navy-500/10 text-royal-blue-500/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
+                      activeSubcategory === sub ? 'gold-gradient text-[#0a0a1a] border-gold-500/50 shadow-lg shadow-gold-500/20' : 'border-gold-500/10 text-warm-50/50 hover:text-gold-500 hover:border-gold-500/30 bg-transparent'
                     }`}>{sub}</button>
                 ))}
               </div>
@@ -309,28 +309,28 @@ export default function Shop() {
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                 <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
-                  {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>))}
+                  {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-navy-500">{opt.label}</option>))}
                 </select>
               </div>
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                 <div className="flex items-center gap-2">
                   <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
-                  <span className="text-royal-blue-500/20">—</span>
-                  <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
+                    <span className="text-warm-50/20">—</span>
+                    <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Filters</h4>
-                <div className="space-y-4">
-                  <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">On Sale</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80 transition-colors">New Arrivals</span>
-                  </label>
+                <div>
+                  <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Filters</h4>
+                  <div className="space-y-4">
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80 transition-colors">On Sale</span>
+                    </label>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80 transition-colors">New Arrivals</span>
+                    </label>
                 </div>
               </div>
               {hasFilters && (
@@ -342,16 +342,16 @@ export default function Shop() {
           </div>
 
           <div className="flex-1">
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-navy-500/8">
-              <p className="text-xs text-royal-blue-500/30 tracking-wide">
-                <span className="text-royal-blue-500/70">{products.length}</span> Products
-                {activeSubcategory && <span className="text-gold-500/60 ml-2">— {activeSubcategory}</span>}
-              </p>
+                <div className="flex items-center justify-between mb-8 pb-6 border-b border-gold-500/10">
+                  <p className="text-xs text-warm-50/50 tracking-wide">
+                    <span className="text-warm-50/70">{products.length}</span> Products
+                    {activeSubcategory && <span className="text-gold-500/60 ml-2">— {activeSubcategory}</span>}
+                  </p>
               <div className="flex items-center gap-4">
-                <div className="hidden sm:flex border border-navy-500/10">
-                  <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewGrid /></button>
-                  <button onClick={() => setViewMode('list')} className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-navy-500/5' : 'text-royal-blue-500/30 hover:text-royal-blue-500/60'}`}><HiOutlineViewList /></button>
-                </div>
+                <div className="hidden sm:flex border border-gold-500/10">
+                    <button onClick={() => setViewMode('grid')} className={`p-2 ${viewMode === 'grid' ? 'text-gold-500 bg-white/5' : 'text-warm-50/40 hover:text-warm-50/60'}`}><HiOutlineViewGrid /></button>
+                    <button onClick={() => setViewMode('list')} className={`p-2 ${viewMode === 'list' ? 'text-gold-500 bg-white/5' : 'text-warm-50/40 hover:text-warm-50/60'}`}><HiOutlineViewList /></button>
+                  </div>
                 <button onClick={() => setFilterOpen(!filterOpen)} className="lg:hidden btn-ghost flex items-center gap-2 text-xs uppercase tracking-[0.15em]">
                   <HiOutlineAdjustments /> Filters
                 </button>
@@ -369,8 +369,8 @@ export default function Shop() {
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-royal-blue-500/40 text-lg font-light">No products found</p>
-                <p className="text-royal-blue-500/20 text-sm mt-2 font-light">Try adjusting your filters</p>
+                <p className="text-warm-50/40 text-lg font-light">No products found</p>
+                <p className="text-warm-50/40 text-sm mt-2 font-light">Try adjusting your filters</p>
                 <button onClick={clearFilters} className="btn-outline mt-8 text-sm tracking-[0.2em]">Clear Filters</button>
               </div>
             ) : (
@@ -386,40 +386,40 @@ export default function Shop() {
         {filterOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-navy-500/70 backdrop-blur-sm z-40 lg:hidden" onClick={() => setFilterOpen(false)} />
-            <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 left-0 h-full w-80 bg-warm-100 border-r border-navy-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto">
-              <button onClick={() => setFilterOpen(false)} className="absolute top-6 right-6 text-royal-blue-500/30 hover:text-gold-500 transition-colors"><HiOutlineX className="text-xl" /></button>
-              <h3 className="text-lg font-serif text-royal-blue-500/80 mb-8 font-medium">Filters</h3>
+            <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'spring', damping: 25, stiffness: 200 }} className="fixed top-0 left-0 h-full w-80 bg-navy-600 border-r border-gold-500/10 z-50 lg:hidden p-8 pt-24 overflow-y-auto">
+              <button onClick={() => setFilterOpen(false)} className="absolute top-6 right-6 text-warm-50/50 hover:text-gold-500 transition-colors"><HiOutlineX className="text-xl" /></button>
+              <h3 className="text-lg font-serif text-warm-50/90 mb-8 font-medium">Filters</h3>
               <div className="space-y-8">
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Sort By</h4>
                   <select value={sort} onChange={(e) => updateParam('sort', e.target.value)} className="input-field text-xs">
-                    {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-warm-50">{opt.label}</option>))}
+                    {sortOptions.map((opt) => (<option key={opt.value} value={opt.value} className="bg-navy-500">{opt.label}</option>))}
                   </select>
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-[0.25em] text-gold-500/70 font-semibold mb-4">Price Range</h4>
                   <div className="flex items-center gap-2">
                     <input type="number" placeholder="Min" value={minPrice} onChange={(e) => updateParam('minPrice', e.target.value)} className="input-field text-xs w-full" />
-                    <span className="text-royal-blue-500/20">—</span>
+                    <span className="text-warm-50/20">—</span>
                     <input type="number" placeholder="Max" value={maxPrice} onChange={(e) => updateParam('maxPrice', e.target.value)} className="input-field text-xs w-full" />
                   </div>
                 </div>
                 <div>
                   <label className="flex items-center gap-3 cursor-pointer group mb-4">
                     <input type="checkbox" checked={onSale} onChange={(e) => updateParam('onSale', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">On Sale</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer group">
-                    <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
-                    <span className="text-xs text-royal-blue-500/50 group-hover:text-royal-blue-500/80">New Arrivals</span>
-                  </label>
+                    <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80">On Sale</span>
+                    </label>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" checked={isNew} onChange={(e) => updateParam('new', e.target.checked ? 'true' : '')} className="w-4 h-4 accent-gold-500" />
+                      <span className="text-xs text-warm-50/50 group-hover:text-warm-50/80">New Arrivals</span>
+                    </label>
+                  </div>
+                  <button onClick={clearFilters} className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1"><HiOutlineX /> Clear filters</button>
                 </div>
-                <button onClick={clearFilters} className="text-xs text-gold-500/70 hover:text-gold-500 transition-colors flex items-center gap-1"><HiOutlineX /> Clear filters</button>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </div>
   );
 }

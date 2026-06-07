@@ -170,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* Features Bar */}
-      <section className="border-y border-navy-500/8 bg-warm-200">
+      <section className="border-y border-gold-500/10 bg-navy-600">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -183,8 +183,8 @@ export default function Home() {
                   <Icon className="text-gold-500/80 text-xl" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase tracking-[0.2em] text-royal-blue-500/80 font-medium">{title}</h4>
-                  <p className="text-[10px] text-royal-blue-500/40 mt-1 tracking-wide">{desc}</p>
+                  <h4 className="text-xs uppercase tracking-[0.2em] text-warm-50/80 font-medium">{title}</h4>
+                  <p className="text-[10px] text-warm-50/60 mt-1 tracking-wide">{desc}</p>
                 </div>
               </div>
             ))}
@@ -244,16 +244,16 @@ export default function Home() {
           >
             <div>
               <p className="text-gold-500/70 text-xs uppercase tracking-[0.35em] mb-4 font-medium">Editor's Pick</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-royal-blue-500/90">Featured Selections</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-warm-50/90">Featured Selections</h2>
               <div className="divider-left mt-4" />
             </div>
             <div className="hidden sm:flex space-x-2">
               <button onClick={() => scrollFeatured(-1)}
-                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-gold-500/10 flex items-center justify-center text-warm-50/50 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronLeft />
               </button>
               <button onClick={() => scrollFeatured(1)}
-                className="w-12 h-12 border border-navy-500/10 flex items-center justify-center text-royal-blue-500/30 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
+                className="w-12 h-12 border border-gold-500/10 flex items-center justify-center text-warm-50/50 hover:text-gold-500 hover:border-gold-500/50 transition-all duration-300">
                 <HiOutlineChevronRight />
               </button>
             </div>
@@ -263,11 +263,11 @@ export default function Home() {
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="flex-shrink-0 w-[280px] snap-start">
-                  <div className="aspect-[3/4] bg-navy-500/5 animate-pulse" />
+                  <div className="aspect-[3/4] bg-white/5 animate-pulse" />
                   <div className="p-4 space-y-2">
-                    <div className="h-3 w-16 bg-navy-500/5 animate-pulse" />
-                    <div className="h-4 w-40 bg-navy-500/5 animate-pulse" />
-                    <div className="h-4 w-20 bg-navy-500/5 animate-pulse" />
+                    <div className="h-3 w-16 bg-white/5 animate-pulse" />
+                    <div className="h-4 w-40 bg-white/5 animate-pulse" />
+                    <div className="h-4 w-20 bg-white/5 animate-pulse" />
                   </div>
                 </div>
               ))

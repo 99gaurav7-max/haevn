@@ -35,27 +35,27 @@ export default function Auth() {
   };
 
   return (
-    <div className="pt-20 min-h-screen flex items-center justify-center bg-warm-200">
+    <div className="pt-20 min-h-screen flex items-center justify-center bg-navy-500">
       <div className="w-full max-w-md px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <h1 className="text-3xl font-serif text-royal-blue-500/80 mb-2">
+          <h1 className="text-3xl font-serif text-warm-50/90 mb-2">
             {isLogin ? 'Welcome Back' : 'Join HAEVN'}
           </h1>
-          <p className="text-royal-blue-500/50 text-xs font-light tracking-wide">
+          <p className="text-warm-50/50 text-xs font-light tracking-wide">
             {isLogin ? 'Sign in to your account' : 'Create your account to unlock the full experience'}
           </p>
         </motion.div>
 
         {/* Toggle */}
-        <div className="flex bg-white border border-navy-500/10 mb-8">
+        <div className="flex bg-navy-500/80 backdrop-blur-xl border border-gold-500/10 mb-8">
           <button
             onClick={() => { setIsLogin(true); setError(''); }}
             className={`flex-1 py-3 text-xs font-medium transition-all duration-300 tracking-wider ${
-              isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-royal-blue-500/40 hover:text-royal-blue-500/70'
+              isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-warm-50/40 hover:text-warm-50/70'
             }`}
           >
             Sign In
@@ -63,7 +63,7 @@ export default function Auth() {
           <button
             onClick={() => { setIsLogin(false); setError(''); }}
             className={`flex-1 py-3 text-xs font-medium transition-all duration-300 tracking-wider ${
-              !isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-royal-blue-500/40 hover:text-royal-blue-500/70'
+              !isLogin ? 'gold-gradient text-[#0a0a1a]' : 'text-warm-50/40 hover:text-warm-50/70'
             }`}
           >
             Register
@@ -81,7 +81,7 @@ export default function Auth() {
           >
             {!isLogin && (
               <div className="relative">
-                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
+                <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-50/50" />
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -94,7 +94,7 @@ export default function Auth() {
             )}
 
             <div className="relative">
-              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
+              <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-50/50" />
               <input
                 type="email"
                 placeholder="Email"
@@ -106,7 +106,7 @@ export default function Auth() {
             </div>
 
             <div className="relative">
-              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-royal-blue-500/30" />
+              <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-warm-50/50" />
               <input
                 type="password"
                 placeholder="Password"
@@ -131,7 +131,7 @@ export default function Auth() {
             </button>
 
             {isLogin && (
-              <p className="text-center text-royal-blue-500/20 text-[10px]">
+              <p className="text-center text-warm-50/40 text-[10px]">
                 Demo: demo@haevn.com / password123
               </p>
             )}

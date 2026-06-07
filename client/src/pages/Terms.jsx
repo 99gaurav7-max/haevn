@@ -28,9 +28,9 @@ export default function Terms() {
             { title: '8. Contact', content: 'For questions about these terms, contact us at legal@haevn.com or write to HAEVN House, Bandra Kurla Complex, Mumbai — 400051.' },
           ].map(({ title, content }, i) => (
             <motion.section key={title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}
-              className="bg-white border border-navy-500/10 p-10 shadow-lg shadow-black/5">
-              <h2 className="text-xl font-serif text-royal-blue-500/90 font-semibold mb-4">{title}</h2>
-              <p className="text-sm text-royal-blue-500/55 leading-relaxed font-light">{content}</p>
+              className="bg-navy-500/80 backdrop-blur-xl border border-gold-500/10 p-10">
+              <h2 className="text-xl font-serif text-warm-50/90 font-semibold mb-4">{title}</h2>
+              <p className="text-sm text-warm-50/55 leading-relaxed font-light">{content}</p>
             </motion.section>
           ))}
         </div>

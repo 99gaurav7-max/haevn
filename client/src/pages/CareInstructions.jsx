@@ -67,14 +67,14 @@ export default function CareInstructions() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {careGuides.map(({ icon: Icon, title, items }, i) => (
             <motion.div key={title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-              className="bg-white border border-navy-500/10 p-10 shadow-xl shadow-black/5 card-hover">
+              className="bg-navy-500/80 backdrop-blur-xl border border-gold-500/10 p-10 card-hover">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 flex items-center justify-center bg-gold-500/10 border border-gold-500/20"><Icon className="text-gold-500/80 text-2xl" /></div>
-                <h2 className="text-xl font-serif text-royal-blue-500/90 font-semibold">{title}</h2>
+                <h2 className="text-xl font-serif text-warm-50/90 font-semibold">{title}</h2>
               </div>
               <ul className="space-y-3">
                 {items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-royal-blue-500/60 leading-relaxed font-light">
+                  <li key={j} className="flex items-start gap-3 text-sm text-warm-50/60 leading-relaxed font-light">
                     <span className="text-gold-500/60 mt-2 w-1.5 h-1.5 bg-gold-500/60 rounded-full flex-shrink-0" />
                     {item}
                   </li>
